@@ -27,7 +27,13 @@ const config = {
         FoodGame,
         MainGame,
         GameOver
-    ]
+    ],
+    physics: {
+        default: 'arcade',
+        arcade: {
+            debug: false
+        }
+    }
 };
 
 const StartGame = (parent) => {
