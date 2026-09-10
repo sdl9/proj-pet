@@ -10,7 +10,7 @@ export class Player extends Physics.Arcade.Sprite {
 
         this.setCollideWorldBounds(true);
 
-        this.velocidade = 200;
+        this.velocidade = 300;
 
         this.cursors = scene.input.keyboard.createCursorKeys();
 
