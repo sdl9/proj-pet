@@ -31,17 +31,6 @@ export class FoodGame extends Scene {
         this.mostrarInstrucoes();
     }
 
-    capturarItem(player, item) {
-        if (item.tipo == 'bom') {
-            this.score += 2;
-        }
-
-        if (item.tipo === 'ruim') {
-            this.score -= 1;
-        }
-
-        item.destroy();
-    }
 
     mostrarInstrucoes() {
         // Guardamos em this.textoInstrucoes porque outro metodo
@@ -80,19 +69,81 @@ export class FoodGame extends Scene {
         this.botaoMenu.destroy();
 
         this.score = 0;
-        this.tempoRestante = 60;
+        this.timer = 60;
+
+        this.criarHUD();
 
         // Criamos o player somente quando o jogo comeca.
         // this.player precisa ser propriedade da Scene porque update()
         // vai chamar this.player.update() varias vezes por segundo.
         this.player = new Player(this, 640, 360, 'tst');
 
+        this.iniciarSpawn();
+        this.iniciarTimer();
+
         // Criamos dois coletaveis placeholders.
         // Verde representa provisoriamente o alimento bom.
         // Vermelho representa provisoriamente o alimento ruim.
 
+        // Agora o update pode comecar a controlar o player.
+        this.jogoComecou = true;
+
+        // overlap detecta contato entre dois corpos fisicos sem empurrar
+        // um objeto contra o outro. E ideal para coletaveis.
+    }
+
+    criarHUD() {
+        this.textoScore = this.add.text(
+            32,
+            24,
+            'Score: ' + this.score,
+            {
+                fontFamily: 'Arial',
+                fontSize: 28,
+                color: '#ffffff',
+            }
+        );
+
+        this.textoTimer = this.add.text(
+            1248,
+            24,
+            'Timer: ' + this.timer,
+            {
+                fontFamily: 'Arial',
+                fontSize: 28,
+                color: '#ffffff',
+            }
+        ).setOrigin(1, 0);
+    }
+
+    iniciarTimer() {
+        this.timerJogo = this.time.addEvent({
+            delay: 1000,
+            callback: () => {
+                this.timer -= 1
+                this.textoTimer.setText("Timer: " + this.timer)
+            },
+            loop: true
+        });
+
+    }
+
+    capturarItem(player, item) { //estudar dps pq n this.capturaritem e pq this.capturaritem ta dentro de iniciarspawn
+        if (item.tipo == 'bom') {
+            this.score += 1;
+        }
+
+        if (item.tipo === 'ruim') {
+            this.score -= 1;
+        }
+
+        item.destroy();
+        this.textoScore.setText('Score: ' + this.score);
+    }
+
+    iniciarSpawn() {
         this.timerSpawn = this.time.addEvent({
-            delay: 750,
+            delay: 650,
             callback: () => {
                 const alimentoBom = FoodObjects.criarPlaceholder(this, 0x00ff00, 'bom');
 
@@ -116,12 +167,6 @@ export class FoodGame extends Scene {
             },
             loop: true
         });
-
-        // Agora o update pode comecar a controlar o player.
-        this.jogoComecou = true;
-
-        // overlap detecta contato entre dois corpos fisicos sem empurrar
-        // um objeto contra o outro. E ideal para coletaveis.
     }
 
     // update() roda continuamente enquanto a Scene esta ativa.
