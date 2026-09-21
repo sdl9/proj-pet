@@ -7,6 +7,14 @@ import { MainMenu } from './scenes/MainMenu';
 import { Preloader } from './scenes/Preloader';
 import { AUTO, Game, Scale } from 'phaser';
 import { WalkGame } from './scenes/WalkGame';
+import { WalkGameLearning } from './scenes/WalkGameLearning';
+import { WalkLayoutEditor } from './dev/WalkLayoutEditor';
+
+// Keep startup synchronous so src/main.js registers before DOMContentLoaded.
+// Vite removes this unused scene from the production build.
+const developmentScenes = import.meta.env.DEV
+    ? [WalkLayoutEditor]
+    : [];
 
 //  Find out more information about the Game Config at:
 //  https://docs.phaser.io/api-documentation/typedef/types-core#gameconfig
@@ -16,6 +24,8 @@ const config = {
     height: 720,
     parent: 'game-container',
     backgroundColor: '#028af8',
+    pixelArt: true,
+    roundPixels: true,
     scale: {
         mode: Scale.FIT,
         autoCenter: Scale.CENTER_BOTH
@@ -27,6 +37,8 @@ const config = {
         MainMenu,
         FoodGame,
         WalkGame,
+        WalkGameLearning,
+        ...developmentScenes,
         MainGame,
         GameOver
     ],

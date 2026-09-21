@@ -1,0 +1,274 @@
+{
+  "version": 1,
+  "baselineY": 61,
+  "spritesheet": {
+    "key": "walk-npcs",
+    "file": "../walk-npcs.png",
+    "size": [
+      256,
+      64
+    ],
+    "frameWidth": 64,
+    "frameHeight": 64,
+    "frames": {
+      "voluntaria": 0,
+      "veterinaria": 1,
+      "pessoaSentada": 2,
+      "cachorroDescansando": 3
+    }
+  },
+  "standalone": {
+    "voluntaria": {
+      "file": "npc-voluntaria.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "description": "Voluntária do estande FeevalePet"
+    },
+    "veterinaria": {
+      "file": "npc-veterinaria.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "description": "Veterinária do estande FeevalePet"
+    },
+    "pessoaSentada": {
+      "file": "npc-pessoa-sentada.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "description": "Pessoa sentada; banco é um objeto separado"
+    },
+    "cachorroDescansando": {
+      "file": "npc-cachorro-descansando.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "description": "Cachorro descansando ao lado do banco"
+    },
+    "tutorCachorroGuia": {
+      "file": "npc-tutor-cachorro-guia.png",
+      "size": [
+        128,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "description": "Tutor, cachorro e guia como composição única"
+    }
+  },
+  "scaleApproval": {
+    "stage": "12",
+    "status": "approved",
+    "runtimeScale": 1.0,
+    "referenceVisibleHeight": 55,
+    "contract": "public/assets/walk/scale-approval-manifest.json"
+  },
+  "collisionDepthApproval": {
+    "stage": "13",
+    "status": "approved",
+    "contract": "public/assets/walk/collision-depth-manifest.json",
+    "rules": {
+      "collision": "canvas-relative rectangles",
+      "depth": "world baseline Y plus offset"
+    }
+  },
+  "physicsTemplates": {
+    "walk-player": {
+      "file": "walk-player.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 18,
+          "y": 34,
+          "width": 28,
+          "height": 28,
+          "role": "feet"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "dynamic-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "frame": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "dynamic": true
+    },
+    "npc-voluntaria": {
+      "file": "npcs/npc-voluntaria.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 18,
+          "y": 38,
+          "width": 28,
+          "height": 24,
+          "role": "feet"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "dynamic": false
+    },
+    "npc-veterinaria": {
+      "file": "npcs/npc-veterinaria.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 18,
+          "y": 38,
+          "width": 28,
+          "height": 24,
+          "role": "feet"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "dynamic": false
+    },
+    "npc-pessoa-sentada": {
+      "file": "npcs/npc-pessoa-sentada.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 44,
+          "width": 24,
+          "height": 18,
+          "role": "seated-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "dynamic": false
+    },
+    "npc-cachorro-descansando": {
+      "file": "npcs/npc-cachorro-descansando.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 14,
+          "y": 46,
+          "width": 36,
+          "height": 16,
+          "role": "body-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "dynamic": false
+    },
+    "npc-tutor-cachorro-guia": {
+      "file": "npcs/npc-tutor-cachorro-guia.png",
+      "size": [
+        128,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 16,
+          "y": 40,
+          "width": 96,
+          "height": 22,
+          "role": "group-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "dynamic": false
+    }
+  }
+}

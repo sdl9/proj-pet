@@ -1,0 +1,569 @@
+{
+  "version": 1,
+  "stage": "10A",
+  "validationStatus": "approved",
+  "tileSize": 32,
+  "alpha": "binary",
+  "source": "art/walk/source/plaza-vegetation-source.png",
+  "trees": {
+    "plaza-tree-large": {
+      "kind": "layered-tree",
+      "file": "plaza-tree-large.png",
+      "baseFile": "plaza-tree-large-base.png",
+      "canopyFile": "plaza-tree-large-canopy.png",
+      "size": [
+        160,
+        192
+      ],
+      "tiles": [
+        5,
+        6
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 189,
+      "splitY": 127,
+      "overlap": 8,
+      "provisionalCollision": {
+        "x": 63,
+        "y": 145,
+        "width": 34,
+        "height": 45
+      },
+      "rendering": "full image supports Y-depth; base and canopy enable optional walk-behind layering",
+      "sourceKey": "plaza-tree-large",
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 63,
+          "y": 145,
+          "width": 34,
+          "height": 45,
+          "role": "trunk"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "asset": "complete-tree",
+        "optionalLayers": [
+          "plaza-tree-large-base.png",
+          "plaza-tree-large-canopy.png"
+        ]
+      }
+    },
+    "plaza-tree-young": {
+      "kind": "layered-tree",
+      "file": "plaza-tree-young.png",
+      "baseFile": "plaza-tree-young-base.png",
+      "canopyFile": "plaza-tree-young-canopy.png",
+      "size": [
+        96,
+        128
+      ],
+      "tiles": [
+        3,
+        4
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 125,
+      "splitY": 79,
+      "overlap": 6,
+      "provisionalCollision": {
+        "x": 37,
+        "y": 99,
+        "width": 22,
+        "height": 27
+      },
+      "rendering": "full image supports Y-depth; base and canopy enable optional walk-behind layering",
+      "sourceKey": "plaza-tree-young",
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 37,
+          "y": 99,
+          "width": 22,
+          "height": 27,
+          "role": "trunk"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "asset": "complete-tree",
+        "optionalLayers": [
+          "plaza-tree-young-base.png",
+          "plaza-tree-young-canopy.png"
+        ]
+      }
+    }
+  },
+  "hedge": {
+    "plaza-hedge-horizontal": {
+      "kind": "standalone",
+      "file": "plaza-hedge-horizontal.png",
+      "size": [
+        128,
+        64
+      ],
+      "tiles": [
+        4,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "w",
+        "e"
+      ],
+      "collisionPlan": "lower foliage rectangle; finalize in Stage 13",
+      "sourceKey": "plaza-hedge-horizontal",
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 8,
+          "y": 38,
+          "width": 113,
+          "height": 24,
+          "role": "foliage-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-middle-h": {
+      "kind": "modular-hedge",
+      "file": "plaza-hedge-middle-h.png",
+      "size": [
+        32,
+        64
+      ],
+      "tiles": [
+        1,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "w",
+        "e"
+      ],
+      "collisionPlan": "lower foliage rectangle; finalize in Stage 13",
+      "sourceKey": "plaza-hedge-horizontal",
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "horizontal-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-end-w": {
+      "kind": "modular-hedge",
+      "file": "plaza-hedge-end-w.png",
+      "size": [
+        32,
+        64
+      ],
+      "tiles": [
+        1,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "e"
+      ],
+      "collisionPlan": "lower foliage rectangle; finalize in Stage 13",
+      "sourceKey": "plaza-hedge-horizontal",
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "horizontal-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-end-e": {
+      "kind": "modular-hedge",
+      "file": "plaza-hedge-end-e.png",
+      "size": [
+        32,
+        64
+      ],
+      "tiles": [
+        1,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "w"
+      ],
+      "collisionPlan": "lower foliage rectangle; finalize in Stage 13",
+      "sourceKey": "plaza-hedge-horizontal",
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "horizontal-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-middle-v": {
+      "kind": "modular-hedge",
+      "file": "plaza-hedge-middle-v.png",
+      "size": [
+        64,
+        32
+      ],
+      "tiles": [
+        2,
+        1
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "n",
+        "s"
+      ],
+      "collisionPlan": "lower foliage rectangle; finalize in Stage 13",
+      "sourceKey": "plaza-hedge-horizontal",
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "vertical-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-end-n": {
+      "kind": "modular-hedge",
+      "file": "plaza-hedge-end-n.png",
+      "size": [
+        64,
+        32
+      ],
+      "tiles": [
+        2,
+        1
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "s"
+      ],
+      "collisionPlan": "lower foliage rectangle; finalize in Stage 13",
+      "sourceKey": "plaza-hedge-horizontal",
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "vertical-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-end-s": {
+      "kind": "modular-hedge",
+      "file": "plaza-hedge-end-s.png",
+      "size": [
+        64,
+        32
+      ],
+      "tiles": [
+        2,
+        1
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "n"
+      ],
+      "collisionPlan": "lower foliage rectangle; finalize in Stage 13",
+      "sourceKey": "plaza-hedge-horizontal",
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "vertical-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-corner-es": {
+      "kind": "modular-hedge",
+      "file": "plaza-hedge-corner-es.png",
+      "size": [
+        64,
+        64
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "e",
+        "s"
+      ],
+      "collisionPlan": "lower foliage rectangle; finalize in Stage 13",
+      "sourceKey": "plaza-hedge-horizontal",
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 32,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "east-arm"
+        },
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 32,
+          "width": 24,
+          "height": 32,
+          "role": "south-arm"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-corner-ws": {
+      "kind": "modular-hedge",
+      "file": "plaza-hedge-corner-ws.png",
+      "size": [
+        64,
+        64
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "w",
+        "s"
+      ],
+      "collisionPlan": "lower foliage rectangle; finalize in Stage 13",
+      "sourceKey": "plaza-hedge-horizontal",
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "west-arm"
+        },
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 32,
+          "width": 24,
+          "height": 32,
+          "role": "south-arm"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-corner-en": {
+      "kind": "modular-hedge",
+      "file": "plaza-hedge-corner-en.png",
+      "size": [
+        64,
+        64
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "e",
+        "n"
+      ],
+      "collisionPlan": "lower foliage rectangle; finalize in Stage 13",
+      "sourceKey": "plaza-hedge-horizontal",
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 32,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "east-arm"
+        },
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "north-arm"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-corner-wn": {
+      "kind": "modular-hedge",
+      "file": "plaza-hedge-corner-wn.png",
+      "size": [
+        64,
+        64
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "w",
+        "n"
+      ],
+      "collisionPlan": "lower foliage rectangle; finalize in Stage 13",
+      "sourceKey": "plaza-hedge-horizontal",
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "west-arm"
+        },
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "north-arm"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    }
+  },
+  "notes": {
+    "scale": "approved at runtime scale 1.0 in Stage 12",
+    "physics": "approved in Stage 13",
+    "remainingVegetation": "Stage 10B"
+  },
+  "scaleApproval": {
+    "stage": "12",
+    "status": "approved",
+    "runtimeScale": 1.0,
+    "referenceVisibleHeight": 55,
+    "contract": "public/assets/walk/scale-approval-manifest.json"
+  },
+  "collisionDepthApproval": {
+    "stage": "13",
+    "status": "approved",
+    "contract": "public/assets/walk/collision-depth-manifest.json",
+    "rules": {
+      "collision": "canvas-relative rectangles",
+      "depth": "world baseline Y plus offset"
+    }
+  },
+  "compositeApproval": {
+    "stage": "14",
+    "status": "approved",
+    "contract": "public/assets/walk/composite-parts-manifest.json"
+  }
+}

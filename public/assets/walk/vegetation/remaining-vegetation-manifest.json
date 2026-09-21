@@ -1,0 +1,378 @@
+{
+  "version": 1,
+  "stage": "10B",
+  "validationStatus": "approved",
+  "tileSize": 32,
+  "alpha": "binary",
+  "source": "art/walk/source/plaza-vegetation-source.png",
+  "objects": {
+    "plaza-flowering-shrub": {
+      "name": "Arbusto florido",
+      "kind": "standalone-vegetation",
+      "category": "landscaping",
+      "file": "plaza-flowering-shrub.png",
+      "size": [
+        96,
+        96
+      ],
+      "tiles": [
+        3,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 93,
+      "contentBox": [
+        4,
+        13,
+        92,
+        94
+      ],
+      "collision": {
+        "x": 26,
+        "y": 71,
+        "width": 44,
+        "height": 23,
+        "status": "approved_stage_13"
+      },
+      "physics": "static_body_planned",
+      "specialTreatment": "preservar flores após redução",
+      "sourceKey": "plaza-flowering-shrub",
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-flowerbed-square": {
+      "name": "Canteiro quadrado",
+      "kind": "standalone-vegetation",
+      "category": "landscaping",
+      "file": "plaza-flowerbed-square.png",
+      "size": [
+        96,
+        96
+      ],
+      "tiles": [
+        3,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 93,
+      "contentBox": [
+        4,
+        26,
+        92,
+        94
+      ],
+      "collision": {
+        "x": 12,
+        "y": 61,
+        "width": 72,
+        "height": 33,
+        "status": "approved_stage_13"
+      },
+      "physics": "static_body_planned",
+      "specialTreatment": "manter perspectiva da borda",
+      "sourceKey": "plaza-flowerbed-square",
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-flowerbed-round": {
+      "name": "Canteiro circular",
+      "kind": "standalone-vegetation",
+      "category": "landscaping",
+      "file": "plaza-flowerbed-round.png",
+      "size": [
+        96,
+        96
+      ],
+      "tiles": [
+        3,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 93,
+      "contentBox": [
+        4,
+        28,
+        92,
+        94
+      ],
+      "collision": {
+        "x": 12,
+        "y": 62,
+        "width": 72,
+        "height": 32,
+        "status": "approved_stage_13"
+      },
+      "physics": "static_body_planned",
+      "specialTreatment": "aproximar círculo por retângulo",
+      "sourceKey": "plaza-flowerbed-round",
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-flower-patch": {
+      "name": "Flores soltas",
+      "kind": "standalone-vegetation",
+      "category": "decoration",
+      "file": "plaza-flower-patch.png",
+      "size": [
+        64,
+        64
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 61,
+      "contentBox": [
+        3,
+        22,
+        61,
+        62
+      ],
+      "collision": null,
+      "physics": "none",
+      "specialTreatment": "decoração sem física",
+      "sourceKey": "plaza-flower-patch",
+      "collisionStatus": "none_by_design",
+      "depth": {
+        "mode": "ground",
+        "offset": -1000
+      }
+    },
+    "plaza-planter": {
+      "name": "Vaso com folhagem",
+      "kind": "standalone-vegetation",
+      "category": "landscaping",
+      "file": "plaza-planter.png",
+      "size": [
+        64,
+        96
+      ],
+      "tiles": [
+        2,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 93,
+      "contentBox": [
+        3,
+        35,
+        61,
+        94
+      ],
+      "collision": {
+        "x": 18,
+        "y": 69,
+        "width": 27,
+        "height": 25,
+        "status": "approved_stage_13"
+      },
+      "physics": "static_body_planned",
+      "specialTreatment": "colisão somente no vaso",
+      "sourceKey": "plaza-planter",
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-fallen-leaves": {
+      "name": "Folhas caídas",
+      "kind": "standalone-vegetation",
+      "category": "decoration",
+      "file": "plaza-fallen-leaves.png",
+      "size": [
+        64,
+        32
+      ],
+      "tiles": [
+        2,
+        1
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 29,
+      "contentBox": [
+        14,
+        4,
+        50,
+        30
+      ],
+      "collision": null,
+      "physics": "none",
+      "specialTreatment": "preservar leitura em escala pequena",
+      "sourceKey": "plaza-fallen-leaves",
+      "collisionStatus": "none_by_design",
+      "depth": {
+        "mode": "ground",
+        "offset": -1000
+      }
+    },
+    "plaza-rock-cluster": {
+      "name": "Conjunto de pedras",
+      "kind": "standalone-vegetation",
+      "category": "landscaping",
+      "file": "plaza-rock-cluster.png",
+      "size": [
+        96,
+        64
+      ],
+      "tiles": [
+        3,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 61,
+      "contentBox": [
+        6,
+        6,
+        89,
+        62
+      ],
+      "collision": {
+        "x": 14,
+        "y": 35,
+        "width": 68,
+        "height": 27,
+        "status": "approved_stage_13"
+      },
+      "physics": "static_body_planned",
+      "specialTreatment": "preservar silhueta das pedras",
+      "sourceKey": "plaza-rock-cluster",
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-tree-stump": {
+      "name": "Toco de árvore",
+      "kind": "standalone-vegetation",
+      "category": "landscaping",
+      "file": "plaza-tree-stump.png",
+      "size": [
+        96,
+        64
+      ],
+      "tiles": [
+        3,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 61,
+      "contentBox": [
+        8,
+        6,
+        88,
+        62
+      ],
+      "collision": {
+        "x": 19,
+        "y": 30,
+        "width": 58,
+        "height": 32,
+        "status": "approved_stage_13"
+      },
+      "physics": "static_body_planned",
+      "specialTreatment": "manter anéis visíveis",
+      "sourceKey": "plaza-tree-stump",
+      "collisionStatus": "approved_stage_13",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-ornamental-grass": {
+      "name": "Capim ornamental",
+      "kind": "standalone-vegetation",
+      "category": "decoration",
+      "file": "plaza-ornamental-grass.png",
+      "size": [
+        64,
+        64
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 61,
+      "contentBox": [
+        3,
+        9,
+        61,
+        62
+      ],
+      "collision": null,
+      "physics": "none",
+      "specialTreatment": "limpar pontas e halo",
+      "sourceKey": "plaza-ornamental-grass",
+      "collisionStatus": "none_by_design",
+      "depth": {
+        "mode": "ground",
+        "offset": -1000
+      }
+    }
+  },
+  "summary": {
+    "total": 9,
+    "withProvisionalCollision": 6,
+    "withoutPhysics": 3
+  },
+  "notes": {
+    "scale": "approved at runtime scale 1.0 in Stage 12",
+    "physics": "approved in Stage 13",
+    "runtimeIntegration": "Stage 15"
+  },
+  "scaleApproval": {
+    "stage": "12",
+    "status": "approved",
+    "runtimeScale": 1.0,
+    "referenceVisibleHeight": 55,
+    "contract": "public/assets/walk/scale-approval-manifest.json"
+  },
+  "collisionDepthApproval": {
+    "stage": "13",
+    "status": "approved",
+    "contract": "public/assets/walk/collision-depth-manifest.json",
+    "rules": {
+      "collision": "canvas-relative rectangles",
+      "depth": "world baseline Y plus offset"
+    }
+  }
+}

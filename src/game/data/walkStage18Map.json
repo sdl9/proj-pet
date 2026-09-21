@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "stage": 18,
+    "validationStatus": "approved",
+    "purpose": "Composição definitiva da praça e contrato das interações educativas",
+    "ambientAssets": [
+        { "key": "plaza-tree-large", "x": 160, "y": 288, "renderMode": "layers" },
+        { "key": "plaza-tree-large", "x": 1440, "y": 288, "renderMode": "layers" },
+        { "key": "plaza-tree-large", "x": 170, "y": 714, "renderMode": "layers" },
+        { "key": "plaza-tree-young", "x": 1470, "y": 650, "renderMode": "layers" },
+        { "key": "plaza-tree-young", "x": 585, "y": 220, "renderMode": "layers" },
+        { "key": "plaza-tree-young", "x": 1000, "y": 196, "renderMode": "layers" },
+        { "key": "plaza-flowering-shrub", "x": 150, "y": 768 },
+        { "key": "plaza-flowering-shrub", "x": 1480, "y": 778 },
+        { "key": "plaza-flowerbed-round", "x": 265, "y": 353 },
+        { "key": "plaza-flowerbed-square", "x": 1035, "y": 620 },
+        { "key": "plaza-flower-patch", "x": 440, "y": 240, "collision": false },
+        { "key": "plaza-flower-patch", "x": 1040, "y": 240, "collision": false },
+        { "key": "plaza-fallen-leaves", "x": 230, "y": 760, "collision": false },
+        { "key": "plaza-fallen-leaves", "x": 1410, "y": 737, "collision": false },
+        { "key": "plaza-lamp-post", "x": 686, "y": 320 },
+        { "key": "plaza-lamp-post", "x": 916, "y": 334 },
+        { "key": "plaza-fountain", "x": 800, "y": 470, "renderMode": "layers" },
+        { "key": "plaza-bike-rack", "x": 960, "y": 730 },
+        { "key": "plaza-picnic-table", "x": 1175, "y": 702 },
+        { "key": "plaza-dog-waste-station", "x": 675, "y": 656 },
+        { "key": "plaza-waste-bins", "x": 1360, "y": 757 },
+        { "key": "plaza-fire-hydrant", "x": 570, "y": 772 },
+        { "key": "plaza-dog-agility-hoop", "x": 546, "y": 630 },
+        { "key": "plaza-spring-rider", "x": 1315, "y": 613 }
+    ],
+    "interactions": [
+        { "id": "guia", "lessonIds": ["guia"], "label": "conversar sobre a guia", "x": 480, "y": 288, "radius": 120, "dialogue": "tutorComCachorro" },
+        { "id": "feevalepet", "lessonIds": ["feevalepet"], "label": "conhecer o FeevalePet", "x": 1158, "y": 286, "radius": 105, "dialogue": "voluntaria" },
+        { "id": "veterinaria", "lessonIds": ["guarda", "brincadeiras", "cuidados"], "label": "falar com a veterinária", "x": 1232, "y": 286, "radius": 105, "dialogue": "veterinaria", "type": "topics" },
+        { "id": "descanso", "lessonIds": ["descanso"], "label": "conversar sobre descanso", "x": 385, "y": 756, "radius": 125, "dialogue": "banco" },
+        { "id": "agua", "lessonIds": ["agua"], "label": "observar a água", "x": 290, "y": 610, "radius": 125, "dialogue": "bebedouro" }
+    ],
+    "requiredLessons": ["guia", "feevalepet", "guarda", "brincadeiras", "cuidados", "descanso", "agua"],
+    "acceptance": {
+        "physicalInteractionCount": 5,
+        "requiredLessonCount": 7,
+        "veterinarianTopicCount": 3,
+        "keyboardInteractionKeys": ["E", "SPACE"],
+        "touchInteraction": true
+    }
+}

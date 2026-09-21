@@ -1,0 +1,591 @@
+{
+  "version": 1,
+  "stage": "14",
+  "validationStatus": "approved",
+  "tileSize": 32,
+  "runtimeScale": 1.0,
+  "policy": "only technically necessary variants; no decorative variant expansion",
+  "trees": {
+    "plaza-tree-large": {
+      "parentFile": "plaza-tree-large.png",
+      "size": [
+        160,
+        192
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "parts": [
+        {
+          "file": "plaza-tree-large-base.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "tree-base"
+        },
+        {
+          "file": "plaza-tree-large-canopy.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "front-canopy",
+          "physics": "none"
+        }
+      ],
+      "splitY": 127,
+      "overlap": 8,
+      "approvedModes": [
+        "full-baseline-y",
+        "layered-optional"
+      ],
+      "defaultMode": "full-baseline-y",
+      "recomposition": "pixel-exact"
+    },
+    "plaza-tree-young": {
+      "parentFile": "plaza-tree-young.png",
+      "size": [
+        96,
+        128
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "parts": [
+        {
+          "file": "plaza-tree-young-base.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "tree-base"
+        },
+        {
+          "file": "plaza-tree-young-canopy.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "front-canopy",
+          "physics": "none"
+        }
+      ],
+      "splitY": 79,
+      "overlap": 6,
+      "approvedModes": [
+        "full-baseline-y",
+        "layered-optional"
+      ],
+      "defaultMode": "full-baseline-y",
+      "recomposition": "pixel-exact"
+    }
+  },
+  "hedge": {
+    "plaza-hedge-middle-h": {
+      "file": "plaza-hedge-middle-h.png",
+      "size": [
+        32,
+        64
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "w",
+        "e"
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "horizontal-footprint"
+        }
+      ]
+    },
+    "plaza-hedge-end-w": {
+      "file": "plaza-hedge-end-w.png",
+      "size": [
+        32,
+        64
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "e"
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "horizontal-footprint"
+        }
+      ]
+    },
+    "plaza-hedge-end-e": {
+      "file": "plaza-hedge-end-e.png",
+      "size": [
+        32,
+        64
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "w"
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "horizontal-footprint"
+        }
+      ]
+    },
+    "plaza-hedge-middle-v": {
+      "file": "plaza-hedge-middle-v.png",
+      "size": [
+        64,
+        32
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "n",
+        "s"
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "vertical-footprint"
+        }
+      ]
+    },
+    "plaza-hedge-end-n": {
+      "file": "plaza-hedge-end-n.png",
+      "size": [
+        64,
+        32
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "s"
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "vertical-footprint"
+        }
+      ]
+    },
+    "plaza-hedge-end-s": {
+      "file": "plaza-hedge-end-s.png",
+      "size": [
+        64,
+        32
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "n"
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "vertical-footprint"
+        }
+      ]
+    },
+    "plaza-hedge-corner-es": {
+      "file": "plaza-hedge-corner-es.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "e",
+        "s"
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 32,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "east-arm"
+        },
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 32,
+          "width": 24,
+          "height": 32,
+          "role": "south-arm"
+        }
+      ]
+    },
+    "plaza-hedge-corner-ws": {
+      "file": "plaza-hedge-corner-ws.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "w",
+        "s"
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "west-arm"
+        },
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 32,
+          "width": 24,
+          "height": 32,
+          "role": "south-arm"
+        }
+      ]
+    },
+    "plaza-hedge-corner-en": {
+      "file": "plaza-hedge-corner-en.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "e",
+        "n"
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 32,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "east-arm"
+        },
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "north-arm"
+        }
+      ]
+    },
+    "plaza-hedge-corner-wn": {
+      "file": "plaza-hedge-corner-wn.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "connections": [
+        "w",
+        "n"
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "west-arm"
+        },
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "north-arm"
+        }
+      ]
+    }
+  },
+  "urbanComposites": {
+    "plaza-fountain": {
+      "parentFile": "plaza-fountain.png",
+      "size": [
+        160,
+        128
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "parts": [
+        {
+          "file": "plaza-fountain-base.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "collision-owner"
+        },
+        {
+          "file": "plaza-fountain-water.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "visual-overlay",
+          "physics": "none"
+        }
+      ],
+      "assembly": "alpha-composite in listed order at identical origin",
+      "recomposition": "pixel-exact",
+      "animationReady": {
+        "part": "plaza-fountain-water.png",
+        "status": "static-frame-ready",
+        "note": "future frames may replace only the water overlay without changing base or collision"
+      }
+    },
+    "plaza-direction-sign": {
+      "parentFile": "plaza-direction-sign.png",
+      "size": [
+        96,
+        96
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "parts": [
+        {
+          "file": "plaza-direction-sign-structure.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "collision-owner"
+        },
+        {
+          "file": "plaza-direction-sign-panels.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "visual-overlay",
+          "physics": "none"
+        }
+      ],
+      "assembly": "alpha-composite in listed order at identical origin",
+      "recomposition": "pixel-exact",
+      "contentPolicy": {
+        "panelsAreBlank": true,
+        "runtimeTextOptional": true,
+        "bakedText": false
+      }
+    },
+    "plaza-notice-board": {
+      "parentFile": "plaza-notice-board.png",
+      "size": [
+        128,
+        96
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "parts": [
+        {
+          "file": "plaza-notice-board-structure.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "collision-owner"
+        },
+        {
+          "file": "plaza-notice-board-content.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "visual-overlay",
+          "physics": "none"
+        }
+      ],
+      "assembly": "alpha-composite in listed order at identical origin",
+      "recomposition": "pixel-exact",
+      "contentPolicy": {
+        "safeArea": [
+          48,
+          32,
+          32,
+          30
+        ],
+        "runtimeContentOptional": true,
+        "bakedText": false
+      }
+    },
+    "plaza-waste-bins": {
+      "parentFile": "plaza-waste-bins.png",
+      "size": [
+        128,
+        96
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "assemblyParts": [
+        {
+          "file": "plaza-waste-bins-left-part.png",
+          "size": [
+            64,
+            96
+          ],
+          "placement": [
+            0,
+            0
+          ]
+        },
+        {
+          "file": "plaza-waste-bins-right-part.png",
+          "size": [
+            64,
+            96
+          ],
+          "placement": [
+            64,
+            0
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "file": "plaza-waste-bin-recycling.png",
+          "size": [
+            64,
+            96
+          ],
+          "origin": [
+            0.5,
+            1.0
+          ],
+          "collisionShapes": [
+            {
+              "type": "rectangle",
+              "x": 17,
+              "y": 70,
+              "width": 29,
+              "height": 24,
+              "role": "recycling-bin-base"
+            }
+          ]
+        },
+        {
+          "file": "plaza-waste-bin-general.png",
+          "size": [
+            64,
+            96
+          ],
+          "origin": [
+            0.5,
+            1.0
+          ],
+          "collisionShapes": [
+            {
+              "type": "rectangle",
+              "x": 17,
+              "y": 70,
+              "width": 30,
+              "height": 24,
+              "role": "general-bin-base"
+            }
+          ]
+        }
+      ],
+      "assembly": "place left part at x=0 and right part at x=64",
+      "recomposition": "pixel-exact",
+      "approvedModes": [
+        "combined",
+        "separate"
+      ],
+      "defaultMode": "combined"
+    }
+  },
+  "summary": {
+    "treeFamilies": 2,
+    "hedgeModules": 10,
+    "urbanCompositeFamilies": 4,
+    "newPngFiles": 10,
+    "recompositions": 6
+  },
+  "notes": {
+    "collisions": "inherit Stage 13; separate bins include independent rectangles",
+    "depth": "inherit Stage 13 baseline-Y rule",
+    "runtimeIntegration": "Stage 15"
+  },
+  "validation": {
+    "status": "approved",
+    "newPngFiles": 10,
+    "recompositionsPassed": 6,
+    "recompositionsTotal": 6,
+    "hedgeModules": 10,
+    "seamChecks": 14,
+    "seamMismatches": 0
+  }
+}

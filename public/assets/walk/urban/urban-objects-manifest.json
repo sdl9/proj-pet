@@ -1,0 +1,685 @@
+{
+  "version": 1,
+  "stage": "11",
+  "validationStatus": "approved",
+  "tileSize": 32,
+  "alpha": "binary",
+  "source": "art/walk/source/plaza-urban-objects-source.png",
+  "objects": {
+    "plaza-lamp-post": {
+      "name": "Poste de iluminação",
+      "kind": "standalone-urban-object",
+      "file": "plaza-lamp-post.png",
+      "size": [
+        64,
+        160
+      ],
+      "tiles": [
+        2,
+        5
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 157,
+      "contentBox": [
+        12,
+        6,
+        51,
+        158
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 24,
+          "y": 131,
+          "width": 16,
+          "height": 27,
+          "role": "base"
+        }
+      ],
+      "physics": "static_body_planned",
+      "collisionStatus": "approved_stage_13",
+      "opening": null,
+      "specialTreatment": "origem na base e profundidade por Y",
+      "sourceKey": "plaza-lamp-post",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-picnic-table": {
+      "name": "Mesa de piquenique",
+      "kind": "standalone-urban-object",
+      "file": "plaza-picnic-table.png",
+      "size": [
+        160,
+        96
+      ],
+      "tiles": [
+        5,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 93,
+      "contentBox": [
+        18,
+        6,
+        142,
+        94
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 26,
+          "y": 57,
+          "width": 107,
+          "height": 37,
+          "role": "table-footprint"
+        }
+      ],
+      "physics": "static_body_planned",
+      "collisionStatus": "approved_stage_13",
+      "opening": null,
+      "specialTreatment": "manter mesa e bancos legíveis",
+      "sourceKey": "plaza-picnic-table",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-bike-rack": {
+      "name": "Bicicletário",
+      "kind": "standalone-urban-object",
+      "file": "plaza-bike-rack.png",
+      "size": [
+        128,
+        96
+      ],
+      "tiles": [
+        4,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 93,
+      "contentBox": [
+        15,
+        6,
+        112,
+        94
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 23,
+          "y": 66,
+          "width": 15,
+          "height": 28,
+          "role": "rack-side-left"
+        },
+        {
+          "type": "rectangle",
+          "x": 89,
+          "y": 66,
+          "width": 15,
+          "height": 28,
+          "role": "rack-side-right"
+        }
+      ],
+      "physics": "static_compound_planned",
+      "collisionStatus": "approved_stage_13",
+      "opening": "center",
+      "specialTreatment": "preservar vãos internos",
+      "sourceKey": "plaza-bike-rack",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-waste-bins": {
+      "name": "Lixeiras duplas",
+      "kind": "standalone-urban-object",
+      "file": "plaza-waste-bins.png",
+      "size": [
+        128,
+        96
+      ],
+      "tiles": [
+        4,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 93,
+      "contentBox": [
+        4,
+        11,
+        124,
+        94
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 13,
+          "y": 66,
+          "width": 101,
+          "height": 28,
+          "role": "joint-base"
+        }
+      ],
+      "physics": "static_body_planned",
+      "collisionStatus": "approved_stage_13",
+      "opening": null,
+      "specialTreatment": "manter o conjunto unido nesta fase",
+      "sourceKey": "plaza-waste-bins",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "variants": [
+        {
+          "file": "plaza-waste-bin-recycling.png",
+          "size": [
+            64,
+            96
+          ],
+          "origin": [
+            0.5,
+            1.0
+          ],
+          "collisionShapes": [
+            {
+              "type": "rectangle",
+              "x": 17,
+              "y": 70,
+              "width": 29,
+              "height": 24,
+              "role": "recycling-bin-base"
+            }
+          ]
+        },
+        {
+          "file": "plaza-waste-bin-general.png",
+          "size": [
+            64,
+            96
+          ],
+          "origin": [
+            0.5,
+            1.0
+          ],
+          "collisionShapes": [
+            {
+              "type": "rectangle",
+              "x": 17,
+              "y": 70,
+              "width": 30,
+              "height": 24,
+              "role": "general-bin-base"
+            }
+          ]
+        }
+      ]
+    },
+    "plaza-fire-hydrant": {
+      "name": "Hidrante",
+      "kind": "standalone-urban-object",
+      "file": "plaza-fire-hydrant.png",
+      "size": [
+        64,
+        96
+      ],
+      "tiles": [
+        2,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 93,
+      "contentBox": [
+        4,
+        10,
+        60,
+        94
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 21,
+          "y": 79,
+          "width": 22,
+          "height": 15,
+          "role": "base"
+        }
+      ],
+      "physics": "static_body_planned",
+      "collisionStatus": "approved_stage_13",
+      "opening": null,
+      "specialTreatment": "preservar detalhes laterais",
+      "sourceKey": "plaza-fire-hydrant",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-dog-waste-station": {
+      "name": "Dispensador de saquinhos",
+      "kind": "standalone-urban-object",
+      "file": "plaza-dog-waste-station.png",
+      "size": [
+        64,
+        96
+      ],
+      "tiles": [
+        2,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 93,
+      "contentBox": [
+        16,
+        6,
+        47,
+        94
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 26,
+          "y": 78,
+          "width": 12,
+          "height": 16,
+          "role": "base"
+        }
+      ],
+      "physics": "static_body_planned",
+      "collisionStatus": "approved_stage_13",
+      "opening": null,
+      "specialTreatment": "preservar ícone sem incorporar texto",
+      "sourceKey": "plaza-dog-waste-station",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-direction-sign": {
+      "name": "Placa direcional",
+      "kind": "standalone-urban-object",
+      "file": "plaza-direction-sign.png",
+      "size": [
+        96,
+        96
+      ],
+      "tiles": [
+        3,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 93,
+      "contentBox": [
+        16,
+        6,
+        80,
+        94
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 35,
+          "y": 78,
+          "width": 26,
+          "height": 16,
+          "role": "base"
+        }
+      ],
+      "physics": "static_body_planned",
+      "collisionStatus": "approved_stage_13",
+      "opening": null,
+      "specialTreatment": "manter tábuas sem texto",
+      "sourceKey": "plaza-direction-sign",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "parts": [
+        {
+          "file": "plaza-direction-sign-structure.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "collision-owner"
+        },
+        {
+          "file": "plaza-direction-sign-panels.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "visual-overlay",
+          "physics": "none"
+        }
+      ]
+    },
+    "plaza-stone-bollard": {
+      "name": "Balizador de pedra",
+      "kind": "standalone-urban-object",
+      "file": "plaza-stone-bollard.png",
+      "size": [
+        32,
+        64
+      ],
+      "tiles": [
+        1,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 61,
+      "contentBox": [
+        3,
+        18,
+        29,
+        62
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 11,
+          "y": 54,
+          "width": 10,
+          "height": 8,
+          "role": "base"
+        }
+      ],
+      "physics": "static_body_planned",
+      "collisionStatus": "approved_stage_13",
+      "opening": null,
+      "specialTreatment": "preservar leitura no canvas de 32 px",
+      "sourceKey": "plaza-stone-bollard",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-notice-board": {
+      "name": "Painel público",
+      "kind": "standalone-urban-object",
+      "file": "plaza-notice-board.png",
+      "size": [
+        128,
+        96
+      ],
+      "tiles": [
+        4,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 93,
+      "contentBox": [
+        28,
+        6,
+        99,
+        94
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 40,
+          "y": 69,
+          "width": 9,
+          "height": 25,
+          "role": "support-foot-left"
+        },
+        {
+          "type": "rectangle",
+          "x": 78,
+          "y": 69,
+          "width": 9,
+          "height": 25,
+          "role": "support-foot-right"
+        }
+      ],
+      "physics": "static_compound_planned",
+      "collisionStatus": "approved_stage_13",
+      "opening": "lower-center",
+      "specialTreatment": "painel sem texto e vão inferior preservado",
+      "sourceKey": "plaza-notice-board",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "parts": [
+        {
+          "file": "plaza-notice-board-structure.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "collision-owner"
+        },
+        {
+          "file": "plaza-notice-board-content.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "visual-overlay",
+          "physics": "none"
+        }
+      ]
+    },
+    "plaza-fountain": {
+      "name": "Fonte ornamental",
+      "kind": "standalone-urban-object",
+      "file": "plaza-fountain.png",
+      "size": [
+        160,
+        128
+      ],
+      "tiles": [
+        5,
+        4
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 125,
+      "contentBox": [
+        17,
+        6,
+        142,
+        126
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 25,
+          "y": 74,
+          "width": 110,
+          "height": 52,
+          "role": "basin"
+        }
+      ],
+      "physics": "static_body_planned",
+      "collisionStatus": "approved_stage_13",
+      "opening": null,
+      "specialTreatment": "água estática; animação futura opcional",
+      "sourceKey": "plaza-fountain",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "parts": [
+        {
+          "file": "plaza-fountain-base.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "collision-owner"
+        },
+        {
+          "file": "plaza-fountain-water.png",
+          "placement": [
+            0,
+            0
+          ],
+          "role": "visual-overlay",
+          "physics": "none"
+        }
+      ]
+    },
+    "plaza-dog-agility-hoop": {
+      "name": "Aro para cães",
+      "kind": "standalone-urban-object",
+      "file": "plaza-dog-agility-hoop.png",
+      "size": [
+        128,
+        96
+      ],
+      "tiles": [
+        4,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 93,
+      "contentBox": [
+        13,
+        6,
+        114,
+        94
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 59,
+          "width": 13,
+          "height": 35,
+          "role": "hoop-post-left"
+        },
+        {
+          "type": "rectangle",
+          "x": 94,
+          "y": 59,
+          "width": 13,
+          "height": 35,
+          "role": "hoop-post-right"
+        }
+      ],
+      "physics": "static_compound_planned",
+      "collisionStatus": "approved_stage_13",
+      "opening": "center",
+      "specialTreatment": "vão central sem colisão",
+      "sourceKey": "plaza-dog-agility-hoop",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-spring-rider": {
+      "name": "Brinquedo de mola",
+      "kind": "standalone-urban-object",
+      "file": "plaza-spring-rider.png",
+      "size": [
+        96,
+        96
+      ],
+      "tiles": [
+        3,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "baselineY": 93,
+      "contentBox": [
+        7,
+        6,
+        89,
+        94
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 31,
+          "y": 78,
+          "width": 33,
+          "height": 16,
+          "role": "base"
+        }
+      ],
+      "physics": "static_body_planned",
+      "collisionStatus": "approved_stage_13",
+      "opening": null,
+      "specialTreatment": "colisão restrita à base da mola",
+      "sourceKey": "plaza-spring-rider",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    }
+  },
+  "summary": {
+    "total": 12,
+    "singleColliderObjects": 9,
+    "compoundColliderObjects": 3,
+    "openingsPreserved": 3
+  },
+  "notes": {
+    "scale": "approved at runtime scale 1.0 in Stage 12",
+    "physics": "approved in Stage 13",
+    "depth": "baseline-Y rule approved in Stage 13",
+    "runtimeIntegration": "Stage 15",
+    "fountainAnimation": "optional future enhancement; Stage 11 asset is static"
+  },
+  "scaleApproval": {
+    "stage": "12",
+    "status": "approved",
+    "runtimeScale": 1.0,
+    "referenceVisibleHeight": 55,
+    "contract": "public/assets/walk/scale-approval-manifest.json"
+  },
+  "collisionDepthApproval": {
+    "stage": "13",
+    "status": "approved",
+    "contract": "public/assets/walk/collision-depth-manifest.json",
+    "rules": {
+      "collision": "canvas-relative rectangles",
+      "depth": "world baseline Y plus offset"
+    }
+  },
+  "compositeApproval": {
+    "stage": "14",
+    "status": "approved",
+    "contract": "public/assets/walk/composite-parts-manifest.json"
+  }
+}

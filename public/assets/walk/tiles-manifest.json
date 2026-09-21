@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "image": "walk-tileset.png",
+  "tileWidth": 32,
+  "tileHeight": 32,
+  "columns": 8,
+  "rows": 4,
+  "tileCount": 32,
+  "palette": {
+    "grass": "#69ad45",
+    "grass_light": "#8acb55",
+    "grass_dark": "#4b8d38",
+    "grass_deep": "#327334",
+    "stone": "#c9bb98",
+    "stone_light": "#ded2b0",
+    "stone_shadow": "#a99a7b",
+    "stone_dark": "#80745f",
+    "dirt": "#ad7448",
+    "dirt_light": "#cb8b57",
+    "dirt_dark": "#845235",
+    "water": "#4da7bd",
+    "water_light": "#80d0d5",
+    "water_dark": "#2e829e",
+    "wood": "#8d4f2f",
+    "wood_light": "#bd7440",
+    "wood_dark": "#60351f",
+    "flower_white": "#fff4d0",
+    "flower_yellow": "#f2bd32",
+    "flower_pink": "#ef7791"
+  },
+  "tiles": [
+    {
+      "index": 0,
+      "key": "grass_base",
+      "category": "terrain",
+      "alpha": "opaque",
+      "description": "Grama base repetível"
+    },
+    {
+      "index": 1,
+      "key": "grass_variant",
+      "category": "terrain",
+      "alpha": "opaque",
+      "description": "Variação discreta da grama"
+    },
+    {
+      "index": 2,
+      "key": "stone_path",
+      "category": "terrain",
+      "alpha": "opaque",
+      "description": "Caminho de pedras base"
+    },
+    {
+      "index": 3,
+      "key": "stone_path_variant",
+      "category": "terrain",
+      "alpha": "opaque",
+      "description": "Variação do caminho de pedras"
+    },
+    {
+      "index": 4,
+      "key": "dirt",
+      "category": "terrain",
+      "alpha": "opaque",
+      "description": "Terra base"
+    },
+    {
+      "index": 5,
+      "key": "water",
+      "category": "terrain",
+      "alpha": "opaque",
+      "description": "Água base"
+    },
+    {
+      "index": 6,
+      "key": "path_edge_n",
+      "category": "grass_path_transition",
+      "alpha": "opaque",
+      "description": "Grama ao norte"
+    },
+    {
+      "index": 7,
+      "key": "path_edge_e",
+      "category": "grass_path_transition",
+      "alpha": "opaque",
+      "description": "Grama ao leste"
+    },
+    {
+      "index": 8,
+      "key": "path_edge_s",
+      "category": "grass_path_transition",
+      "alpha": "opaque",
+      "description": "Grama ao sul"
+    },
+    {
+      "index": 9,
+      "key": "path_edge_w",
+      "category": "grass_path_transition",
+      "alpha": "opaque",
+      "description": "Grama ao oeste"
+    },
+    {
+      "index": 10,
+      "key": "path_outer_nw",
+      "category": "grass_path_transition",
+      "alpha": "opaque",
+      "description": "Canto externo noroeste"
+    },
+    {
+      "index": 11,
+      "key": "path_outer_ne",
+      "category": "grass_path_transition",
+      "alpha": "opaque",
+      "description": "Canto externo nordeste"
+    },
+    {
+      "index": 12,
+      "key": "path_outer_se",
+      "category": "grass_path_transition",
+      "alpha": "opaque",
+      "description": "Canto externo sudeste"
+    },
+    {
+      "index": 13,
+      "key": "path_outer_sw",
+      "category": "grass_path_transition",
+      "alpha": "opaque",
+      "description": "Canto externo sudoeste"
+    },
+    {
+      "index": 14,
+      "key": "path_inner_nw",
+      "category": "grass_path_transition",
+      "alpha": "opaque",
+      "description": "Canto interno noroeste"
+    },
+    {
+      "index": 15,
+      "key": "path_inner_ne",
+      "category": "grass_path_transition",
+      "alpha": "opaque",
+      "description": "Canto interno nordeste"
+    },
+    {
+      "index": 16,
+      "key": "path_inner_se",
+      "category": "grass_path_transition",
+      "alpha": "opaque",
+      "description": "Canto interno sudeste"
+    },
+    {
+      "index": 17,
+      "key": "path_inner_sw",
+      "category": "grass_path_transition",
+      "alpha": "opaque",
+      "description": "Canto interno sudoeste"
+    },
+    {
+      "index": 18,
+      "key": "flowers",
+      "category": "decoration",
+      "alpha": "overlay",
+      "description": "Flores sobre terreno"
+    },
+    {
+      "index": 19,
+      "key": "bush",
+      "category": "decoration",
+      "alpha": "overlay",
+      "description": "Arbusto sobre terreno"
+    },
+    {
+      "index": 20,
+      "key": "fence_horizontal",
+      "category": "fence",
+      "alpha": "overlay",
+      "description": "Trecho horizontal"
+    },
+    {
+      "index": 21,
+      "key": "fence_vertical",
+      "category": "fence",
+      "alpha": "overlay",
+      "description": "Trecho vertical"
+    },
+    {
+      "index": 22,
+      "key": "fence_corner_nw",
+      "category": "fence",
+      "alpha": "overlay",
+      "description": "Canto com saídas leste e sul"
+    },
+    {
+      "index": 23,
+      "key": "fence_corner_ne",
+      "category": "fence",
+      "alpha": "overlay",
+      "description": "Canto com saídas oeste e sul"
+    },
+    {
+      "index": 24,
+      "key": "fence_corner_se",
+      "category": "fence",
+      "alpha": "overlay",
+      "description": "Canto com saídas oeste e norte"
+    },
+    {
+      "index": 25,
+      "key": "fence_corner_sw",
+      "category": "fence",
+      "alpha": "overlay",
+      "description": "Canto com saídas leste e norte"
+    },
+    {
+      "index": 26,
+      "key": "fence_end_w",
+      "category": "fence",
+      "alpha": "overlay",
+      "description": "Final oeste; segmento segue a leste"
+    },
+    {
+      "index": 27,
+      "key": "fence_end_e",
+      "category": "fence",
+      "alpha": "overlay",
+      "description": "Final leste; segmento segue a oeste"
+    },
+    {
+      "index": 28,
+      "key": "fence_end_n",
+      "category": "fence",
+      "alpha": "overlay",
+      "description": "Final norte; segmento segue ao sul"
+    },
+    {
+      "index": 29,
+      "key": "fence_end_s",
+      "category": "fence",
+      "alpha": "overlay",
+      "description": "Final sul; segmento segue ao norte"
+    },
+    {
+      "index": 30,
+      "key": "steps",
+      "category": "transition",
+      "alpha": "opaque",
+      "description": "Degraus sobre caminho de pedras"
+    },
+    {
+      "index": 31,
+      "key": "empty",
+      "category": "utility",
+      "alpha": "empty",
+      "description": "Tile transparente intencional"
+    }
+  ]
+}

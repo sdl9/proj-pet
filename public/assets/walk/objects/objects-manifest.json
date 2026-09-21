@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "tileSize": 32,
+  "coordinateSystem": "collision coordinates are relative to each canvas",
+  "objects": {
+    "walk-bench": {
+      "file": "obj-banco.png",
+      "size": [
+        128,
+        64
+      ],
+      "tiles": [
+        4,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "collision": {
+        "x": 12,
+        "y": 38,
+        "width": 104,
+        "height": 24
+      },
+      "description": "Banco vazio; pessoa e cachorro são sprites separados"
+    },
+    "walk-drinking-fountain": {
+      "file": "obj-bebedouro.png",
+      "size": [
+        64,
+        96
+      ],
+      "tiles": [
+        2,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "collision": {
+        "x": 12,
+        "y": 60,
+        "width": 40,
+        "height": 34
+      },
+      "description": "Bebedouro humano"
+    },
+    "walk-water-bowl": {
+      "file": "obj-pote-agua.png",
+      "size": [
+        32,
+        32
+      ],
+      "tiles": [
+        1,
+        1
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "collision": {
+        "x": 3,
+        "y": 16,
+        "width": 26,
+        "height": 14
+      },
+      "description": "Pote de água limpa para animais"
+    },
+    "walk-booth": {
+      "file": "obj-estande.png",
+      "size": [
+        192,
+        128
+      ],
+      "tiles": [
+        6,
+        4
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "collision": {
+        "x": 8,
+        "y": 96,
+        "width": 176,
+        "height": 30
+      },
+      "description": "Estande FeevalePet sem NPC incorporado"
+    },
+    "walk-info-board": {
+      "file": "obj-placa.png",
+      "size": [
+        96,
+        96
+      ],
+      "tiles": [
+        3,
+        3
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "collision": {
+        "x": 10,
+        "y": 64,
+        "width": 76,
+        "height": 30
+      },
+      "description": "Placa informativa"
+    },
+    "walk-trash-bin": {
+      "file": "obj-lixeira.png",
+      "size": [
+        64,
+        64
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "origin": [
+        0.5,
+        1.0
+      ],
+      "collision": {
+        "x": 16,
+        "y": 34,
+        "width": 32,
+        "height": 28
+      },
+      "description": "Lixeira de praça"
+    }
+  },
+  "boothLayering": {
+    "backKey": "walk-booth",
+    "frontKey": "walk-booth-front",
+    "frontFile": "obj-estande-frente.png",
+    "frontLayerStartY": 83,
+    "npcSlots": [
+      {
+        "x": 72,
+        "baselineY": 108
+      },
+      {
+        "x": 120,
+        "baselineY": 108
+      }
+    ],
+    "renderOrder": [
+      "walk-booth",
+      "walk-npcs",
+      "walk-booth-front"
+    ]
+  },
+  "scaleApproval": {
+    "stage": "12",
+    "status": "approved",
+    "runtimeScale": 1.0,
+    "referenceVisibleHeight": 55,
+    "contract": "public/assets/walk/scale-approval-manifest.json"
+  },
+  "collisionDepthApproval": {
+    "stage": "13",
+    "status": "approved",
+    "contract": "public/assets/walk/collision-depth-manifest.json",
+    "rules": {
+      "collision": "canvas-relative rectangles",
+      "depth": "world baseline Y plus offset"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "tileSize": 32,
+  "strategies": {
+    "grass": {
+      "frames": [
+        0,
+        1
+      ],
+      "variantFrequency": 0.25,
+      "allowedTransforms": [
+        "none",
+        "flip_x",
+        "flip_y",
+        "rotate_180"
+      ]
+    },
+    "stonePath": {
+      "frames": [
+        2,
+        3
+      ],
+      "variantFrequency": 0.25,
+      "allowedTransforms": [
+        "none",
+        "flip_x",
+        "flip_y",
+        "rotate_180"
+      ]
+    },
+    "dirt": {
+      "frames": [
+        4
+      ],
+      "allowedTransforms": [
+        "none",
+        "flip_x",
+        "flip_y",
+        "rotate_180"
+      ]
+    },
+    "water": {
+      "frames": [
+        5
+      ],
+      "allowedTransforms": [
+        "none",
+        "flip_x",
+        "flip_y",
+        "rotate_180"
+      ]
+    }
+  },
+  "rules": {
+    "maximumIdenticalRun": 3,
+    "transformTransitions": false,
+    "transformFences": false,
+    "notes": "Transições e cercas possuem direção semântica; use o índice correspondente em vez de transformar o tile."
+  }
+}

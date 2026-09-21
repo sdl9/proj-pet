@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "validationStatus": "approved",
+  "purpose": "Molde técnico jogável da Etapa 8; não representa a composição final da praça",
+  "world": {
+    "tileSize": 32,
+    "columns": 50,
+    "rows": 28,
+    "width": 1600,
+    "height": 896
+  },
+  "player": {
+    "x": 800,
+    "y": 784,
+    "speed": 240,
+    "frameWidth": 64,
+    "frameHeight": 64
+  },
+  "terrain": {
+    "grassVariantModulo": 17,
+    "verticalPath": {
+      "xMin": 23,
+      "xMax": 26,
+      "yMin": 1,
+      "yMax": 26
+    },
+    "horizontalPath": {
+      "xMin": 2,
+      "xMax": 47,
+      "yMin": 12,
+      "yMax": 15
+    },
+    "water": {
+      "xMin": 4,
+      "xMax": 10,
+      "yMin": 4,
+      "yMax": 8
+    },
+    "dirt": {
+      "xMin": 38,
+      "xMax": 44,
+      "yMin": 4,
+      "yMax": 8
+    }
+  },
+  "fence": {
+    "leftX": 1,
+    "rightX": 48,
+    "topY": 1,
+    "bottomY": 26,
+    "bottomOpening": [
+      24,
+      25
+    ]
+  },
+  "decorations": [
+    { "tile": 18, "x": 14, "y": 5 },
+    { "tile": 18, "x": 16, "y": 7 },
+    { "tile": 18, "x": 33, "y": 6 },
+    { "tile": 18, "x": 35, "y": 9 },
+    { "tile": 18, "x": 8, "y": 19 },
+    { "tile": 18, "x": 39, "y": 20 },
+    { "tile": 19, "x": 12, "y": 9 },
+    { "tile": 19, "x": 36, "y": 17 },
+    { "tile": 19, "x": 7, "y": 22 },
+    { "tile": 19, "x": 43, "y": 22 }
+  ],
+  "placements": {
+    "tutor": { "x": 480, "y": 288 },
+    "booth": { "x": 1184, "y": 288 },
+    "restArea": { "x": 385, "y": 756 },
+    "drinkingFountain": { "x": 290, "y": 610 },
+    "waterBowl": { "x": 338, "y": 610 },
+    "infoBoard": { "x": 944, "y": 352 },
+    "trashBin": { "x": 960, "y": 640 }
+  },
+  "controls": {
+    "keyboard": [
+      "WASD",
+      "setas"
+    ],
+    "touch": true,
+    "debugKey": "C"
+  }
+}

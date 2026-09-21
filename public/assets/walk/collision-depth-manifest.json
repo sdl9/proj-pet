@@ -1,0 +1,1336 @@
+{
+  "version": 1,
+  "stage": "13",
+  "validationStatus": "approved",
+  "coordinateSystem": "shape coordinates are relative to top-left of the source canvas",
+  "worldResolution": {
+    "tileSize": 32,
+    "runtimeScale": 1
+  },
+  "rules": {
+    "worldShapeX": "objectX - canvasWidth * originX + shapeX",
+    "worldShapeY": "objectY - canvasHeight * originY + shapeY",
+    "spriteDepth": "round(worldBaselineY) + depth.offset",
+    "groundDepth": -1000,
+    "treeRendering": "complete tree with baseline-Y sorting; split layers remain optional"
+  },
+  "objects": {
+    "walk-player": {
+      "file": "walk-player.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 18,
+          "y": 34,
+          "width": 28,
+          "height": 28,
+          "role": "feet"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "dynamic-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "frame": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "dynamic": true
+    },
+    "npc-voluntaria": {
+      "file": "npcs/npc-voluntaria.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 18,
+          "y": 38,
+          "width": 28,
+          "height": 24,
+          "role": "feet"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "dynamic": false
+    },
+    "npc-veterinaria": {
+      "file": "npcs/npc-veterinaria.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 18,
+          "y": 38,
+          "width": 28,
+          "height": 24,
+          "role": "feet"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "dynamic": false
+    },
+    "npc-pessoa-sentada": {
+      "file": "npcs/npc-pessoa-sentada.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 44,
+          "width": 24,
+          "height": 18,
+          "role": "seated-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "dynamic": false
+    },
+    "npc-cachorro-descansando": {
+      "file": "npcs/npc-cachorro-descansando.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 14,
+          "y": 46,
+          "width": 36,
+          "height": 16,
+          "role": "body-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "dynamic": false
+    },
+    "npc-tutor-cachorro-guia": {
+      "file": "npcs/npc-tutor-cachorro-guia.png",
+      "size": [
+        128,
+        64
+      ],
+      "origin": [
+        0.5,
+        0.953125
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 16,
+          "y": 40,
+          "width": 96,
+          "height": 22,
+          "role": "group-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "dynamic": false
+    },
+    "walk-bench": {
+      "file": "objects/obj-banco.png",
+      "size": [
+        128,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 12,
+          "y": 38,
+          "width": 104,
+          "height": 24,
+          "role": "object-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "walk-drinking-fountain": {
+      "file": "objects/obj-bebedouro.png",
+      "size": [
+        64,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 12,
+          "y": 60,
+          "width": 40,
+          "height": 34,
+          "role": "object-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "walk-water-bowl": {
+      "file": "objects/obj-pote-agua.png",
+      "size": [
+        32,
+        32
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 3,
+          "y": 16,
+          "width": 26,
+          "height": 14,
+          "role": "object-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "walk-booth": {
+      "file": "objects/obj-estande.png",
+      "size": [
+        192,
+        128
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 8,
+          "y": 96,
+          "width": 176,
+          "height": 30,
+          "role": "object-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "walk-info-board": {
+      "file": "objects/obj-placa.png",
+      "size": [
+        96,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 10,
+          "y": 64,
+          "width": 76,
+          "height": 30,
+          "role": "object-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "walk-trash-bin": {
+      "file": "objects/obj-lixeira.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 16,
+          "y": 34,
+          "width": 32,
+          "height": 28,
+          "role": "object-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-tree-large": {
+      "file": "vegetation/plaza-tree-large.png",
+      "size": [
+        160,
+        192
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 63,
+          "y": 145,
+          "width": 34,
+          "height": 45,
+          "role": "trunk"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "treeLayers": {
+        "base": "plaza-tree-large-base.png",
+        "canopy": "plaza-tree-large-canopy.png"
+      }
+    },
+    "plaza-tree-young": {
+      "file": "vegetation/plaza-tree-young.png",
+      "size": [
+        96,
+        128
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 37,
+          "y": 99,
+          "width": 22,
+          "height": 27,
+          "role": "trunk"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "treeLayers": {
+        "base": "plaza-tree-young-base.png",
+        "canopy": "plaza-tree-young-canopy.png"
+      }
+    },
+    "plaza-hedge-horizontal": {
+      "file": "vegetation/plaza-hedge-horizontal.png",
+      "size": [
+        128,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 8,
+          "y": 38,
+          "width": 113,
+          "height": 24,
+          "role": "foliage-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-middle-h": {
+      "file": "vegetation/plaza-hedge-middle-h.png",
+      "size": [
+        32,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "horizontal-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-end-w": {
+      "file": "vegetation/plaza-hedge-end-w.png",
+      "size": [
+        32,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "horizontal-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-end-e": {
+      "file": "vegetation/plaza-hedge-end-e.png",
+      "size": [
+        32,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "horizontal-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-middle-v": {
+      "file": "vegetation/plaza-hedge-middle-v.png",
+      "size": [
+        64,
+        32
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "vertical-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-end-n": {
+      "file": "vegetation/plaza-hedge-end-n.png",
+      "size": [
+        64,
+        32
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "vertical-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-end-s": {
+      "file": "vegetation/plaza-hedge-end-s.png",
+      "size": [
+        64,
+        32
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "vertical-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-corner-es": {
+      "file": "vegetation/plaza-hedge-corner-es.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 32,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "east-arm"
+        },
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 32,
+          "width": 24,
+          "height": 32,
+          "role": "south-arm"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-compound",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-corner-ws": {
+      "file": "vegetation/plaza-hedge-corner-ws.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "west-arm"
+        },
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 32,
+          "width": 24,
+          "height": 32,
+          "role": "south-arm"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-compound",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-corner-en": {
+      "file": "vegetation/plaza-hedge-corner-en.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 32,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "east-arm"
+        },
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "north-arm"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-compound",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-hedge-corner-wn": {
+      "file": "vegetation/plaza-hedge-corner-wn.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 0,
+          "y": 38,
+          "width": 32,
+          "height": 24,
+          "role": "west-arm"
+        },
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 0,
+          "width": 24,
+          "height": 32,
+          "role": "north-arm"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-compound",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-flowering-shrub": {
+      "file": "vegetation/plaza-flowering-shrub.png",
+      "size": [
+        96,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 26,
+          "y": 71,
+          "width": 44,
+          "height": 23,
+          "role": "object-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-flowerbed-square": {
+      "file": "vegetation/plaza-flowerbed-square.png",
+      "size": [
+        96,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 12,
+          "y": 61,
+          "width": 72,
+          "height": 33,
+          "role": "object-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-flowerbed-round": {
+      "file": "vegetation/plaza-flowerbed-round.png",
+      "size": [
+        96,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 12,
+          "y": 62,
+          "width": 72,
+          "height": 32,
+          "role": "object-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-flower-patch": {
+      "file": "vegetation/plaza-flower-patch.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [],
+      "collisionStatus": "none_by_design",
+      "physics": "none",
+      "depth": {
+        "mode": "ground",
+        "offset": -1000
+      }
+    },
+    "plaza-planter": {
+      "file": "vegetation/plaza-planter.png",
+      "size": [
+        64,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 18,
+          "y": 69,
+          "width": 27,
+          "height": 25,
+          "role": "object-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-fallen-leaves": {
+      "file": "vegetation/plaza-fallen-leaves.png",
+      "size": [
+        64,
+        32
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [],
+      "collisionStatus": "none_by_design",
+      "physics": "none",
+      "depth": {
+        "mode": "ground",
+        "offset": -1000
+      }
+    },
+    "plaza-rock-cluster": {
+      "file": "vegetation/plaza-rock-cluster.png",
+      "size": [
+        96,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 14,
+          "y": 35,
+          "width": 68,
+          "height": 27,
+          "role": "object-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-tree-stump": {
+      "file": "vegetation/plaza-tree-stump.png",
+      "size": [
+        96,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 19,
+          "y": 30,
+          "width": 58,
+          "height": 32,
+          "role": "object-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      }
+    },
+    "plaza-ornamental-grass": {
+      "file": "vegetation/plaza-ornamental-grass.png",
+      "size": [
+        64,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [],
+      "collisionStatus": "none_by_design",
+      "physics": "none",
+      "depth": {
+        "mode": "ground",
+        "offset": -1000
+      }
+    },
+    "plaza-lamp-post": {
+      "file": "urban/plaza-lamp-post.png",
+      "size": [
+        64,
+        160
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 24,
+          "y": 131,
+          "width": 16,
+          "height": 27,
+          "role": "base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "opening": null
+    },
+    "plaza-picnic-table": {
+      "file": "urban/plaza-picnic-table.png",
+      "size": [
+        160,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 26,
+          "y": 57,
+          "width": 107,
+          "height": 37,
+          "role": "table-footprint"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "opening": null
+    },
+    "plaza-bike-rack": {
+      "file": "urban/plaza-bike-rack.png",
+      "size": [
+        128,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 23,
+          "y": 66,
+          "width": 15,
+          "height": 28,
+          "role": "rack-side-left"
+        },
+        {
+          "type": "rectangle",
+          "x": 89,
+          "y": 66,
+          "width": 15,
+          "height": 28,
+          "role": "rack-side-right"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-compound",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "opening": "center"
+    },
+    "plaza-waste-bins": {
+      "file": "urban/plaza-waste-bins.png",
+      "size": [
+        128,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 13,
+          "y": 66,
+          "width": 101,
+          "height": 28,
+          "role": "joint-base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "opening": null
+    },
+    "plaza-fire-hydrant": {
+      "file": "urban/plaza-fire-hydrant.png",
+      "size": [
+        64,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 21,
+          "y": 79,
+          "width": 22,
+          "height": 15,
+          "role": "base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "opening": null
+    },
+    "plaza-dog-waste-station": {
+      "file": "urban/plaza-dog-waste-station.png",
+      "size": [
+        64,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 26,
+          "y": 78,
+          "width": 12,
+          "height": 16,
+          "role": "base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "opening": null
+    },
+    "plaza-direction-sign": {
+      "file": "urban/plaza-direction-sign.png",
+      "size": [
+        96,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 35,
+          "y": 78,
+          "width": 26,
+          "height": 16,
+          "role": "base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "opening": null
+    },
+    "plaza-stone-bollard": {
+      "file": "urban/plaza-stone-bollard.png",
+      "size": [
+        32,
+        64
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 11,
+          "y": 54,
+          "width": 10,
+          "height": 8,
+          "role": "base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "opening": null
+    },
+    "plaza-notice-board": {
+      "file": "urban/plaza-notice-board.png",
+      "size": [
+        128,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 40,
+          "y": 69,
+          "width": 9,
+          "height": 25,
+          "role": "support-foot-left"
+        },
+        {
+          "type": "rectangle",
+          "x": 78,
+          "y": 69,
+          "width": 9,
+          "height": 25,
+          "role": "support-foot-right"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-compound",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "opening": "lower-center"
+    },
+    "plaza-fountain": {
+      "file": "urban/plaza-fountain.png",
+      "size": [
+        160,
+        128
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 25,
+          "y": 74,
+          "width": 110,
+          "height": 52,
+          "role": "basin"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "opening": null
+    },
+    "plaza-dog-agility-hoop": {
+      "file": "urban/plaza-dog-agility-hoop.png",
+      "size": [
+        128,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 20,
+          "y": 59,
+          "width": 13,
+          "height": 35,
+          "role": "hoop-post-left"
+        },
+        {
+          "type": "rectangle",
+          "x": 94,
+          "y": 59,
+          "width": 13,
+          "height": 35,
+          "role": "hoop-post-right"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-compound",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "opening": "center"
+    },
+    "plaza-spring-rider": {
+      "file": "urban/plaza-spring-rider.png",
+      "size": [
+        96,
+        96
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "collisionShapes": [
+        {
+          "type": "rectangle",
+          "x": 31,
+          "y": 78,
+          "width": 33,
+          "height": 16,
+          "role": "base"
+        }
+      ],
+      "collisionStatus": "approved_stage_13",
+      "physics": "static-body",
+      "depth": {
+        "mode": "baseline-y",
+        "offset": 0
+      },
+      "opening": null
+    }
+  },
+  "summary": {
+    "definitions": 46,
+    "collidable": 43,
+    "nonCollidable": 3,
+    "compound": 7,
+    "shapes": 50
+  },
+  "runtimeValidation": {
+    "status": "approved",
+    "checks": 21,
+    "passed": 21,
+    "failed": 0,
+    "report": "docs/validation/new-objects/stage-13-runtime-geometry-validation.json"
+  }
+}

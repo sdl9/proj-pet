@@ -1,0 +1,339 @@
+{
+  "version": 1,
+  "validationStatus": "approved",
+  "basePath": "assets/walk",
+  "images": [
+    {
+      "key": "walk-map",
+      "file": "walk-map.jpg",
+      "kind": "image",
+      "size": [
+        1600,
+        900
+      ],
+      "mode": "RGB",
+      "format": "JPEG",
+      "frame": null,
+      "alphaRange": null,
+      "bytes": 595610,
+      "sha256": "5ec1c6bf23fb6e57c68826cd28a5bb1f4d2a9cf6eb6f801c0e6c7c1cdd547e7d"
+    },
+    {
+      "key": "walk-player",
+      "file": "walk-player.png",
+      "kind": "spritesheet",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": [
+        64,
+        64
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 63699,
+      "sha256": "766e56acdf251e153f0f9db5681dc3774d58a59eb604c5e0c200d9ede6ff2887"
+    },
+    {
+      "key": "walk-npcs",
+      "file": "walk-npcs.png",
+      "kind": "spritesheet",
+      "size": [
+        256,
+        64
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": [
+        64,
+        64
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 13481,
+      "sha256": "dcf20f2f8bda39acffd139d1ed142809da43a85c7a8d3f1287d66be3cdcc1be0"
+    },
+    {
+      "key": "npc-tutor-cachorro-guia",
+      "file": "npcs/npc-tutor-cachorro-guia.png",
+      "kind": "image",
+      "size": [
+        128,
+        64
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": null,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 4725,
+      "sha256": "fb413b49f44cd4e156b556e20febbd55e99ab65f027e2d6f78e32b6afd8ce329"
+    },
+    {
+      "key": "npc-voluntaria",
+      "file": "npcs/npc-voluntaria.png",
+      "kind": "sheet-source",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": null,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 3585,
+      "sha256": "2bb08f3c6c52c97157aa90ccb7a2bcf509597b625762b33452e97b020c6ef96b"
+    },
+    {
+      "key": "npc-veterinaria",
+      "file": "npcs/npc-veterinaria.png",
+      "kind": "sheet-source",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": null,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 3804,
+      "sha256": "f372a8a6fdf3bb1a0f750a47e6093f3a92c2621636eae0b8bcee689641b5a94a"
+    },
+    {
+      "key": "npc-pessoa-sentada",
+      "file": "npcs/npc-pessoa-sentada.png",
+      "kind": "sheet-source",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": null,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 2866,
+      "sha256": "0bd6f97ced66272f70d83bcdbdf9372c33333779b4aef2faa8a8ab38efe935c5"
+    },
+    {
+      "key": "npc-cachorro-descansando",
+      "file": "npcs/npc-cachorro-descansando.png",
+      "kind": "sheet-source",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": null,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 3579,
+      "sha256": "a0305d01a12cf39fc94b764caa6a53aeb3fb47e4bafdbb283ceaf36a699540a0"
+    },
+    {
+      "key": "walk-bench",
+      "file": "objects/obj-banco.png",
+      "kind": "image",
+      "size": [
+        128,
+        64
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": null,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 6627,
+      "sha256": "c8eb3ee8f99efc71e29e0661e4954b23281f344a63890897dbcc29063dc6a622"
+    },
+    {
+      "key": "walk-drinking-fountain",
+      "file": "objects/obj-bebedouro.png",
+      "kind": "image",
+      "size": [
+        64,
+        96
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": null,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 7152,
+      "sha256": "1ed3673ab62e759665df5307ff4c744970e88bf11dda721c7fb803d1707ad603"
+    },
+    {
+      "key": "walk-water-bowl",
+      "file": "objects/obj-pote-agua.png",
+      "kind": "image",
+      "size": [
+        32,
+        32
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": null,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 1465,
+      "sha256": "671198e1a272092c740838c7ef0960154f14c69be895e9bd9b28fa48571339c4"
+    },
+    {
+      "key": "walk-booth",
+      "file": "objects/obj-estande.png",
+      "kind": "image",
+      "size": [
+        192,
+        128
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": null,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 34727,
+      "sha256": "58482277c1a11841ee0f6842a767285022b8b63bee2fa3b680a1674524907f34"
+    },
+    {
+      "key": "walk-booth-front",
+      "file": "objects/obj-estande-frente.png",
+      "kind": "image",
+      "size": [
+        192,
+        128
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": null,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 15834,
+      "sha256": "fe59a3b1b0da5c1ff4f3301d6599570897f047f7909c951cf3ba972a90051b7b"
+    },
+    {
+      "key": "walk-info-board",
+      "file": "objects/obj-placa.png",
+      "kind": "image",
+      "size": [
+        96,
+        96
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": null,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 9390,
+      "sha256": "9a245102414ce11e00c805f40c2e2a36c7c6d3725ce6d6cac639db8539bcb564"
+    },
+    {
+      "key": "walk-trash-bin",
+      "file": "objects/obj-lixeira.png",
+      "kind": "image",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": null,
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 5057,
+      "sha256": "35f7799f1da317c6822d961f05c776056f44b30a0e39d1d8dce8951a9bb56562"
+    },
+    {
+      "key": "walk-tileset",
+      "file": "walk-tileset.png",
+      "kind": "spritesheet",
+      "size": [
+        256,
+        128
+      ],
+      "mode": "RGBA",
+      "format": "PNG",
+      "frame": [
+        32,
+        32
+      ],
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 3508,
+      "sha256": "d8d534df68ceaaede969cf7e97e89260f60592cfba9b0f6aa0ee4bdce36f2ac9"
+    }
+  ],
+  "support": {
+    "walk-npcs-manifest": "npcs/npcs-manifest.json",
+    "walk-objects-manifest": "objects/objects-manifest.json",
+    "walk-tiles-manifest": "tiles-manifest.json",
+    "walk-tiles-repeat-config": "tiles-repeat-config.json",
+    "walk-tileset-tiled": "walk-tileset.tsx",
+    "walk-prototype-layout": "walk-prototype-layout.json",
+    "walk-assets-manifest": "walk-assets-manifest.json"
+  },
+  "runtimeKeys": [
+    "npc-tutor-cachorro-guia",
+    "walk-assets-manifest",
+    "walk-bench",
+    "walk-booth",
+    "walk-booth-front",
+    "walk-drinking-fountain",
+    "walk-info-board",
+    "walk-map",
+    "walk-npcs",
+    "walk-objects-manifest",
+    "walk-player",
+    "walk-prototype-layout",
+    "walk-tiles-manifest",
+    "walk-tiles-repeat-config",
+    "walk-tileset",
+    "walk-trash-bin",
+    "walk-water-bowl"
+  ],
+  "grid": {
+    "tile": [
+      32,
+      32
+    ],
+    "characterFrame": [
+      64,
+      64
+    ]
+  }
+}
