@@ -66,11 +66,11 @@
     { "tile": 19, "x": 43, "y": 22 }
   ],
   "placements": {
-    "tutor": { "x": 480, "y": 288 },
-    "booth": { "x": 1184, "y": 288 },
-    "restArea": { "x": 385, "y": 756 },
-    "drinkingFountain": { "x": 290, "y": 610 },
-    "waterBowl": { "x": 338, "y": 610 },
+    "tutor": { "x": 544, "y": 368 },
+    "booth": { "x": 1136, "y": 352 },
+    "restArea": { "x": 368, "y": 592 },
+    "drinkingFountain": { "x": 560, "y": 592 },
+    "waterBowl": { "x": 608, "y": 592 },
     "infoBoard": { "x": 944, "y": 352 },
     "trashBin": { "x": 960, "y": 640 }
   },

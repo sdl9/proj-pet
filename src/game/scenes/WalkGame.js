@@ -6,7 +6,7 @@ export class WalkGame extends Scene {
     constructor() {
         super('WalkGame');
     }
-
+/*
     create() {
         this.cameras.main.setBackgroundColor(0x50ff99);
 
@@ -40,5 +40,5 @@ export class WalkGame extends Scene {
             this.botaoContinuar = FuncoesUI.criarBotaoContinuar(this, () => {
                 this.iniciarJogo();
             });
+            }*/
         }
-}

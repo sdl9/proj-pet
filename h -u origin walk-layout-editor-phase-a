@@ -1,0 +1,89 @@
+ public/assets/walk/collision-depth-manifest.json   | 1336 [32m++++++++++++++++++++[m
+ public/assets/walk/composite-parts-manifest.json   |  591 [32m+++++++++[m
+ .../assets/walk/npcs/npc-cachorro-descansando.png  |  Bin [31m0[m -> [32m3579[m bytes
+ public/assets/walk/npcs/npc-pessoa-sentada.png     |  Bin [31m0[m -> [32m2866[m bytes
+ .../assets/walk/npcs/npc-tutor-cachorro-guia.png   |  Bin [31m0[m -> [32m4725[m bytes
+ public/assets/walk/npcs/npc-veterinaria.png        |  Bin [31m0[m -> [32m3804[m bytes
+ public/assets/walk/npcs/npc-voluntaria.png         |  Bin [31m0[m -> [32m3585[m bytes
+ public/assets/walk/npcs/npcs-manifest.json         |  274 [32m++++[m
+ public/assets/walk/objects/obj-banco.png           |  Bin [31m0[m -> [32m6627[m bytes
+ public/assets/walk/objects/obj-bebedouro.png       |  Bin [31m0[m -> [32m7152[m bytes
+ public/assets/walk/objects/obj-estande-frente.png  |  Bin [31m0[m -> [32m15834[m bytes
+ public/assets/walk/objects/obj-estande.png         |  Bin [31m0[m -> [32m34727[m bytes
+ public/assets/walk/objects/obj-lixeira.png         |  Bin [31m0[m -> [32m5057[m bytes
+ public/assets/walk/objects/obj-placa.png           |  Bin [31m0[m -> [32m9390[m bytes
+ public/assets/walk/objects/obj-pote-agua.png       |  Bin [31m0[m -> [32m1465[m bytes
+ public/assets/walk/objects/objects-manifest.json   |  176 [32m+++[m
+ public/assets/walk/scale-approval-manifest.json    | 1072 [32m++++++++++++++++[m
+ public/assets/walk/tiles-manifest.json             |  257 [32m++++[m
+ public/assets/walk/tiles-repeat-config.json        |   60 [32m+[m
+ public/assets/walk/urban/plaza-bike-rack.png       |  Bin [31m0[m -> [32m11979[m bytes
+ .../walk/urban/plaza-direction-sign-panels.png     |  Bin [31m0[m -> [32m5331[m bytes
+ .../walk/urban/plaza-direction-sign-structure.png  |  Bin [31m0[m -> [32m2414[m bytes
+ public/assets/walk/urban/plaza-direction-sign.png  |  Bin [31m0[m -> [32m7441[m bytes
+ .../assets/walk/urban/plaza-dog-agility-hoop.png   |  Bin [31m0[m -> [32m10907[m bytes
+ .../assets/walk/urban/plaza-dog-waste-station.png  |  Bin [31m0[m -> [32m4555[m bytes
+ public/assets/walk/urban/plaza-fire-hydrant.png    |  Bin [31m0[m -> [32m8739[m bytes
+ public/assets/walk/urban/plaza-fountain-base.png   |  Bin [31m0[m -> [32m21415[m bytes
+ public/assets/walk/urban/plaza-fountain-water.png  |  Bin [31m0[m -> [32m5958[m bytes
+ public/assets/walk/urban/plaza-fountain.png        |  Bin [31m0[m -> [32m25646[m bytes
+ public/assets/walk/urban/plaza-lamp-post.png       |  Bin [31m0[m -> [32m8616[m bytes
+ .../walk/urban/plaza-notice-board-content.png      |  Bin [31m0[m -> [32m1929[m bytes
+ .../walk/urban/plaza-notice-board-structure.png    |  Bin [31m0[m -> [32m8229[m bytes
+ public/assets/walk/urban/plaza-notice-board.png    |  Bin [31m0[m -> [32m9651[m bytes
+ public/assets/walk/urban/plaza-picnic-table.png    |  Bin [31m0[m -> [32m16471[m bytes
+ public/assets/walk/urban/plaza-spring-rider.png    |  Bin [31m0[m -> [32m10939[m bytes
+ public/assets/walk/urban/plaza-stone-bollard.png   |  Bin [31m0[m -> [32m2701[m bytes
+ .../assets/walk/urban/plaza-waste-bin-general.png  |  Bin [31m0[m -> [32m4812[m bytes
+ .../walk/urban/plaza-waste-bin-recycling.png       |  Bin [31m0[m -> [32m5297[m bytes
+ .../walk/urban/plaza-waste-bins-left-part.png      |  Bin [31m0[m -> [32m8197[m bytes
+ .../walk/urban/plaza-waste-bins-right-part.png     |  Bin [31m0[m -> [32m7301[m bytes
+ public/assets/walk/urban/plaza-waste-bins.png      |  Bin [31m0[m -> [32m15142[m bytes
+ .../assets/walk/urban/urban-objects-manifest.json  |  685 [32m++++++++++[m
+ .../vegetation/complex-vegetation-manifest.json    |  569 [32m+++++++++[m
+ .../assets/walk/vegetation/plaza-fallen-leaves.png |  Bin [31m0[m -> [32m1848[m bytes
+ .../assets/walk/vegetation/plaza-flower-patch.png  |  Bin [31m0[m -> [32m5070[m bytes
+ .../walk/vegetation/plaza-flowerbed-round.png      |  Bin [31m0[m -> [32m13810[m bytes
+ .../walk/vegetation/plaza-flowerbed-square.png     |  Bin [31m0[m -> [32m15059[m bytes
+ .../walk/vegetation/plaza-flowering-shrub.png      |  Bin [31m0[m -> [32m15850[m bytes
+ .../walk/vegetation/plaza-hedge-corner-en.png      |  Bin [31m0[m -> [32m7526[m bytes
+ .../walk/vegetation/plaza-hedge-corner-es.png      |  Bin [31m0[m -> [32m7429[m bytes
+ .../walk/vegetation/plaza-hedge-corner-wn.png      |  Bin [31m0[m -> [32m7359[m bytes
+ .../walk/vegetation/plaza-hedge-corner-ws.png      |  Bin [31m0[m -> [32m7235[m bytes
+ .../assets/walk/vegetation/plaza-hedge-end-e.png   |  Bin [31m0[m -> [32m4442[m bytes
+ .../assets/walk/vegetation/plaza-hedge-end-n.png   |  Bin [31m0[m -> [32m4558[m bytes
+ .../assets/walk/vegetation/plaza-hedge-end-s.png   |  Bin [31m0[m -> [32m4448[m bytes
+ .../assets/walk/vegetation/plaza-hedge-end-w.png   |  Bin [31m0[m -> [32m4526[m bytes
+ .../walk/vegetation/plaza-hedge-horizontal.png     |  Bin [31m0[m -> [32m15727[m bytes
+ .../walk/vegetation/plaza-hedge-middle-h.png       |  Bin [31m0[m -> [32m4701[m bytes
+ .../walk/vegetation/plaza-hedge-middle-v.png       |  Bin [31m0[m -> [32m4603[m bytes
+ .../walk/vegetation/plaza-ornamental-grass.png     |  Bin [31m0[m -> [32m6494[m bytes
+ public/assets/walk/vegetation/plaza-planter.png    |  Bin [31m0[m -> [32m7284[m bytes
+ .../assets/walk/vegetation/plaza-rock-cluster.png  |  Bin [31m0[m -> [32m9629[m bytes
+ .../walk/vegetation/plaza-tree-large-base.png      |  Bin [31m0[m -> [32m15542[m bytes
+ .../walk/vegetation/plaza-tree-large-canopy.png    |  Bin [31m0[m -> [32m30861[m bytes
+ public/assets/walk/vegetation/plaza-tree-large.png |  Bin [31m0[m -> [32m40312[m bytes
+ public/assets/walk/vegetation/plaza-tree-stump.png |  Bin [31m0[m -> [32m9322[m bytes
+ .../walk/vegetation/plaza-tree-young-base.png      |  Bin [31m0[m -> [32m5402[m bytes
+ .../walk/vegetation/plaza-tree-young-canopy.png    |  Bin [31m0[m -> [32m14122[m bytes
+ public/assets/walk/vegetation/plaza-tree-young.png |  Bin [31m0[m -> [32m17094[m bytes
+ .../vegetation/remaining-vegetation-manifest.json  |  378 [32m++++++[m
+ public/assets/walk/walk-assets-manifest.json       |  339 [32m+++++[m
+ public/assets/walk/walk-map.jpg                    |  Bin [31m0[m -> [32m595610[m bytes
+ public/assets/walk/walk-npcs.png                   |  Bin [31m0[m -> [32m13481[m bytes
+ public/assets/walk/walk-player.png                 |  Bin [31m0[m -> [32m63699[m bytes
+ public/assets/walk/walk-prototype-layout.json      |   85 [32m++[m
+ public/assets/walk/walk-tileset.png                |  Bin [31m0[m -> [32m3508[m bytes
+ public/assets/walk/walk-tileset.tsx                |  228 [32m++++[m
+ src/game/data/walkAssetCatalog.js                  |  334 [32m+++++[m
+ src/game/data/walkDialogues.js                     |   92 [32m++[m
+ src/game/data/walkStage18Map.json                  |   47 [32m+[m
+ src/game/data/walkVisualConfig.js                  |   23 [32m+[m
+ src/game/dev/WalkLayoutDraft.js                    |   74 [32m++[m
+ src/game/dev/WalkLayoutEditor.browser-check.mjs    |  236 [32m++++[m
+ src/game/dev/WalkLayoutEditor.js                   |  198 [32m+++[m
+ src/game/main.js                                   |   12 [32m+[m
+ src/game/scenes/Preloader.js                       |   47 [32m+[m[31m-[m
+ src/game/scenes/WalkGameLearning.js                |   23 [32m+[m
+ src/game/systems/WalkVisualBuilder.js              |  236 [32m++++[m
+ 88 files changed, 7358 insertions(+), 14 deletions(-)

@@ -1,0 +1,1668 @@
+{
+  "format": "walk-layout-draft",
+  "version": 1,
+  "date": "2026-09-21T08:01:22.406Z",
+  "world": {
+    "tileSize": 32,
+    "columns": 50,
+    "rows": 28,
+    "width": 1600,
+    "height": 896
+  },
+  "tileSize": 32,
+  "sources": {
+    "ambient": "src/game/data/walkStage18Map.json",
+    "placements": "public/assets/walk/walk-prototype-layout.json",
+    "idPolicy": "Source array slot + part index; stable while official source order is unchanged."
+  },
+  "ambientAssets": [
+    {
+      "id": "ambient:0",
+      "key": "plaza-tree-large",
+      "group": null,
+      "sourceIndex": 0,
+      "renderMode": "layers",
+      "x": 160,
+      "y": 288,
+      "anchor": {
+        "x": 160,
+        "y": 288
+      },
+      "initialPosition": {
+        "x": 160,
+        "y": 288
+      },
+      "currentPosition": {
+        "x": 160,
+        "y": 288
+      },
+      "members": [
+        {
+          "id": "ambient:0/part:0",
+          "key": "plaza-tree-large-base",
+          "initialPosition": {
+            "x": 160,
+            "y": 288
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 160,
+            "y": 288
+          }
+        },
+        {
+          "id": "ambient:0/part:1",
+          "key": "plaza-tree-large-canopy",
+          "initialPosition": {
+            "x": 160,
+            "y": 288
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0.009999999999990905,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 160,
+            "y": 288
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:1",
+      "key": "plaza-tree-large",
+      "group": null,
+      "sourceIndex": 1,
+      "renderMode": "layers",
+      "x": 1440,
+      "y": 288,
+      "anchor": {
+        "x": 1440,
+        "y": 288
+      },
+      "initialPosition": {
+        "x": 1440,
+        "y": 288
+      },
+      "currentPosition": {
+        "x": 1440,
+        "y": 288
+      },
+      "members": [
+        {
+          "id": "ambient:1/part:0",
+          "key": "plaza-tree-large-base",
+          "initialPosition": {
+            "x": 1440,
+            "y": 288
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1440,
+            "y": 288
+          }
+        },
+        {
+          "id": "ambient:1/part:1",
+          "key": "plaza-tree-large-canopy",
+          "initialPosition": {
+            "x": 1440,
+            "y": 288
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0.009999999999990905,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1440,
+            "y": 288
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:2",
+      "key": "plaza-tree-large",
+      "group": null,
+      "sourceIndex": 2,
+      "renderMode": "layers",
+      "x": 170,
+      "y": 714,
+      "anchor": {
+        "x": 170,
+        "y": 714
+      },
+      "initialPosition": {
+        "x": 170,
+        "y": 714
+      },
+      "currentPosition": {
+        "x": 170,
+        "y": 714
+      },
+      "members": [
+        {
+          "id": "ambient:2/part:0",
+          "key": "plaza-tree-large-base",
+          "initialPosition": {
+            "x": 170,
+            "y": 714
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 170,
+            "y": 714
+          }
+        },
+        {
+          "id": "ambient:2/part:1",
+          "key": "plaza-tree-large-canopy",
+          "initialPosition": {
+            "x": 170,
+            "y": 714
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0.009999999999990905,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 170,
+            "y": 714
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:3",
+      "key": "plaza-tree-young",
+      "group": null,
+      "sourceIndex": 3,
+      "renderMode": "layers",
+      "x": 1470,
+      "y": 650,
+      "anchor": {
+        "x": 1470,
+        "y": 650
+      },
+      "initialPosition": {
+        "x": 1470,
+        "y": 650
+      },
+      "currentPosition": {
+        "x": 1470,
+        "y": 650
+      },
+      "members": [
+        {
+          "id": "ambient:3/part:0",
+          "key": "plaza-tree-young-base",
+          "initialPosition": {
+            "x": 1470,
+            "y": 650
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1470,
+            "y": 650
+          }
+        },
+        {
+          "id": "ambient:3/part:1",
+          "key": "plaza-tree-young-canopy",
+          "initialPosition": {
+            "x": 1470,
+            "y": 650
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0.009999999999990905,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1470,
+            "y": 650
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:4",
+      "key": "plaza-tree-young",
+      "group": null,
+      "sourceIndex": 4,
+      "renderMode": "layers",
+      "x": 624,
+      "y": 240,
+      "anchor": {
+        "x": 624,
+        "y": 240
+      },
+      "initialPosition": {
+        "x": 585,
+        "y": 220
+      },
+      "currentPosition": {
+        "x": 624,
+        "y": 240
+      },
+      "members": [
+        {
+          "id": "ambient:4/part:0",
+          "key": "plaza-tree-young-base",
+          "initialPosition": {
+            "x": 585,
+            "y": 220
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 624,
+            "y": 240
+          }
+        },
+        {
+          "id": "ambient:4/part:1",
+          "key": "plaza-tree-young-canopy",
+          "initialPosition": {
+            "x": 585,
+            "y": 220
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0.009999999999990905,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 624,
+            "y": 240
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:5",
+      "key": "plaza-tree-young",
+      "group": null,
+      "sourceIndex": 5,
+      "renderMode": "layers",
+      "x": 1000,
+      "y": 196,
+      "anchor": {
+        "x": 1000,
+        "y": 196
+      },
+      "initialPosition": {
+        "x": 1000,
+        "y": 196
+      },
+      "currentPosition": {
+        "x": 1000,
+        "y": 196
+      },
+      "members": [
+        {
+          "id": "ambient:5/part:0",
+          "key": "plaza-tree-young-base",
+          "initialPosition": {
+            "x": 1000,
+            "y": 196
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1000,
+            "y": 196
+          }
+        },
+        {
+          "id": "ambient:5/part:1",
+          "key": "plaza-tree-young-canopy",
+          "initialPosition": {
+            "x": 1000,
+            "y": 196
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0.009999999999990905,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1000,
+            "y": 196
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:6",
+      "key": "plaza-flowering-shrub",
+      "group": null,
+      "sourceIndex": 6,
+      "x": 150,
+      "y": 768,
+      "anchor": {
+        "x": 150,
+        "y": 768
+      },
+      "initialPosition": {
+        "x": 150,
+        "y": 768
+      },
+      "currentPosition": {
+        "x": 150,
+        "y": 768
+      },
+      "members": [
+        {
+          "id": "ambient:6/part:0",
+          "key": "plaza-flowering-shrub",
+          "initialPosition": {
+            "x": 150,
+            "y": 768
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 150,
+            "y": 768
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:7",
+      "key": "plaza-flowering-shrub",
+      "group": null,
+      "sourceIndex": 7,
+      "x": 1480,
+      "y": 778,
+      "anchor": {
+        "x": 1480,
+        "y": 778
+      },
+      "initialPosition": {
+        "x": 1480,
+        "y": 778
+      },
+      "currentPosition": {
+        "x": 1480,
+        "y": 778
+      },
+      "members": [
+        {
+          "id": "ambient:7/part:0",
+          "key": "plaza-flowering-shrub",
+          "initialPosition": {
+            "x": 1480,
+            "y": 778
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1480,
+            "y": 778
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:8",
+      "key": "plaza-flowerbed-round",
+      "group": null,
+      "sourceIndex": 8,
+      "x": 265,
+      "y": 353,
+      "anchor": {
+        "x": 265,
+        "y": 353
+      },
+      "initialPosition": {
+        "x": 265,
+        "y": 353
+      },
+      "currentPosition": {
+        "x": 265,
+        "y": 353
+      },
+      "members": [
+        {
+          "id": "ambient:8/part:0",
+          "key": "plaza-flowerbed-round",
+          "initialPosition": {
+            "x": 265,
+            "y": 353
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 265,
+            "y": 353
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:9",
+      "key": "plaza-flowerbed-square",
+      "group": null,
+      "sourceIndex": 9,
+      "x": 1035,
+      "y": 620,
+      "anchor": {
+        "x": 1035,
+        "y": 620
+      },
+      "initialPosition": {
+        "x": 1035,
+        "y": 620
+      },
+      "currentPosition": {
+        "x": 1035,
+        "y": 620
+      },
+      "members": [
+        {
+          "id": "ambient:9/part:0",
+          "key": "plaza-flowerbed-square",
+          "initialPosition": {
+            "x": 1035,
+            "y": 620
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1035,
+            "y": 620
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:10",
+      "key": "plaza-flower-patch",
+      "group": null,
+      "sourceIndex": 10,
+      "x": 440,
+      "y": 240,
+      "anchor": {
+        "x": 440,
+        "y": 240
+      },
+      "initialPosition": {
+        "x": 440,
+        "y": 240
+      },
+      "currentPosition": {
+        "x": 440,
+        "y": 240
+      },
+      "members": [
+        {
+          "id": "ambient:10/part:0",
+          "key": "plaza-flower-patch",
+          "initialPosition": {
+            "x": 440,
+            "y": 240
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 440,
+            "y": 240
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:11",
+      "key": "plaza-flower-patch",
+      "group": null,
+      "sourceIndex": 11,
+      "x": 1040,
+      "y": 240,
+      "anchor": {
+        "x": 1040,
+        "y": 240
+      },
+      "initialPosition": {
+        "x": 1040,
+        "y": 240
+      },
+      "currentPosition": {
+        "x": 1040,
+        "y": 240
+      },
+      "members": [
+        {
+          "id": "ambient:11/part:0",
+          "key": "plaza-flower-patch",
+          "initialPosition": {
+            "x": 1040,
+            "y": 240
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1040,
+            "y": 240
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:12",
+      "key": "plaza-fallen-leaves",
+      "group": null,
+      "sourceIndex": 12,
+      "x": 230,
+      "y": 760,
+      "anchor": {
+        "x": 230,
+        "y": 760
+      },
+      "initialPosition": {
+        "x": 230,
+        "y": 760
+      },
+      "currentPosition": {
+        "x": 230,
+        "y": 760
+      },
+      "members": [
+        {
+          "id": "ambient:12/part:0",
+          "key": "plaza-fallen-leaves",
+          "initialPosition": {
+            "x": 230,
+            "y": 760
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 230,
+            "y": 760
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:13",
+      "key": "plaza-fallen-leaves",
+      "group": null,
+      "sourceIndex": 13,
+      "x": 1410,
+      "y": 737,
+      "anchor": {
+        "x": 1410,
+        "y": 737
+      },
+      "initialPosition": {
+        "x": 1410,
+        "y": 737
+      },
+      "currentPosition": {
+        "x": 1410,
+        "y": 737
+      },
+      "members": [
+        {
+          "id": "ambient:13/part:0",
+          "key": "plaza-fallen-leaves",
+          "initialPosition": {
+            "x": 1410,
+            "y": 737
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1410,
+            "y": 737
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:14",
+      "key": "plaza-lamp-post",
+      "group": null,
+      "sourceIndex": 14,
+      "x": 686,
+      "y": 320,
+      "anchor": {
+        "x": 686,
+        "y": 320
+      },
+      "initialPosition": {
+        "x": 686,
+        "y": 320
+      },
+      "currentPosition": {
+        "x": 686,
+        "y": 320
+      },
+      "members": [
+        {
+          "id": "ambient:14/part:0",
+          "key": "plaza-lamp-post",
+          "initialPosition": {
+            "x": 686,
+            "y": 320
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 686,
+            "y": 320
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:15",
+      "key": "plaza-lamp-post",
+      "group": null,
+      "sourceIndex": 15,
+      "x": 916,
+      "y": 334,
+      "anchor": {
+        "x": 916,
+        "y": 334
+      },
+      "initialPosition": {
+        "x": 916,
+        "y": 334
+      },
+      "currentPosition": {
+        "x": 916,
+        "y": 334
+      },
+      "members": [
+        {
+          "id": "ambient:15/part:0",
+          "key": "plaza-lamp-post",
+          "initialPosition": {
+            "x": 916,
+            "y": 334
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 916,
+            "y": 334
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:16",
+      "key": "plaza-fountain",
+      "group": null,
+      "sourceIndex": 16,
+      "renderMode": "layers",
+      "x": 800,
+      "y": 470,
+      "anchor": {
+        "x": 800,
+        "y": 470
+      },
+      "initialPosition": {
+        "x": 800,
+        "y": 470
+      },
+      "currentPosition": {
+        "x": 800,
+        "y": 470
+      },
+      "members": [
+        {
+          "id": "ambient:16/part:0",
+          "key": "plaza-fountain-base",
+          "initialPosition": {
+            "x": 800,
+            "y": 470
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1.25,
+            "y": 1.25
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 800,
+            "y": 470
+          }
+        },
+        {
+          "id": "ambient:16/part:1",
+          "key": "plaza-fountain-water",
+          "initialPosition": {
+            "x": 800,
+            "y": 470
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0.009999999999990905,
+          "scale": {
+            "x": 1.25,
+            "y": 1.25
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 800,
+            "y": 470
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:17",
+      "key": "plaza-bike-rack",
+      "group": null,
+      "sourceIndex": 17,
+      "x": 960,
+      "y": 730,
+      "anchor": {
+        "x": 960,
+        "y": 730
+      },
+      "initialPosition": {
+        "x": 960,
+        "y": 730
+      },
+      "currentPosition": {
+        "x": 960,
+        "y": 730
+      },
+      "members": [
+        {
+          "id": "ambient:17/part:0",
+          "key": "plaza-bike-rack",
+          "initialPosition": {
+            "x": 960,
+            "y": 730
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 0.7,
+            "y": 0.7
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 960,
+            "y": 730
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:18",
+      "key": "plaza-picnic-table",
+      "group": null,
+      "sourceIndex": 18,
+      "x": 1175,
+      "y": 702,
+      "anchor": {
+        "x": 1175,
+        "y": 702
+      },
+      "initialPosition": {
+        "x": 1175,
+        "y": 702
+      },
+      "currentPosition": {
+        "x": 1175,
+        "y": 702
+      },
+      "members": [
+        {
+          "id": "ambient:18/part:0",
+          "key": "plaza-picnic-table",
+          "initialPosition": {
+            "x": 1175,
+            "y": 702
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1175,
+            "y": 702
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:19",
+      "key": "plaza-dog-waste-station",
+      "group": null,
+      "sourceIndex": 19,
+      "x": 675,
+      "y": 656,
+      "anchor": {
+        "x": 675,
+        "y": 656
+      },
+      "initialPosition": {
+        "x": 675,
+        "y": 656
+      },
+      "currentPosition": {
+        "x": 675,
+        "y": 656
+      },
+      "members": [
+        {
+          "id": "ambient:19/part:0",
+          "key": "plaza-dog-waste-station",
+          "initialPosition": {
+            "x": 675,
+            "y": 656
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 675,
+            "y": 656
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:20",
+      "key": "plaza-waste-bins",
+      "group": null,
+      "sourceIndex": 20,
+      "x": 1360,
+      "y": 757,
+      "anchor": {
+        "x": 1360,
+        "y": 757
+      },
+      "initialPosition": {
+        "x": 1360,
+        "y": 757
+      },
+      "currentPosition": {
+        "x": 1360,
+        "y": 757
+      },
+      "members": [
+        {
+          "id": "ambient:20/part:0",
+          "key": "plaza-waste-bins",
+          "initialPosition": {
+            "x": 1360,
+            "y": 757
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1360,
+            "y": 757
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:21",
+      "key": "plaza-fire-hydrant",
+      "group": null,
+      "sourceIndex": 21,
+      "x": 657.0000174744783,
+      "y": 746.9999803618969,
+      "anchor": {
+        "x": 657.0000174744783,
+        "y": 746.9999803618969
+      },
+      "initialPosition": {
+        "x": 570,
+        "y": 772
+      },
+      "currentPosition": {
+        "x": 657.0000174744783,
+        "y": 746.9999803618969
+      },
+      "members": [
+        {
+          "id": "ambient:21/part:0",
+          "key": "plaza-fire-hydrant",
+          "initialPosition": {
+            "x": 570,
+            "y": 772
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 0.6,
+            "y": 0.6
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 657.0000174744783,
+            "y": 746.9999803618969
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:22",
+      "key": "plaza-dog-agility-hoop",
+      "group": null,
+      "sourceIndex": 22,
+      "x": 546,
+      "y": 630,
+      "anchor": {
+        "x": 546,
+        "y": 630
+      },
+      "initialPosition": {
+        "x": 546,
+        "y": 630
+      },
+      "currentPosition": {
+        "x": 546,
+        "y": 630
+      },
+      "members": [
+        {
+          "id": "ambient:22/part:0",
+          "key": "plaza-dog-agility-hoop",
+          "initialPosition": {
+            "x": 546,
+            "y": 630
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 546,
+            "y": 630
+          }
+        }
+      ]
+    },
+    {
+      "id": "ambient:23",
+      "key": "plaza-spring-rider",
+      "group": null,
+      "sourceIndex": 23,
+      "x": 1315,
+      "y": 613,
+      "anchor": {
+        "x": 1315,
+        "y": 613
+      },
+      "initialPosition": {
+        "x": 1315,
+        "y": 613
+      },
+      "currentPosition": {
+        "x": 1315,
+        "y": 613
+      },
+      "members": [
+        {
+          "id": "ambient:23/part:0",
+          "key": "plaza-spring-rider",
+          "initialPosition": {
+            "x": 1315,
+            "y": 613
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1315,
+            "y": 613
+          }
+        }
+      ]
+    }
+  ],
+  "compositions": [
+    {
+      "id": "composition:rest",
+      "key": "walk-bench",
+      "group": "descanso",
+      "x": 448,
+      "y": 720,
+      "anchor": {
+        "x": 448,
+        "y": 720
+      },
+      "initialPosition": {
+        "x": 385,
+        "y": 756
+      },
+      "currentPosition": {
+        "x": 448,
+        "y": 720
+      },
+      "members": [
+        {
+          "id": "composition:rest/part:0",
+          "key": "walk-bench",
+          "initialPosition": {
+            "x": 385,
+            "y": 756
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1.35,
+            "y": 1.35
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 448,
+            "y": 720
+          }
+        },
+        {
+          "id": "composition:rest/part:1",
+          "key": "npc-pessoa-sentada",
+          "initialPosition": {
+            "x": 352.6,
+            "y": 756
+          },
+          "offset": {
+            "x": -32.39999999999998,
+            "y": 0
+          },
+          "depthOffset": 0.10000000000002274,
+          "scale": {
+            "x": 1.5,
+            "y": 1.5
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 0.953125
+          },
+          "currentPosition": {
+            "x": 415.6,
+            "y": 720
+          }
+        },
+        {
+          "id": "composition:rest/part:2",
+          "key": "npc-cachorro-descansando",
+          "initialPosition": {
+            "x": 428.2,
+            "y": 756
+          },
+          "offset": {
+            "x": 43.19999999999999,
+            "y": 0
+          },
+          "depthOffset": 0.20000000000004547,
+          "scale": {
+            "x": 1.35,
+            "y": 1.35
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 0.953125
+          },
+          "currentPosition": {
+            "x": 491.2,
+            "y": 720
+          }
+        }
+      ]
+    },
+    {
+      "id": "composition:booth",
+      "key": "walk-booth",
+      "group": "estande",
+      "x": 1152,
+      "y": 320,
+      "anchor": {
+        "x": 1152,
+        "y": 320
+      },
+      "initialPosition": {
+        "x": 1184,
+        "y": 288
+      },
+      "currentPosition": {
+        "x": 1152,
+        "y": 320
+      },
+      "members": [
+        {
+          "id": "composition:booth/part:0",
+          "key": "walk-booth",
+          "initialPosition": {
+            "x": 1184,
+            "y": 288
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1.35,
+            "y": 1.35
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1152,
+            "y": 320
+          }
+        },
+        {
+          "id": "composition:booth/part:1",
+          "key": "npc-voluntaria",
+          "initialPosition": {
+            "x": 1148.9,
+            "y": 285.3
+          },
+          "offset": {
+            "x": -35.09999999999991,
+            "y": -2.6999999999999886
+          },
+          "depthOffset": 0.10000000000002274,
+          "scale": {
+            "x": 1.5,
+            "y": 1.5
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 0.953125
+          },
+          "currentPosition": {
+            "x": 1116.9,
+            "y": 317.3
+          }
+        },
+        {
+          "id": "composition:booth/part:2",
+          "key": "npc-veterinaria",
+          "initialPosition": {
+            "x": 1248.8,
+            "y": 285.3
+          },
+          "offset": {
+            "x": 64.79999999999995,
+            "y": -2.6999999999999886
+          },
+          "depthOffset": 0.10000000000002274,
+          "scale": {
+            "x": 1.5,
+            "y": 1.5
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 0.953125
+          },
+          "currentPosition": {
+            "x": 1216.8,
+            "y": 317.3
+          }
+        },
+        {
+          "id": "composition:booth/part:3",
+          "key": "walk-booth-front",
+          "initialPosition": {
+            "x": 1184,
+            "y": 288
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0.19999999999998863,
+          "scale": {
+            "x": 1.35,
+            "y": 1.35
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 1152,
+            "y": 320
+          }
+        }
+      ]
+    },
+    {
+      "id": "composition:water",
+      "key": "walk-drinking-fountain",
+      "group": "agua",
+      "x": 320,
+      "y": 640,
+      "anchor": {
+        "x": 320,
+        "y": 640
+      },
+      "initialPosition": {
+        "x": 290,
+        "y": 610
+      },
+      "currentPosition": {
+        "x": 320,
+        "y": 640
+      },
+      "members": [
+        {
+          "id": "composition:water/part:0",
+          "key": "walk-drinking-fountain",
+          "initialPosition": {
+            "x": 290,
+            "y": 610
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 320,
+            "y": 640
+          }
+        },
+        {
+          "id": "composition:water/part:1",
+          "key": "walk-water-bowl",
+          "initialPosition": {
+            "x": 338,
+            "y": 610
+          },
+          "offset": {
+            "x": 48,
+            "y": 0
+          },
+          "depthOffset": 0.10000000000002274,
+          "scale": {
+            "x": 1,
+            "y": 1
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 368,
+            "y": 640
+          }
+        }
+      ]
+    }
+  ],
+  "standalone": [
+    {
+      "id": "education:guide",
+      "key": "npc-tutor-cachorro-guia",
+      "group": null,
+      "x": 480,
+      "y": 288,
+      "anchor": {
+        "x": 480,
+        "y": 288
+      },
+      "initialPosition": {
+        "x": 480,
+        "y": 288
+      },
+      "currentPosition": {
+        "x": 480,
+        "y": 288
+      },
+      "members": [
+        {
+          "id": "education:guide/part:0",
+          "key": "npc-tutor-cachorro-guia",
+          "initialPosition": {
+            "x": 480,
+            "y": 288
+          },
+          "offset": {
+            "x": 0,
+            "y": 0
+          },
+          "depthOffset": 0,
+          "scale": {
+            "x": 1.5,
+            "y": 1.5
+          },
+          "origin": {
+            "x": 0.5,
+            "y": 1
+          },
+          "currentPosition": {
+            "x": 480,
+            "y": 288
+          }
+        }
+      ]
+    }
+  ]
+}

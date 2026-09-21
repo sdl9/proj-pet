@@ -1,0 +1,84 @@
+{
+   "checksum": "3b8738b3b5c3d6067243db314ff03e5f",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13398791914512003",
+            "date_last_used": "13404766867750952",
+            "guid": "8b30d22c-3ec6-47dc-aba5-ca9c9bca0c86",
+            "id": "7",
+            "name": "Projetos · GitLab",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://gitlab.com/",
+            "visit_count": 3
+         }, {
+            "date_added": "13398813607068984",
+            "date_last_used": "13398902630618503",
+            "guid": "7e152b4b-d162-4e13-8451-a038f2a5e8d7",
+            "id": "8",
+            "name": "Twilio Console",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://console.twilio.com/",
+            "visit_count": 2
+         }, {
+            "date_added": "13404093384323442",
+            "date_last_used": "0",
+            "guid": "1b73d99c-320b-44f7-a280-37fdf1e3cba1",
+            "id": "9",
+            "name": "(47) Como Fazer um Sistema de Login com React JS! 🚀 (Autenticação, Hooks e LocalStorage) - YouTube",
+            "show_icon": false,
+            "source": "sync",
+            "type": "url",
+            "url": "https://www.youtube.com/watch?v=cMNOg4mjIVY",
+            "visit_count": 1
+         } ],
+         "date_added": "13434449457700167",
+         "date_last_used": "0",
+         "date_modified": "13404093384323442",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Barra de favoritos",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13434449457700167",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Outros favoritos",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13434449457700167",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Favoritos do celular",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "workspaces_v2": {
+         "children": [  ],
+         "date_added": "13434449457700167",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "75aa6670-344f-549d-b742-660f029506ab",
+         "id": "5",
+         "name": "Espaços de trabalho",
+         "source": "unknown",
+         "type": "folder"
+      }
+   },
+   "sync_metadata": "CkEKHgiIgQISCHxnacWgAQAAKg4QABgBIAAoBTAAOABAABIAKhh0YW1SWWJ4bndvaXZWQTZkRVJkTElRPT1IA6AGDBKMAQgDEocBChxuamdEdTg4ZUNydlhwODZwRDdmSEdjcUZwODg9EiRkMzAxMTA2Mi1iNTg2LTU0NTctYjBlMy00NWExN2JmYTY5YmEYACAAKAAw1af/kIczOO6v/5CHM0Dur/+QhzNKHHl6TkIwMWNuNTRBN2NSVTB1VCsvUGdtVHRVbz1lAAAAAMI+AmAAEowBCAUShwEKHHdSQnJaTCs2UEE5YXZLZ2pOUDdKWERMY2Z2cz0SJGY3OTQ5Njk1LWMyM2UtNWU2Ny1iNTRlLWNmY2IwNGJiNjVkNhgAIAAoADDmz4OBqDM4kdKDgagzQJHSg4GoM0ocbm14NjVzUUR2eEk4VGdFZXYrQStudHRvU240PWUAAAAAwj4CYAASjAEIAhKHAQocWWNTVG9udkVTUHdxQ3M0TDJjclZodjY4TDk4PRIkOGY2YjIzMzEtZWQ5OS01OGUyLWJmNDYtMWMwNDE5M2ZjYTljGAAgACgAMNCn/5CHMzihr/+QhzNAoa//kIczShxvUFZraHdCUmJWNjVLQ1dSMitJT05IV29PdTg9ZQAAAADCPgJgABKtAQgJEqgBChx2RUFoQzUyeXptOXhXb3dYYWZydUpwWkRBZ289EiQxYjczZDk5Yy0zMjBiLTQ0ZjctYTI4MC0zN2ZkZjFlM2NiYTEYACAAKAAwgd2MjJszON7gjIybM0De4IyMmzNKHHdldytMa3BTNmtCUVNNNm82cTFGQmt6dVFRND1aHyId2VZVSkRQT2pkYTEyRUttZk5VVzNtdTAxU2NpZz1lQ/htgMI+AmAFEq0BCAgSqAEKHFBFTGpBenJ3YUFvQzl3djh4azk1U25rMnliMD0SJDdlMTUyYjRiLWQxNjItNGUxMy04NDUxLWEwMzhmMmE1ZThkNxgAIAAoADCY3dr4iTM4ktjAtoczQJLYwLaHM0oca0F1MmR5dVhVeGVhV0ZXMkxkdWVxOEp2WEk0PVofIh2yL0dFaWwwT01idjNsekZSOWNvVm5LOHAzSTNnPWVfIrM2wj4CYAUSrAEIBxKnAQoceGIzQXd4WENkOGtGUjdNSWlSaDBKcEU1aGxnPRIkOGIzMGQyMmMtM2VjNi00N2RjLWFiYTUtY2E5YzliY2EwYzg2GAAgACgAMPyW16mwMzjezZSshzNA3s2UrIczShw2eEhiRVd5QVZiUFlITWRmWDYzcHcxWUYxK289Wh4iHGU1cDFkZmpDelJhVFJTNHJiRGx3VGplTzQwST1ljPAUy8I+AmAFEowBCAEShwEKHHl4Si82ZnZrZWNyN2twNUVRekI0dFdMcGRiRT0SJDVmYTE2MzdjLWQ1MjAtNWJmNi04YjYxLWQ4M2U1MTMxZWQzMhgAIAAoADDPp/+QhzM4ha//kIczQIWv/5CHM0ocYVJDV0xnaEY5YjVJbnFLSUR2dUovanZRa0ZjPWUAAAAAwj4CYAAwADgA",
+   "version": 1
+}

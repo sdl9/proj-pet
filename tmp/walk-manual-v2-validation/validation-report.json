@@ -1,0 +1,34 @@
+{
+  "approvedDraft": "docs/layout/walk-layout-draft-manual-v2.json",
+  "url": "http://localhost:8080/?walkLearning",
+  "anchorsCompared": 28,
+  "ambientAssets": 24,
+  "compositions": 3,
+  "standalone": 1,
+  "visualParts": 41,
+  "divergences": [],
+  "fountain": {
+    "x": 800,
+    "y": 470
+  },
+  "booth": {
+    "x": 1136,
+    "y": 352
+  },
+  "world": {
+    "tileSize": 32,
+    "columns": 50,
+    "rows": 28,
+    "width": 1600,
+    "height": 896
+  },
+  "screenshot": "D:\\ARQUIVOS\\Documents\\proj-pet\\tmp\\walk-manual-v2-validation\\walk-learning-manual-v2.png",
+  "routes": {
+    "normal": "Intro",
+    "walkLearning": "WalkGameLearning",
+    "walkLayoutEditor": "WalkLayoutEditor"
+  },
+  "consoleErrors": [],
+  "browserErrors": [],
+  "editorSelectionDragExportPassed": true
+}
