@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "url": "http://localhost:8080/?walkLearning",
+  "routes": {
+    "normal": "Intro",
+    "walkLearning": "WalkGameLearning",
+    "walkLayoutEditor": "WalkLayoutEditor"
+  },
+  "tests": {
+    "directions": [
+      "W",
+      "A",
+      "S",
+      "D",
+      "ArrowUp",
+      "ArrowLeft",
+      "ArrowDown",
+      "ArrowRight"
+    ],
+    "diagonals": [
+      "W+A",
+      "W+D",
+      "S+A",
+      "S+D"
+    ],
+    "stopOnRelease": true,
+    "rapidDirectionChanges": true,
+    "animations": true,
+    "lastDirection": true,
+    "depthByFeetY": true,
+    "worldBounds": {
+      "width": 1600,
+      "height": 896
+    },
+    "layoutUnchanged": true
+  },
+  "consoleErrors": [],
+  "screenshot": "D:\\ARQUIVOS\\Documents\\proj-pet\\tmp\\walk-player-l2-validation\\walk-player-l2.png"
+}
