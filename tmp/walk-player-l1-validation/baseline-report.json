@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "baselineMode": true,
+  "url": "http://localhost:8080/?walkLearning",
+  "routes": {
+    "normal": "Intro",
+    "walkLearning": "WalkGameLearning",
+    "walkLayoutEditor": "WalkLayoutEditor"
+  },
+  "layoutUnchanged": true,
+  "cameraUnchanged": true,
+  "protectedFilesUnchanged": true,
+  "consoleErrors": [],
+  "warnings": [],
+  "screenshot": "before-l1.png"
+}

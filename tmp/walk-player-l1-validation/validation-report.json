@@ -1,0 +1,67 @@
+{
+  "passed": true,
+  "baselineMode": false,
+  "url": "http://localhost:8080/?walkLearning",
+  "player": {
+    "hasBody": false,
+    "hasInput": false,
+    "playing": false,
+    "frame": 0,
+    "size": [
+      256,
+      256
+    ],
+    "frames": 16,
+    "frameSize": [
+      64,
+      64
+    ],
+    "bounds": {
+      "x": 752,
+      "y": 740.5,
+      "width": 96,
+      "height": 96
+    },
+    "pixelArt": true,
+    "roundPixels": true,
+    "antialias": false,
+    "definitions": {
+      "baixo": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "esquerda": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "direita": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "cima": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    "physicsBodyCount": 0
+  },
+  "routes": {
+    "normal": "Intro",
+    "walkLearning": "WalkGameLearning",
+    "walkLayoutEditor": "WalkLayoutEditor"
+  },
+  "layoutUnchanged": true,
+  "cameraUnchanged": true,
+  "protectedFilesUnchanged": true,
+  "consoleErrors": [],
+  "warnings": [],
+  "screenshot": "walk-player-l1.png"
+}
