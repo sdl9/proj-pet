@@ -1,6 +1,7 @@
 import { Scene } from 'phaser';
 import walkStage18Map from '../data/walkStage18Map.json';
 import { WalkVisualBuilder } from '../systems/WalkVisualBuilder';
+import { WalkCollisionBuilder } from '../systems/WalkCollisionBuilder';
 import { WalkPlayer } from '../objects/WalkPlayer';
 import { Saci } from '../objects/Saci';
 
@@ -12,7 +13,11 @@ export class WalkGameLearning extends Scene {
     create() {
         const visualBuilder = new WalkVisualBuilder(this);
         const prototypeLayout = this.cache.json.get('walk-prototype-layout');
-        const stage = visualBuilder.build(walkStage18Map, prototypeLayout);
+        const stage = visualBuilder.build(
+            walkStage18Map,
+            prototypeLayout,
+            { includeRegistry: true }
+        );
         const collisionManifest = this.cache.json.get(
             'walk-collision-depth-manifest'
         );
@@ -40,6 +45,17 @@ export class WalkGameLearning extends Scene {
             prototypeLayout.placements.saci.y
         );
 
+        const collisionBuilder = new WalkCollisionBuilder(
+            this,
+            collisionManifest
+        );
+        this.walkCollisions = collisionBuilder.build({
+            player: this.player,
+            stageMap: walkStage18Map,
+            prototypeLayout,
+            visualRegistry: stage.visualRegistry
+        });
+
         this.cursors = this.input.keyboard.createCursorKeys();
 
         this.teclas = this.input.keyboard.addKeys({
@@ -51,11 +67,17 @@ export class WalkGameLearning extends Scene {
 
         this.cameras.main
             .setBounds(0, 0, stage.width, stage.height)
-            .setZoom(Math.min(
-                this.scale.width / stage.width,
-                this.scale.height / stage.height
-            ))
-            .centerOn(stage.width / 2, stage.height / 2);
+            .setZoom(1)
+            .centerOn(
+                this.player.x,
+                this.player.y
+            )
+            .startFollow(
+                this.player,
+                true,
+                0.15,
+                0.15
+            );
     }
 
     update() {

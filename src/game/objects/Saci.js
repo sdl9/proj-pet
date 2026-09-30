@@ -2,8 +2,9 @@ import { GameObjects } from 'phaser';
 
 const TEXTURE_KEY = 'walk-saci';
 const ANIMATION_KEY = 'walk-saci-comendo';
+const SCALE = 1.2;
 const INTERACTION_RADIUS = 120;
-const HEART_OFFSET_Y = 88;
+const HEART_OFFSET_Y = Math.round(88 * SCALE);
 const HEART_RISE = 16;
 const HEART_DURATION = 900;
 const HEART_COOLDOWN = 1200;
@@ -16,7 +17,7 @@ export class Saci extends GameObjects.Sprite {
 
         this
             .setOrigin(0.5, 1)
-            .setScale(1)
+            .setScale(SCALE)
             .setDepth(y);
 
         this.jogadorEstavaProximo = false;

@@ -31,6 +31,10 @@ export class WalkPlayer extends Physics.Arcade.Sprite {
         this.setScale(1.5);
         this.setDepth(y);
 
+        this.body
+            .setSize(collisionShape.width, collisionShape.height)
+            .setOffset(collisionShape.x, collisionShape.y);
+
         if (!scene.anims.exists('walk-player-baixo')) {
             scene.anims.create({
                 key: 'walk-player-baixo',
