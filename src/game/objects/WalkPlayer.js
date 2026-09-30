@@ -10,7 +10,7 @@ const DIRECTION_FRAMES = Object.freeze({
 });
 
 export class WalkPlayer extends Physics.Arcade.Sprite {
-    constructor(scene, x, y) {
+    constructor(scene, x, y, collisionShape) {
         super(
             scene,
             x,

@@ -12,6 +12,13 @@ export class WalkGameLearning extends Scene {
         const visualBuilder = new WalkVisualBuilder(this);
         const prototypeLayout = this.cache.json.get('walk-prototype-layout');
         const stage = visualBuilder.build(walkStage18Map, prototypeLayout);
+        const collisionManifest = this.cache.json.get(
+            'walk-collision-depth-manifest'
+        );
+
+        const playerCollision =
+            collisionManifest.objects['walk-player'].collisionShapes[0];
+
 
         this.physics.world.setBounds(
             0,
@@ -20,7 +27,12 @@ export class WalkGameLearning extends Scene {
             stage.height
         );
 
-        this.player = new WalkPlayer(this, 800, 832);
+        this.player = new WalkPlayer(
+            this,
+            800,
+            832,
+            playerCollision
+        );
 
         this.cursors = this.input.keyboard.createCursorKeys();
 
