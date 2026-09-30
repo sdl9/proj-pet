@@ -68,6 +68,7 @@
   "placements": {
     "tutor": { "x": 544, "y": 368 },
     "booth": { "x": 1136, "y": 352 },
+    "saci": { "x": 1312, "y": 192 },
     "restArea": { "x": 368, "y": 592 },
     "drinkingFountain": { "x": 560, "y": 592 },
     "waterBowl": { "x": 608, "y": 592 },

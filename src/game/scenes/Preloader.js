@@ -32,6 +32,12 @@ export class Preloader extends Scene {
         this.load.image('tst', 'tst.png');
 
         preloadWalkAssets(this);
+        this.load.spritesheet(
+            'walk-saci',
+            'walk/npcs/saci-idle-spritesheet.png',
+            { frameWidth: 128, frameHeight: 96 }
+        );
+        this.load.image('walk-heart', 'walk/effects/walk-heart.png');
     }
 
     create() {

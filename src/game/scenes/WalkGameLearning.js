@@ -2,6 +2,7 @@ import { Scene } from 'phaser';
 import walkStage18Map from '../data/walkStage18Map.json';
 import { WalkVisualBuilder } from '../systems/WalkVisualBuilder';
 import { WalkPlayer } from '../objects/WalkPlayer';
+import { Saci } from '../objects/Saci';
 
 export class WalkGameLearning extends Scene {
     constructor() {
@@ -32,6 +33,11 @@ export class WalkGameLearning extends Scene {
             800,
             832,
             playerCollision
+        );
+        this.saci = new Saci(
+            this,
+            prototypeLayout.placements.saci.x,
+            prototypeLayout.placements.saci.y
         );
 
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -73,5 +79,6 @@ export class WalkGameLearning extends Scene {
         }
 
         this.player.mover(direcaoX, direcaoY);
+        this.saci.atualizarInteracao(this.player);
     }
 }
