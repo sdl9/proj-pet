@@ -14,3 +14,9 @@ export function combineDirections(...sources) {
         y: Math.max(-1, Math.min(1, sources.reduce((sum, source) => sum + source.y, 0)))
     };
 }
+
+export function shouldShowTouchControls() {
+    return navigator.maxTouchPoints > 0
+        || window.matchMedia('(pointer: coarse)').matches
+        || new URLSearchParams(window.location.search).has('touchControls');
+}

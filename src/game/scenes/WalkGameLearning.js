@@ -5,7 +5,7 @@ import { WalkVisualBuilder } from '../systems/WalkVisualBuilder';
 import { WalkCollisionBuilder } from '../systems/WalkCollisionBuilder';
 import { WalkInteractionSystem } from '../systems/WalkInteractionSystem';
 import { WalkDialogueSystem } from '../systems/WalkDialogueSystem';
-import { readKeyboardDirection, combineDirections } from '../systems/DirectionInput';
+import { readKeyboardDirection, combineDirections, shouldShowTouchControls } from '../systems/DirectionInput';
 import { VirtualDPad } from '../systems/VirtualDPad';
 import { WalkPlayer } from '../objects/WalkPlayer';
 import { Saci } from '../objects/Saci';
@@ -72,15 +72,8 @@ export class WalkGameLearning extends Scene {
             espaco: 'SPACE'
         });
 
-        const touchAvailable = navigator.maxTouchPoints > 0
-            || window.matchMedia('(pointer: coarse)').matches;
-        const touchPreview = new URLSearchParams(window.location.search)
-            .has('touchControls');
-        this.touchControls = new VirtualDPad(
-            this,
-            touchAvailable || touchPreview
-        );
-        this.showTouchControls = touchAvailable || touchPreview;
+        this.showTouchControls = shouldShowTouchControls();
+        this.touchControls = new VirtualDPad(this, this.showTouchControls);
 
         this.onInputInterrupted = () => {
             this.touchControls.clear();

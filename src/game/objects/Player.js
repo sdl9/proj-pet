@@ -14,7 +14,11 @@ export class Player extends Physics.Arcade.Sprite {
     }
 
     mover(direcaoX, direcaoY) {
-        this.setVelocity(direcaoX * this.velocidade, direcaoY * this.velocidade);
+        const intensity = Math.max(1, Math.hypot(direcaoX, direcaoY));
+        this.setVelocity(
+            direcaoX * this.velocidade / intensity,
+            direcaoY * this.velocidade / intensity
+        );
     }
 
 }

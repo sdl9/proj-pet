@@ -1,7 +1,9 @@
-import { Scene } from 'phaser';
+import { Input, Scene } from 'phaser';
 import FuncoesUI from '../FuncoesUI';
 import { Player } from '../objects/Player';
 import FoodObjects from '../objects/FoodObjects';
+import { readKeyboardDirection, combineDirections, shouldShowTouchControls } from '../systems/DirectionInput';
+import { VirtualDPad } from '../systems/VirtualDPad';
 
 // FoodGame e a Scene do primeiro minigame.
 // Em arquitetura, a Scene funciona como a "orquestradora":
@@ -24,6 +26,10 @@ export class FoodGame extends Scene {
         // O update() usa essa flag para saber se ja pode mover o player.
         this.jogoComecou = false;
         this.jogoFinalizado = false;
+        this.menuKeys = this.input.keyboard.addKeys({
+            continuar: 'ENTER',
+            menu: 'ESC'
+        });
 
         // Primeiro estado da cena: tela de instrucoes.
         // Separar em metodo deixa claro que "mostrar instrucoes" e uma etapa
@@ -83,6 +89,23 @@ export class FoodGame extends Scene {
             direita: 'D',
         });
         this.player = new Player(this, 640, 360, 'tst');
+        this.touchControls = new VirtualDPad(this, shouldShowTouchControls());
+
+        this.onInputInterrupted = () => {
+            this.touchControls.clear();
+            this.player.mover(0, 0);
+        };
+        this.onVisibilityChange = () => {
+            if (document.hidden) this.onInputInterrupted();
+        };
+        window.addEventListener('blur', this.onInputInterrupted);
+        document.addEventListener('visibilitychange', this.onVisibilityChange);
+        this.events.on('pause', this.onInputInterrupted);
+        this.events.once('shutdown', () => {
+            window.removeEventListener('blur', this.onInputInterrupted);
+            document.removeEventListener('visibilitychange', this.onVisibilityChange);
+            this.events.off('pause', this.onInputInterrupted);
+        });
 
         this.iniciarSpawn();
         this.iniciarTimer();
@@ -179,27 +202,24 @@ export class FoodGame extends Scene {
     // Ele e usado para logicas que precisam ser verificadas a cada frame,
     // como movimento do jogador, timers, IA simples e controles.
     update() {
+        if (!this.jogoComecou) {
+            if (Input.Keyboard.JustDown(this.menuKeys.continuar)) {
+                this.iniciarJogo();
+            } else if (Input.Keyboard.JustDown(this.menuKeys.menu)) {
+                this.scene.start('MainMenu');
+            }
+            return;
+        }
+
         // Como o player so existe depois do botao CONTINUAR,
         // protegemos o update com a flag jogoComecou.
         // Sem isso, o codigo tentaria mover um player que ainda nao foi criado.
         if (this.jogoComecou) {
-            let direcaoX = 0;
-            let direcaoY = 0;
-
-            if (this.cursors.left.isDown || this.teclas.esquerda.isDown) {
-                direcaoX = -1;
-            }
-            if (this.cursors.right.isDown || this.teclas.direita.isDown) {
-                direcaoX = 1;
-            }
-            if (this.cursors.up.isDown || this.teclas.cima.isDown) {
-                direcaoY = -1;
-            }
-            if (this.cursors.down.isDown || this.teclas.baixo.isDown) {
-                direcaoY = 1;
-            }
-
-            this.player.mover(direcaoX, direcaoY);
+            const direction = combineDirections(
+                readKeyboardDirection(this.cursors, this.teclas),
+                this.touchControls.getDirection()
+            );
+            this.player.mover(direction.x, direction.y);
         }
     }
 }

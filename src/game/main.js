@@ -27,7 +27,8 @@ const config = {
     pixelArt: true,
     roundPixels: true,
     input: {
-        activePointers: 3
+        activePointers: 3,
+        touch: true
     },
     scale: {
         mode: Scale.FIT,
