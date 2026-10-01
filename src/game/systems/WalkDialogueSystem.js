@@ -43,7 +43,7 @@ export class WalkDialogueSystem {
         this.progressUI = this.scene.add
             .container(0, 0, [background, this.progressText])
             .setDepth(UI_DEPTH)
-            .setScrollFactor(0);
+            .setScrollFactor(0, 0, true);
     }
 
     createDialogueUI() {
@@ -97,7 +97,7 @@ export class WalkDialogueSystem {
         this.panel = this.scene.add
             .container(0, 0, children)
             .setDepth(UI_DEPTH + 1)
-            .setScrollFactor(0)
+            .setScrollFactor(0, 0, true)
             .setVisible(false);
 
         this.closeButton.background.on('pointerdown', () => {

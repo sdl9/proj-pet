@@ -24,7 +24,7 @@ export class WalkInteractionSystem {
                 this.promptText
             ])
             .setDepth(20000)
-            .setScrollFactor(0)
+            .setScrollFactor(0, 0, true)
             .setVisible(false);
 
         this.promptBackground.on('pointerdown', () => {
