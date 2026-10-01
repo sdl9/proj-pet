@@ -74,8 +74,14 @@ export class FoodGame extends Scene {
         this.criarHUD();
 
         // Criamos o player somente quando o jogo comeca.
-        // this.player precisa ser propriedade da Scene porque update()
-        // vai chamar this.player.update() varias vezes por segundo.
+        // A Scene interpreta o teclado e envia a direcao ao player no update().
+        this.cursors = this.input.keyboard.createCursorKeys();
+        this.teclas = this.input.keyboard.addKeys({
+            cima: 'W',
+            baixo: 'S',
+            esquerda: 'A',
+            direita: 'D',
+        });
         this.player = new Player(this, 640, 360, 'tst');
 
         this.iniciarSpawn();
@@ -177,7 +183,23 @@ export class FoodGame extends Scene {
         // protegemos o update com a flag jogoComecou.
         // Sem isso, o codigo tentaria mover um player que ainda nao foi criado.
         if (this.jogoComecou) {
-            this.player.update();
+            let direcaoX = 0;
+            let direcaoY = 0;
+
+            if (this.cursors.left.isDown || this.teclas.esquerda.isDown) {
+                direcaoX = -1;
+            }
+            if (this.cursors.right.isDown || this.teclas.direita.isDown) {
+                direcaoX = 1;
+            }
+            if (this.cursors.up.isDown || this.teclas.cima.isDown) {
+                direcaoY = -1;
+            }
+            if (this.cursors.down.isDown || this.teclas.baixo.isDown) {
+                direcaoY = 1;
+            }
+
+            this.player.mover(direcaoX, direcaoY);
         }
     }
 }
