@@ -1,7 +1,10 @@
-import { Scene } from 'phaser';
+import { Input, Scene } from 'phaser';
 import walkStage18Map from '../data/walkStage18Map.json';
+import { WALK_DIALOGUES } from '../data/walkDialogues';
 import { WalkVisualBuilder } from '../systems/WalkVisualBuilder';
 import { WalkCollisionBuilder } from '../systems/WalkCollisionBuilder';
+import { WalkInteractionSystem } from '../systems/WalkInteractionSystem';
+import { WalkDialogueSystem } from '../systems/WalkDialogueSystem';
 import { WalkPlayer } from '../objects/WalkPlayer';
 import { Saci } from '../objects/Saci';
 
@@ -62,8 +65,23 @@ export class WalkGameLearning extends Scene {
             cima: 'W',
             baixo: 'S',
             esquerda: 'A',
-            direita: 'D'
+            direita: 'D',
+            interagir: 'E',
+            espaco: 'SPACE'
         });
+
+        this.dialogueSystem = new WalkDialogueSystem(
+            this,
+            WALK_DIALOGUES,
+            walkStage18Map.requiredLessons
+        );
+        this.interactionSystem = new WalkInteractionSystem(
+            this,
+            walkStage18Map.interactions,
+            (interaction) => {
+                this.dialogueSystem.openInteraction(interaction);
+            }
+        );
 
         this.cameras.main
             .setBounds(0, 0, stage.width, stage.height)
@@ -83,24 +101,52 @@ export class WalkGameLearning extends Scene {
     update() {
         let direcaoX = 0;
         let direcaoY = 0;
+        const interactionPressed = Input.Keyboard.JustDown(
+            this.teclas.interagir
+        ) || Input.Keyboard.JustDown(this.teclas.espaco);
 
-        if (this.cursors.left.isDown || this.teclas.esquerda.isDown) {
+        const dialogueWasOpen = this.dialogueSystem.isOpen();
+        this.dialogueSystem.update(interactionPressed);
+        const dialogueOpen = this.dialogueSystem.isOpen();
+
+        if (
+            !dialogueOpen
+            && (this.cursors.left.isDown || this.teclas.esquerda.isDown)
+        ) {
             direcaoX -= 1;
         }
 
-        if (this.cursors.right.isDown || this.teclas.direita.isDown) {
+        if (
+            !dialogueOpen
+            && (this.cursors.right.isDown || this.teclas.direita.isDown)
+        ) {
             direcaoX += 1;
         }
 
-        if (this.cursors.up.isDown || this.teclas.cima.isDown) {
+        if (
+            !dialogueOpen
+            && (this.cursors.up.isDown || this.teclas.cima.isDown)
+        ) {
             direcaoY -= 1;
         }
 
-        if (this.cursors.down.isDown || this.teclas.baixo.isDown) {
+        if (
+            !dialogueOpen
+            && (this.cursors.down.isDown || this.teclas.baixo.isDown)
+        ) {
             direcaoY += 1;
         }
 
         this.player.mover(direcaoX, direcaoY);
         this.saci.atualizarInteracao(this.player);
+        this.interactionSystem.update(this.player, !dialogueOpen);
+
+        if (
+            !dialogueWasOpen
+            && !dialogueOpen
+            && interactionPressed
+        ) {
+            this.interactionSystem.activateCurrent();
+        }
     }
 }
