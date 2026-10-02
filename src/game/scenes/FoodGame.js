@@ -1,4 +1,4 @@
-import { Input, Scene } from 'phaser';
+import { Geom, Input, Scene } from 'phaser';
 import FuncoesUI from '../FuncoesUI';
 import { Player } from '../objects/Player';
 import FoodObjects from '../objects/FoodObjects';
@@ -20,7 +20,8 @@ export class FoodGame extends Scene {
     // Ele prepara o estado inicial, mas nao precisa colocar o jogo inteiro
     // em movimento imediatamente.
     create() {
-        this.cameras.main.setBackgroundColor(0x50ff99);
+        this.add.image(0, 0, 'foodgame-street-background').setOrigin(0);
+        this.registrarAnimacoes();
 
         // Propriedade da instancia: fica guardada dentro deste FoodGame.
         // O update() usa essa flag para saber se ja pode mover o player.
@@ -37,8 +38,41 @@ export class FoodGame extends Scene {
         this.mostrarInstrucoes();
     }
 
+    registrarAnimacoes() {
+        const textura = 'food-dog-caramelo';
+        if (!this.anims.exists('food-dog-idle')) {
+            // Nesta versao do Phaser, duration no frame e o tempo total do frame.
+            this.anims.create({
+                key: 'food-dog-idle',
+                frames: [
+                    { key: textura, frame: 0, duration: 1500 },
+                    { key: textura, frame: 1, duration: 120 }
+                ],
+                frameRate: 8,
+                repeat: -1
+            });
+        }
+        if (!this.anims.exists('food-dog-move')) {
+            this.anims.create({
+                key: 'food-dog-move',
+                frames: this.anims.generateFrameNumbers(textura, { start: 2, end: 5 }),
+                frameRate: 8,
+                repeat: -1
+            });
+        }
+        if (!this.anims.exists('food-dog-eat')) {
+            this.anims.create({
+                key: 'food-dog-eat',
+                frames: this.anims.generateFrameNumbers(textura, { start: 6, end: 9 }),
+                frameRate: 8,
+                repeat: 0
+            });
+        }
+    }
+
 
     mostrarInstrucoes() {
+        this.painelInstrucoes = this.add.rectangle(640, 320, 1080, 270, 0x17202a, 0.78);
         // Guardamos em this.textoInstrucoes porque outro metodo
         // iniciarJogo() precisara destruir esse texto depois.
         // Se fosse const textoInstrucoes, ele so existiria dentro deste metodo.
@@ -71,6 +105,7 @@ export class FoodGame extends Scene {
         // Ao mudar do estado "instrucoes" para "jogo", removemos da tela
         // os objetos que pertenciam apenas as instrucoes.
         this.textoInstrucoes.destroy();
+        this.painelInstrucoes.destroy();
         this.botaoContinuar.destroy();
         this.botaoMenu.destroy();
 
@@ -88,7 +123,22 @@ export class FoodGame extends Scene {
             esquerda: 'A',
             direita: 'D',
         });
-        this.player = new Player(this, 640, 360, 'tst');
+        this.player = new Player(this, 160, 654, 'food-dog-caramelo');
+        this.player.setScale(2).setOrigin(0.5, 61 / 64);
+        // Mantem a area anterior de 100x100 pixels, ancorada nos pes do cachorro.
+        this.player.body.setSize(50, 50).setOffset(7, 11);
+        this.player.body.updateFromGameObject();
+        // O primeiro pixel visivel do cachorro fica no y=21 do frame, 40px acima da origem dos pes.
+        // Na escala 2, a cabeca encosta na linha da calcada (y=350) quando os pes estao em y=430.
+        const topoCorpo = 350 + (61 - 21) * this.player.scaleY - this.player.body.height;
+        // Apenas o cachorro recebe estes limites; os alimentos seguem atravessando a cena.
+        this.player.body.setBoundsRectangle(new Geom.Rectangle(48, topoCorpo, 1184, 700 - topoCorpo));
+        this.player.anims.play('food-dog-idle');
+        this.playerComendo = false;
+        this.player.on('animationcomplete-food-dog-eat', () => {
+            this.playerComendo = false;
+            this.atualizarAnimacaoPlayer();
+        });
         this.touchControls = new VirtualDPad(this, shouldShowTouchControls());
 
         this.onInputInterrupted = () => {
@@ -110,10 +160,6 @@ export class FoodGame extends Scene {
         this.iniciarSpawn();
         this.iniciarTimer();
 
-        // Criamos dois coletaveis placeholders.
-        // Verde representa provisoriamente o alimento bom.
-        // Vermelho representa provisoriamente o alimento ruim.
-
         // Agora o update pode comecar a controlar o player.
         this.jogoComecou = true;
 
@@ -131,7 +177,7 @@ export class FoodGame extends Scene {
                 fontSize: 28,
                 color: '#ffffff',
             }
-        );
+        ).setShadow(2, 2, '#000000', 4, true, true);
 
         this.textoTimer = this.add.text(
             1248,
@@ -142,7 +188,7 @@ export class FoodGame extends Scene {
                 fontSize: 28,
                 color: '#ffffff',
             }
-        ).setOrigin(1, 0);
+        ).setOrigin(1, 0).setShadow(2, 2, '#000000', 4, true, true);
     }
 
     iniciarTimer() {
@@ -160,6 +206,8 @@ export class FoodGame extends Scene {
     capturarItem(player, item) { //estudar dps pq n this.capturaritem e pq this.capturaritem ta dentro de iniciarspawn
         if (item.tipo == 'bom') {
             this.score += 1;
+            this.playerComendo = true;
+            this.player.anims.play('food-dog-eat');
         }
 
         if (item.tipo === 'ruim') {
@@ -174,7 +222,7 @@ export class FoodGame extends Scene {
         this.timerSpawn = this.time.addEvent({
             delay: 650,
             callback: () => {
-                const alimentoBom = FoodObjects.criarPlaceholder(this, 0x00ff00, 'bom');
+                const alimentoBom = FoodObjects.criar(this, 'bom');
 
                 this.physics.add.overlap(
                     this.player,
@@ -184,7 +232,7 @@ export class FoodGame extends Scene {
                     }
                 );
 
-                const alimentoRuim = FoodObjects.criarPlaceholder(this, 0xff0000, 'ruim');
+                const alimentoRuim = FoodObjects.criar(this, 'ruim');
 
                 this.physics.add.overlap(
                     this.player,
@@ -196,6 +244,21 @@ export class FoodGame extends Scene {
             },
             loop: true
         });
+    }
+
+    atualizarAnimacaoPlayer() {
+        if (this.playerComendo) return;
+        const corpo = this.player.body;
+        const { x, y } = corpo.velocity;
+        const limites = corpo.customBoundsRectangle;
+        const movendo = (x < 0 && corpo.left > limites.left)
+            || (x > 0 && corpo.right < limites.right)
+            || (y < 0 && corpo.top > limites.top)
+            || (y > 0 && corpo.bottom < limites.bottom);
+        const animacao = movendo ? 'food-dog-move' : 'food-dog-idle';
+        if (this.player.anims.currentAnim?.key !== animacao) {
+            this.player.anims.play(animacao);
+        }
     }
 
     // update() roda continuamente enquanto a Scene esta ativa.
@@ -220,6 +283,7 @@ export class FoodGame extends Scene {
                 this.touchControls.getDirection()
             );
             this.player.mover(direction.x, direction.y);
+            this.atualizarAnimacaoPlayer();
         }
     }
 }

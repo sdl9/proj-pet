@@ -31,6 +31,19 @@ export class Preloader extends Scene {
         this.load.image('logo', '2.png');
         this.load.image('tst', 'tst.png');
 
+        this.load.image('foodgame-street-background', 'foodgame/background/foodgame-street-background.png');
+        this.load.spritesheet('food-dog-caramelo', 'foodgame/dog/food-dog-caramelo-sheet.png', {
+            frameWidth: 64,
+            frameHeight: 64
+        });
+        for (const key of [
+            'food-good-kibble', 'food-good-rice', 'food-good-carrot', 'food-good-water',
+            'food-bad-chocolate', 'food-bad-grapes', 'food-bad-avocado',
+            'food-bad-candy', 'food-bad-onion', 'food-bad-garlic'
+        ]) {
+            this.load.image(key, `foodgame/foods/${key}.png`);
+        }
+
         preloadWalkAssets(this);
         this.load.spritesheet(
             'walk-saci',
