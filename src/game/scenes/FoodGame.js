@@ -79,7 +79,7 @@ export class FoodGame extends Scene {
         this.textoInstrucoes = this.add.text(
             640,
             320,
-            'COMO JOGAR? \n\n Desvie dos alimentos que fazem mal aos animais, e coma os saudaveis. \n\n Cuidado! Se comer 3 alimentos ruins, perde!',
+            'Ajude o Caramelo a se alimentar! \n\n Mova o cachorrinho para pegar ração, arroz, cenoura e água. Desvie dos alimentos que fazem mal!',
             {
                 fontFamily: 'Arial',
                 fontSize: 32,
@@ -135,10 +135,12 @@ export class FoodGame extends Scene {
         this.player.body.setBoundsRectangle(new Geom.Rectangle(48, topoCorpo, 1184, 700 - topoCorpo));
         this.player.anims.play('food-dog-idle');
         this.playerComendo = false;
+        this.timerTonalidadeRuim = null;
         this.player.on('animationcomplete-food-dog-eat', () => {
             this.playerComendo = false;
             this.atualizarAnimacaoPlayer();
         });
+        this.player.once('destroy', () => this.cancelarTonalidadeRuim());
         this.touchControls = new VirtualDPad(this, shouldShowTouchControls());
 
         this.onInputInterrupted = () => {
@@ -152,6 +154,7 @@ export class FoodGame extends Scene {
         document.addEventListener('visibilitychange', this.onVisibilityChange);
         this.events.on('pause', this.onInputInterrupted);
         this.events.once('shutdown', () => {
+            this.cancelarTonalidadeRuim();
             window.removeEventListener('blur', this.onInputInterrupted);
             document.removeEventListener('visibilitychange', this.onVisibilityChange);
             this.events.off('pause', this.onInputInterrupted);
@@ -212,10 +215,27 @@ export class FoodGame extends Scene {
 
         if (item.tipo === 'ruim') {
             this.score -= 1;
+            this.aplicarTonalidadeRuim(player);
         }
 
         item.destroy();
         this.textoScore.setText('Score: ' + this.score);
+    }
+
+    cancelarTonalidadeRuim() {
+        if (this.timerTonalidadeRuim) {
+            this.time.removeEvent(this.timerTonalidadeRuim);
+            this.timerTonalidadeRuim = null;
+        }
+    }
+
+    aplicarTonalidadeRuim(player) {
+        this.cancelarTonalidadeRuim();
+        player.setTint(0xffb3b3);
+        this.timerTonalidadeRuim = this.time.delayedCall(400, () => {
+            player.clearTint();
+            this.timerTonalidadeRuim = null;
+        });
     }
 
     iniciarSpawn() {

@@ -1,0 +1,114 @@
+{
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "orientation": "landscape"
+  },
+  "imageOrigin": {
+    "x": 0,
+    "y": 0
+  },
+  "shared": {
+    "background": {
+      "file": "assets/pet-educa-parque.png",
+      "x": 0,
+      "y": 0,
+      "width": 1280,
+      "height": 720
+    },
+    "dog": {
+      "file": "assets/pet-educa-caramelo.png",
+      "x": 940,
+      "y": 364,
+      "width": 272,
+      "height": 288
+    },
+    "title": {
+      "text": "Pet Educa",
+      "centerX": 640,
+      "topY": 48,
+      "fontFamily": "Lilita One",
+      "fontSize": 104,
+      "color": "#FFF1D2",
+      "stroke": "#342B24",
+      "strokeThickness": 5
+    }
+  },
+  "intro": {
+    "panel": {
+      "file": "assets/pet-educa-painel.png",
+      "x": 128,
+      "y": 192,
+      "width": 752,
+      "height": 432
+    },
+    "button": {
+      "file": "assets/pet-educa-botao-verde.png",
+      "x": 364,
+      "y": 516,
+      "width": 280,
+      "height": 96,
+      "label": "Menu",
+      "fontSize": 46
+    },
+    "body": {
+      "fontFamily": "Nunito Sans",
+      "fontWeight": 700,
+      "fontSize": 30,
+      "color": "#342B24",
+      "x": 164,
+      "maxWidth": 680,
+      "blocks": [
+        {
+          "topY": 222,
+          "text": "Pet Educa é um jogo educativo\ndesenvolvido em colaboração entre o projeto\nFeevalePet, da Universidade Feevale,\ne a aluna Laíssa Dornelles Sales."
+        },
+        {
+          "topY": 382,
+          "text": "Criado sem fins lucrativos, convida todos\na aprender sobre os animais brincando."
+        }
+      ]
+    },
+    "closing": {
+      "text": "Boa diversão!",
+      "x": 164,
+      "topY": 462,
+      "fontSize": 30
+    }
+  },
+  "menu": {
+    "cardFile": "assets/pet-educa-cartao.png",
+    "x": 156,
+    "width": 704,
+    "height": 128,
+    "iconX": 176,
+    "iconSize": 96,
+    "labelX": 300,
+    "labelFont": "Lilita One",
+    "labelFontSize": 42,
+    "cards": [
+      {
+        "y": 194,
+        "iconY": 210,
+        "label": "Jogo da Alimentação",
+        "iconFile": "assets/pet-educa-icone-alimentacao.png"
+      },
+      {
+        "y": 344,
+        "iconY": 360,
+        "label": "Passeio Consciente",
+        "iconFile": "assets/pet-educa-icone-passeio.png"
+      },
+      {
+        "y": 494,
+        "iconY": 510,
+        "label": "Quiz do Saci",
+        "iconFile": "assets/pet-educa-icone-saci.png"
+      }
+    ]
+  },
+  "notes": [
+    "Dados de referência visual; não implementam cenas nem navegação.",
+    "Ajustar alinhamento vertical e quebras de linha conforme métricas do Phaser."
+  ]
+}
