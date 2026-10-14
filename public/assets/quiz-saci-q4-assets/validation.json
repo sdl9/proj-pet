@@ -1,0 +1,251 @@
+{
+  "status": "passed",
+  "pngCount": 20,
+  "logicalScreen": [
+    1280,
+    720
+  ],
+  "backgroundPixelScale": 2,
+  "staticPortrait": true,
+  "integrationTested": false,
+  "files": [
+    {
+      "file": "backgrounds/quiz-saci-background.png",
+      "size": [
+        640,
+        360
+      ],
+      "opaqueColors": 14,
+      "alphaValues": [
+        255
+      ]
+    },
+    {
+      "file": "characters/saci-quiz-portrait.png",
+      "size": [
+        96,
+        96
+      ],
+      "opaqueColors": 29,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "effects/correct-effect.png",
+      "size": [
+        24,
+        24
+      ],
+      "opaqueColors": 2,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "effects/wrong-effect.png",
+      "size": [
+        24,
+        24
+      ],
+      "opaqueColors": 2,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/answer-badge-correct.png",
+      "size": [
+        48,
+        48
+      ],
+      "opaqueColors": 5,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/answer-badge-disabled.png",
+      "size": [
+        48,
+        48
+      ],
+      "opaqueColors": 5,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/answer-badge-hover.png",
+      "size": [
+        48,
+        48
+      ],
+      "opaqueColors": 6,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/answer-badge-normal.png",
+      "size": [
+        48,
+        48
+      ],
+      "opaqueColors": 5,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/answer-badge-selected.png",
+      "size": [
+        48,
+        48
+      ],
+      "opaqueColors": 4,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/answer-badge-wrong.png",
+      "size": [
+        48,
+        48
+      ],
+      "opaqueColors": 5,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/answer-panel-correct.png",
+      "size": [
+        64,
+        64
+      ],
+      "opaqueColors": 5,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/answer-panel-disabled.png",
+      "size": [
+        64,
+        64
+      ],
+      "opaqueColors": 5,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/answer-panel-hover.png",
+      "size": [
+        64,
+        64
+      ],
+      "opaqueColors": 6,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/answer-panel-normal.png",
+      "size": [
+        64,
+        64
+      ],
+      "opaqueColors": 5,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/answer-panel-selected.png",
+      "size": [
+        64,
+        64
+      ],
+      "opaqueColors": 5,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/answer-panel-wrong.png",
+      "size": [
+        64,
+        64
+      ],
+      "opaqueColors": 5,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/portrait-frame.png",
+      "size": [
+        96,
+        96
+      ],
+      "opaqueColors": 3,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/question-panel.png",
+      "size": [
+        64,
+        64
+      ],
+      "opaqueColors": 5,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/question-tail.png",
+      "size": [
+        16,
+        16
+      ],
+      "opaqueColors": 3,
+      "alphaValues": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "ui/separator.png",
+      "size": [
+        64,
+        4
+      ],
+      "opaqueColors": 3,
+      "alphaValues": [
+        255
+      ]
+    }
+  ]
+}

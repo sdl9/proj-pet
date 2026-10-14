@@ -54,14 +54,14 @@ As coordenadas e tamanhos são uma referência visual, não um teste executado d
 
 ## Texto da apresentação
 
-Pet Educa é um jogo educativo desenvolvido em colaboração entre o projeto FeevalePet, da Universidade Feevale, e a aluna Laíssa Dornelles Sales. Criado sem fins lucrativos, convida todos a aprender sobre os animais brincando.
+Pet Educa é um jogo educativo desenvolvido em colaboração entre o projeto FeevalePet, da Universidade Feevale, e a aluna Laíssa Dornelles Salles. Criado sem fins lucrativos, convida todos a aprender sobre os animais brincando.
 
 Para manter a composição, organize em dois blocos. Quebras previstas no primeiro:
 
 Pet Educa é um jogo educativo  
 desenvolvido em colaboração entre o projeto  
 FeevalePet, da Universidade Feevale,  
-e a aluna Laíssa Dornelles Sales.
+e a aluna Laíssa Dornelles Salles.
 
 Segundo bloco:
 

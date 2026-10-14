@@ -1,5 +1,5 @@
 import { Scene } from 'phaser';
-import FuncoesUI from '../FuncoesUI';
+import { PET_EDUCA_UI, createPetEducaScreen, addPetEducaBackdrop, addPetEducaImage, addPetEducaControl, bindPetEducaKeyboard } from '../ui/petEducaUI';
 
 export class Intro extends Scene {
     constructor() {
@@ -7,31 +7,21 @@ export class Intro extends Scene {
     }
 
     create() {
-
-        this.add.image(640, 360, 'background');
-
-        this.add.text(640, 250, 'FeevalePet', {
-            fontFamily: 'Arial Black',
-            fontSize: 38,
-            color: '#ffffff',
-            stroke: '#000000',
-            strokeThickness: 8,
-            align: 'center'
-        }).setOrigin(0.5);
-
-        const txt = this.add.text(
-            640,
-            420,
-            'Esse jogo é uma colaboração entre o projeto FeevalePet, da Universidade Feevale, e a aluna Laíssa Dornelles Salles. Jogo criado sem fins lucrativos, e com intuito educacional. Para todos os públicos. \n \n Boa diversão!',
-            {
-                fontFamily: 'Arial',
-                fontSize: 32,
-                color: '#ffffff',
-                align: 'center',
-                wordWrap: { width: 1000 }
+        createPetEducaScreen(this, () => {
+            addPetEducaBackdrop(this);
+            const { intro, fonts, colors } = PET_EDUCA_UI;
+            addPetEducaImage(this, 'panel', intro.panel.x, intro.panel.y);
+            for (const block of intro.blocks) {
+                this.add.text(intro.body.x, block.y, block.text, {
+                    fontFamily: fonts.body, fontStyle: '700', fontSize: intro.body.size,
+                    color: colors.brown, wordWrap: { width: intro.body.width }
+                }).setLineSpacing(intro.body.lineSpacing);
             }
-        ).setOrigin(0.5);
-
-        FuncoesUI.criarBotaoMenu(this);
+            const button = addPetEducaImage(this, 'button', intro.button.x, intro.button.y);
+            this.add.text(intro.button.x + intro.button.width / 2, intro.button.y + intro.button.height / 2, intro.button.text, {
+                fontFamily: fonts.heading, fontSize: intro.button.size, color: colors.cream
+            }).setOrigin(0.5);
+            bindPetEducaKeyboard(this, [addPetEducaControl(this, button, 'MainMenu')]);
+        });
     }
 }

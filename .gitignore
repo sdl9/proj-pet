@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Browser integration checks: generated screenshots and temporary comparison
+/tmp/pet-educa-check-*/
+/tmp/walk-editor-check-*/
+/tmp/walk-editor-static-check.mjs

@@ -1,5 +1,6 @@
 import { Scene } from 'phaser';
 import { preloadWalkAssets } from '../data/walkAssetCatalog';
+import { preloadPetEducaUI, openPetEducaScene } from '../ui/petEducaUI';
 
 export class Preloader extends Scene {
     constructor() {
@@ -27,6 +28,7 @@ export class Preloader extends Scene {
 
     preload() {
         this.load.setPath('assets');
+        this.petEducaFonts = preloadPetEducaUI(this);
 
         this.load.image('logo', '2.png');
         this.load.image('tst', 'tst.png');
@@ -65,7 +67,11 @@ export class Preloader extends Scene {
             ? 'WalkGameLearning'
             : 'Intro';
 
-        this.scene.start(startScene);
+        if (startScene === 'Intro') {
+            openPetEducaScene(this, startScene, this.petEducaFonts);
+        } else {
+            this.scene.start(startScene);
+        }
 
         console.log(
             'Player carregado:',
