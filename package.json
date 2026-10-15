@@ -20,7 +20,8 @@
     "dev-nolog": "vite --config vite/config.dev.mjs",
     "build-nolog": "vite build --config vite/config.prod.mjs",
     "test:quiz": "node --test tests/saciQuiz*.test.js",
-    "test:walk-ui": "node tests/walkUI.browser-check.mjs"
+    "test:walk-ui": "node tests/walkUI.browser-check.mjs",
+    "test:food-ui": "node tests/foodGameUI.browser-check.mjs"
   },
   "devDependencies": {
     "terser": "^5.39.0",

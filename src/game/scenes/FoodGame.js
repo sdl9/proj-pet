@@ -1,5 +1,6 @@
 import { Geom, Input, Scene } from 'phaser';
-import FuncoesUI from '../FuncoesUI';
+import { PET_EDUCA_UI, createPetEducaScreen, addPetEducaImage } from '../ui/petEducaUI';
+import { createWalkButton } from '../ui/walkUI';
 import { Player } from '../objects/Player';
 import FoodObjects from '../objects/FoodObjects';
 import { readKeyboardDirection, combineDirections, shouldShowTouchControls } from '../systems/DirectionInput';
@@ -21,12 +22,21 @@ export class FoodGame extends Scene {
     // em movimento imediatamente.
     create() {
         this.add.image(0, 0, 'foodgame-street-background').setOrigin(0);
+        this.physics.resume();
         this.registrarAnimacoes();
 
         // Propriedade da instancia: fica guardada dentro deste FoodGame.
         // O update() usa essa flag para saber se ja pode mover o player.
         this.jogoComecou = false;
         this.jogoFinalizado = false;
+        this.uiReady = false;
+        this.uiNavigating = false;
+        this.player = null;
+        this.touchControls = null;
+        this.timerJogo = null;
+        this.timerSpawn = null;
+        this.timerTonalidadeRuim = null;
+        this.resultadoUI = null;
         this.menuKeys = this.input.keyboard.addKeys({
             continuar: 'ENTER',
             menu: 'ESC'
@@ -35,7 +45,11 @@ export class FoodGame extends Scene {
         // Primeiro estado da cena: tela de instrucoes.
         // Separar em metodo deixa claro que "mostrar instrucoes" e uma etapa
         // diferente de "iniciar o jogo".
-        this.mostrarInstrucoes();
+        createPetEducaScreen(this, () => {
+            this.mostrarInstrucoes();
+            this.criarBotaoMenu();
+            this.uiReady = true;
+        });
     }
 
     registrarAnimacoes() {
@@ -72,42 +86,72 @@ export class FoodGame extends Scene {
 
 
     mostrarInstrucoes() {
-        this.painelInstrucoes = this.add.rectangle(640, 320, 1080, 270, 0x17202a, 0.78);
-        // Guardamos em this.textoInstrucoes porque outro metodo
-        // iniciarJogo() precisara destruir esse texto depois.
-        // Se fosse const textoInstrucoes, ele so existiria dentro deste metodo.
-        this.textoInstrucoes = this.add.text(
-            640,
-            320,
-            'Ajude o Caramelo a se alimentar! \n\n Mova o cachorrinho para pegar ração, arroz, cenoura e água. Desvie dos alimentos que fazem mal!',
-            {
-                fontFamily: 'Arial',
-                fontSize: 32,
-                color: '#ffffff',
-                align: 'center',
-                wordWrap: { width: 1000 }
-            }
-        ).setOrigin(0.5);
+        const balao = this.criarBalao(
+            'Ajude o Caramelo a se alimentar!',
+            [
+                { y: 296, text: 'Mova o cachorrinho para pegar ração, arroz, cenoura e água.' },
+                { y: 414, text: 'Desvie dos alimentos que fazem mal!' }
+            ],
+            'Continuar', () => this.iniciarJogo()
+        );
+        this.instrucoesUI = balao.container;
+        this.painelInstrucoes = balao.painel;
+        this.textoInstrucoes = balao.titulo;
+        this.botaoContinuar = balao.botao;
+    }
 
-        // Botao guardado em this porque ele pertence ao estado de instrucoes
-        // e sera removido quando o jogo comecar.
-        this.botaoMenu = FuncoesUI.criarBotaoMenu(this);
+    criarBalao(titulo, blocos, rotulo, aoClicar) {
+        // Reaproveita apenas o painel sobre o cenário original da alimentação.
+        const first = this.children.list.length;
+        const { intro, fonts, colors } = PET_EDUCA_UI;
+        const painel = addPetEducaImage(this, 'panel', intro.panel.x, intro.panel.y);
+        const style = {
+            fontFamily: fonts.body, fontStyle: '700', fontSize: intro.body.size,
+            color: colors.brown, wordWrap: { width: intro.body.width }
+        };
+        const textoTitulo = this.add.text(intro.body.x, 228, titulo, { ...style, fontSize: 34 });
+        for (const bloco of blocos) {
+            this.add.text(intro.body.x, bloco.y, bloco.text, { ...style, fontSize: bloco.size ?? style.fontSize });
+        }
+        const botao = addPetEducaImage(this, 'button', intro.button.x, intro.button.y);
+        this.add.text(intro.button.x + intro.button.width / 2, intro.button.y + intro.button.height / 2,
+            rotulo, { fontFamily: fonts.heading, fontSize: 42, color: colors.cream }).setOrigin(0.5);
+        botao.setInteractive({ useHandCursor: true }).on('pointerdown', aoClicar);
+        // Remover o container também remove seus textos e a área interativa.
+        const container = this.add.container(0, 0, this.children.list.slice(first)).setDepth(10000);
+        // Move o conjunto inteiro: painel, textos e botão mantêm o mesmo alinhamento.
+        container.setPosition(
+            (this.scale.width - painel.displayWidth) / 2 - painel.x,
+            (this.scale.height - painel.displayHeight) / 2 - painel.y
+        );
+        return { container, painel, titulo: textoTitulo, botao };
+    }
 
-        // Aqui passamos uma funcao como argumento.
-        // FuncoesUI cria o botao; FoodGame decide o que acontece no clique.
-        // Esse tipo de funcao passada para outra funcao e chamado de callback.
-        this.botaoContinuar = FuncoesUI.criarBotaoContinuar(this, () => {
-            this.iniciarJogo();
-        });
+    criarBotaoMenu() {
+        this.botaoMenu = createWalkButton(this, 1080, 12, 184, 64, 'Menu', () => this.voltarAoMenu());
+        this.menuUI = this.add.container(0, 0, [
+            this.botaoMenu.background, this.botaoMenu.text, this.botaoMenu.hit
+        ]).setDepth(21002).setScrollFactor(0, 0, true);
+    }
+
+    voltarAoMenu() {
+        if (!this.uiReady || this.uiNavigating) return;
+        this.uiNavigating = true;
+        this.botaoMenu.setEnabled(false);
+        this.touchControls?.setEnabled(false);
+        this.player?.mover(0, 0);
+        this.timerJogo?.remove(false);
+        this.timerSpawn?.remove(false);
+        this.cancelarTonalidadeRuim();
+        this.scene.start('MainMenu');
     }
 
     iniciarJogo() {
-        // Ao mudar do estado "instrucoes" para "jogo", removemos da tela
-        // os objetos que pertenciam apenas as instrucoes.
-        this.textoInstrucoes.destroy();
-        this.painelInstrucoes.destroy();
-        this.botaoContinuar.destroy();
-        this.botaoMenu.destroy();
+        // Aceita o início uma vez, mesmo com toque duplo ou Enter simultâneo.
+        if (!this.uiReady || this.uiNavigating || this.jogoComecou) return;
+        this.jogoComecou = true;
+        this.instrucoesUI.destroy();
+        this.instrucoesUI = null;
 
         this.score = 0;
         this.timer = 60;
@@ -163,9 +207,6 @@ export class FoodGame extends Scene {
         this.iniciarSpawn();
         this.iniciarTimer();
 
-        // Agora o update pode comecar a controlar o player.
-        this.jogoComecou = true;
-
         // overlap detecta contato entre dois corpos fisicos sem empurrar
         // um objeto contra o outro. E ideal para coletaveis.
     }
@@ -183,7 +224,7 @@ export class FoodGame extends Scene {
         ).setShadow(2, 2, '#000000', 4, true, true);
 
         this.textoTimer = this.add.text(
-            1248,
+            1048,
             24,
             'Timer: ' + this.timer,
             {
@@ -198,15 +239,39 @@ export class FoodGame extends Scene {
         this.timerJogo = this.time.addEvent({
             delay: 1000,
             callback: () => {
-                this.timer -= 1
-                this.textoTimer.setText("Timer: " + this.timer)
+                if (this.jogoFinalizado || this.uiNavigating) return;
+                this.timer = Math.max(0, this.timer - 1);
+                this.textoTimer.setText('Timer: ' + this.timer);
+                if (this.timer === 0) this.finalizarJogo();
             },
             loop: true
         });
 
     }
 
+    finalizarJogo() {
+        if (!this.jogoComecou || this.jogoFinalizado || this.uiNavigating) return;
+        // Bloqueia movimento e pontuação antes de construir o resultado.
+        this.jogoFinalizado = true;
+        this.timerJogo.remove(false);
+        this.timerSpawn.remove(false);
+        this.cancelarTonalidadeRuim();
+        this.touchControls.setEnabled(false);
+        this.player.mover(0, 0);
+        this.player.anims.stop();
+        this.player.clearTint();
+        this.physics.pause();
+        this.textoScore.setVisible(false);
+        this.textoTimer.setVisible(false);
+        this.resultadoUI = this.criarBalao(
+            'Passeio finalizado!',
+            [{ y: 330, text: 'Seu Score: ' + this.score, size: 40 }],
+            'Menu', () => this.voltarAoMenu()
+        ).container;
+    }
+
     capturarItem(player, item) { //estudar dps pq n this.capturaritem e pq this.capturaritem ta dentro de iniciarspawn
+        if (this.jogoFinalizado || this.uiNavigating) return;
         if (item.tipo == 'bom') {
             this.score += 1;
             this.playerComendo = true;
@@ -285,12 +350,19 @@ export class FoodGame extends Scene {
     // Ele e usado para logicas que precisam ser verificadas a cada frame,
     // como movimento do jogador, timers, IA simples e controles.
     update() {
+        if (!this.uiReady || this.uiNavigating) return;
+        if (Input.Keyboard.JustDown(this.menuKeys.menu)) {
+            this.voltarAoMenu();
+            return;
+        }
         if (!this.jogoComecou) {
             if (Input.Keyboard.JustDown(this.menuKeys.continuar)) {
                 this.iniciarJogo();
-            } else if (Input.Keyboard.JustDown(this.menuKeys.menu)) {
-                this.scene.start('MainMenu');
             }
+            return;
+        }
+        if (this.jogoFinalizado) {
+            if (Input.Keyboard.JustDown(this.menuKeys.continuar)) this.voltarAoMenu();
             return;
         }
 

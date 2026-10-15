@@ -30,3 +30,6 @@ dist-ssr
 
 # Capturas e relatório do teste visual do passeio
 /tmp/walk-ui-validation/
+
+# Capturas e relatório do jogo de alimentação
+/tmp/food-ui-validation/
