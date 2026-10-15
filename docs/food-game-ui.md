@@ -11,7 +11,7 @@ A partida só pode começar uma vez por entrada na cena.
 Ao chegar a zero, o contador encerra a partida uma única vez. Movimento,
 coletas e geração de alimentos param, preservando o Score final. O mesmo
 método criarBalao monta o resultado centralizado sobre o jogo, exibindo
-"Tempo esgotado!", "Seu Score: X" e o botão "Menu". Enter também retorna
+"Passeio finalizado!", "Seu Score: X" e o botão "Menu". Enter também retorna
 ao menu nessa etapa. Reentrar inicia uma nova partida com 60 segundos e Score zero.
 
 O botão Menu permanece no canto superior direito durante as instruções e
@@ -19,6 +19,11 @@ a partida. Usa o controle já compartilhado com o passeio. Escape também
 retorna ao menu. A saída bloqueia novas ativações, interrompe o movimento
 e cancela timer/spawn antes de trocar de cena. O cronômetro foi deslocado
 para a esquerda do botão. Regras de alimentos, pontuação e movimento não mudaram.
+
+Os alimentos surgem um por vez a cada 500 ms, alternando bom e ruim.
+Com a velocidade de 500 px/s, ficam cerca de 250 pixels entre os centros.
+As alturas continuam aleatórias, mas os pares simultâneos que podiam se
+sobrepor foram removidos. A sequência recomeça a cada partida.
 
 Abra pelo menu: Jogo da Alimentação. Execute o Vite com npm.cmd run dev-nolog.
 Para repetir a validação no navegador, execute npm.cmd run test:food-ui

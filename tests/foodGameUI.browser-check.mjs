@@ -125,6 +125,17 @@ try {
         await frames();
     }
     function edges(rect) { return { ...rect, right: rect.x + rect.width, bottom: rect.y + rect.height }; }
+    async function checkDropSpacing() {
+        await until(() => get('children.list.filter(o=>o.tipo).length >= 4'), 'Alimentos não foram gerados');
+        const drops = await get('children.list.filter(o=>o.tipo).map(o=>({tipo:o.tipo,x:o.x,width:o.displayWidth}))');
+        for (let i = 1; i < drops.length; i++) {
+            const previous = drops[i - 1], current = drops[i];
+            assert.notEqual(current.tipo, previous.tipo, 'Tipos devem alternar');
+            assert.ok(current.x - previous.x >= 200, 'Alimentos muito próximos horizontalmente');
+            assert.ok(current.x - current.width / 2 > previous.x + previous.width / 2, 'Alimentos sobrepostos');
+        }
+        pass('Alimentos alternados, com espaçamento horizontal e sem sobreposição');
+    }
     async function finishFood(mobile = false) {
         // Acelera somente o TimerEvent no teste: percorre os 60 ticks reais do contador.
         const expected = await evaluate(`(async()=>{
@@ -142,7 +153,7 @@ try {
         assert.equal(await get('touchControls.enabled'), false);
         assert.equal(await get('textoScore.visible || __checkedScene.textoTimer.visible'), false);
         const result = await get('resultadoUI.list.filter(o=>o.type==="Text").map(o=>o.text)');
-        assert.deepEqual(result, ['Tempo esgotado!', 'Seu Score: ' + expected, 'Menu']);
+        assert.deepEqual(result, ['Passeio finalizado!', 'Seu Score: ' + expected, 'Menu']);
         const bounds = await get('resultadoUI.list.find(o=>o.texture?.key === "pet-educa-ui-panel").getBounds()');
         assert.deepEqual(bounds, layout.panel, 'Resultado deve reaproveitar o balão centralizado');
         assert.equal(await evaluate(`(()=>{
@@ -218,6 +229,8 @@ try {
     await frames(65);
     assert.ok((await get('timer')) < 60);
     assert.ok((await get('children.list.filter(o=>o.tipo === "bom" || o.tipo === "ruim").length')) > 0);
+    await checkDropSpacing();
+    await shot('food-drop-spacing-pc');
     await click(1172,44);
     await until(() => attach('MainMenu'), 'Menu não abriu durante a partida');
     pass('Início único, remoção das instruções, movimento, timer/spawn e Menu durante a partida');
@@ -258,6 +271,8 @@ try {
     await page.send('Input.dispatchTouchEvent', { type: 'touchCancel', touchPoints: [] });
     await frames();
     assert.deepEqual(await get('touchControls.getDirection()'), { x: 0, y: 0 });
+    await checkDropSpacing();
+    await shot('food-drop-spacing-mobile');
     await touch(1172,44);
     await until(() => attach('MainMenu'), 'Menu por toque não abriu na partida');
     await openFood(true);

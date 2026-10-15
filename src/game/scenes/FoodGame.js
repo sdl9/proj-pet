@@ -304,24 +304,17 @@ export class FoodGame extends Scene {
     }
 
     iniciarSpawn() {
+        // Um alimento por vez: a 500 px/s, 500 ms deixam 250 px entre os centros.
+        let proximoTipo = 'bom';
         this.timerSpawn = this.time.addEvent({
-            delay: 650,
+            delay: 500,
             callback: () => {
-                const alimentoBom = FoodObjects.criar(this, 'bom');
-
+                if (this.jogoFinalizado || this.uiNavigating) return;
+                const alimento = FoodObjects.criar(this, proximoTipo);
+                proximoTipo = proximoTipo === 'bom' ? 'ruim' : 'bom';
                 this.physics.add.overlap(
                     this.player,
-                    alimentoBom,
-                    (player, item) => {
-                        this.capturarItem(player, item);
-                    }
-                );
-
-                const alimentoRuim = FoodObjects.criar(this, 'ruim');
-
-                this.physics.add.overlap(
-                    this.player,
-                    alimentoRuim,
+                    alimento,
                     (player, item) => {
                         this.capturarItem(player, item);
                     }
