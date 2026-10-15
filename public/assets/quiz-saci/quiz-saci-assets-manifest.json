@@ -1,0 +1,318 @@
+{
+  "version": 4,
+  "stage": "Q4",
+  "images": [
+    {
+      "key": "quiz-saci-background",
+      "path": "quiz-saci/backgrounds/quiz-saci-background.png",
+      "size": [
+        640,
+        360
+      ]
+    },
+    {
+      "key": "quiz-saci-portrait",
+      "path": "quiz-saci/characters/saci-quiz-portrait.png",
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "key": "quiz-saci-correct-effect",
+      "path": "quiz-saci/effects/correct-effect.png",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "key": "quiz-saci-wrong-effect",
+      "path": "quiz-saci/effects/wrong-effect.png",
+      "size": [
+        24,
+        24
+      ]
+    },
+    {
+      "key": "quiz-saci-answer-badge-correct",
+      "path": "quiz-saci/ui/answer-badge-correct.png",
+      "size": [
+        48,
+        48
+      ]
+    },
+    {
+      "key": "quiz-saci-answer-badge-disabled",
+      "path": "quiz-saci/ui/answer-badge-disabled.png",
+      "size": [
+        48,
+        48
+      ]
+    },
+    {
+      "key": "quiz-saci-answer-badge-hover",
+      "path": "quiz-saci/ui/answer-badge-hover.png",
+      "size": [
+        48,
+        48
+      ]
+    },
+    {
+      "key": "quiz-saci-answer-badge-normal",
+      "path": "quiz-saci/ui/answer-badge-normal.png",
+      "size": [
+        48,
+        48
+      ]
+    },
+    {
+      "key": "quiz-saci-answer-badge-selected",
+      "path": "quiz-saci/ui/answer-badge-selected.png",
+      "size": [
+        48,
+        48
+      ]
+    },
+    {
+      "key": "quiz-saci-answer-badge-wrong",
+      "path": "quiz-saci/ui/answer-badge-wrong.png",
+      "size": [
+        48,
+        48
+      ]
+    },
+    {
+      "key": "quiz-saci-answer-panel-correct",
+      "path": "quiz-saci/ui/answer-panel-correct.png",
+      "size": [
+        64,
+        64
+      ],
+      "nineSlice": {
+        "left": 8,
+        "right": 8,
+        "top": 8,
+        "bottom": 8,
+        "scale": 2
+      }
+    },
+    {
+      "key": "quiz-saci-answer-panel-disabled",
+      "path": "quiz-saci/ui/answer-panel-disabled.png",
+      "size": [
+        64,
+        64
+      ],
+      "nineSlice": {
+        "left": 8,
+        "right": 8,
+        "top": 8,
+        "bottom": 8,
+        "scale": 2
+      }
+    },
+    {
+      "key": "quiz-saci-answer-panel-hover",
+      "path": "quiz-saci/ui/answer-panel-hover.png",
+      "size": [
+        64,
+        64
+      ],
+      "nineSlice": {
+        "left": 8,
+        "right": 8,
+        "top": 8,
+        "bottom": 8,
+        "scale": 2
+      }
+    },
+    {
+      "key": "quiz-saci-answer-panel-normal",
+      "path": "quiz-saci/ui/answer-panel-normal.png",
+      "size": [
+        64,
+        64
+      ],
+      "nineSlice": {
+        "left": 8,
+        "right": 8,
+        "top": 8,
+        "bottom": 8,
+        "scale": 2
+      }
+    },
+    {
+      "key": "quiz-saci-answer-panel-selected",
+      "path": "quiz-saci/ui/answer-panel-selected.png",
+      "size": [
+        64,
+        64
+      ],
+      "nineSlice": {
+        "left": 8,
+        "right": 8,
+        "top": 8,
+        "bottom": 8,
+        "scale": 2
+      }
+    },
+    {
+      "key": "quiz-saci-answer-panel-wrong",
+      "path": "quiz-saci/ui/answer-panel-wrong.png",
+      "size": [
+        64,
+        64
+      ],
+      "nineSlice": {
+        "left": 8,
+        "right": 8,
+        "top": 8,
+        "bottom": 8,
+        "scale": 2
+      }
+    },
+    {
+      "key": "quiz-saci-portrait-frame",
+      "path": "quiz-saci/ui/portrait-frame.png",
+      "size": [
+        96,
+        96
+      ]
+    },
+    {
+      "key": "quiz-saci-question-panel",
+      "path": "quiz-saci/ui/question-panel.png",
+      "size": [
+        64,
+        64
+      ],
+      "nineSlice": {
+        "left": 8,
+        "right": 8,
+        "top": 8,
+        "bottom": 8,
+        "scale": 2
+      }
+    },
+    {
+      "key": "quiz-saci-question-tail",
+      "path": "quiz-saci/ui/question-tail.png",
+      "size": [
+        16,
+        16
+      ]
+    },
+    {
+      "key": "quiz-saci-separator",
+      "path": "quiz-saci/ui/separator.png",
+      "size": [
+        64,
+        4
+      ],
+      "threeSlice": {
+        "left": 4,
+        "right": 4,
+        "scale": 2
+      }
+    }
+  ],
+  "pixelScale": 2,
+  "screen": {
+    "width": 1280,
+    "height": 720
+  },
+  "layout": {
+    "portrait": {
+      "x": 48,
+      "y": 40,
+      "width": 192,
+      "height": 192
+    },
+    "question": {
+      "x": 272,
+      "y": 40,
+      "width": 960,
+      "height": 192,
+      "textInset": 24
+    },
+    "answers": {
+      "x": 200,
+      "ys": [
+        300,
+        436,
+        572
+      ],
+      "width": 1032,
+      "height": 112,
+      "textInset": 24,
+      "feedbackRightReserve": 96
+    },
+    "badges": {
+      "x": 64,
+      "ys": [
+        308,
+        444,
+        580
+      ],
+      "width": 96,
+      "height": 96
+    },
+    "separator": {
+      "x": 48,
+      "y": 260,
+      "width": 1184,
+      "height": 8
+    }
+  },
+  "states": [
+    "normal",
+    "hover",
+    "selected",
+    "correct",
+    "wrong",
+    "disabled"
+  ],
+  "feedback": {
+    "correctIcon": "quiz-saci-correct-effect",
+    "wrongIcon": "quiz-saci-wrong-effect",
+    "iconDisplaySize": [
+      48,
+      48
+    ]
+  },
+  "notes": [
+    "Coordinates are top-left.",
+    "Draw text and A/B/C in Phaser.",
+    "Portrait is static.",
+    "Resize panels in source units, then apply scale 2."
+  ],
+  "background": {
+    "key": "quiz-saci-background",
+    "sourceSize": [
+      640,
+      360
+    ],
+    "displaySize": [
+      1280,
+      720
+    ],
+    "scale": 2,
+    "palette": [
+      "#A8C7C0",
+      "#F3EAD3",
+      "#A9B993",
+      "#B9C69E",
+      "#C8CBA2",
+      "#789571",
+      "#6D8967",
+      "#58755A",
+      "#416447",
+      "#97AD82",
+      "#9A7257",
+      "#A68C70",
+      "#B69A73",
+      "#665044"
+    ]
+  }
+}

@@ -2,6 +2,7 @@ import { Boot } from './scenes/Boot';
 import { Intro } from './scenes/Intro';
 import { Game as MainGame } from './scenes/Game';
 import { FoodGame } from './scenes/FoodGame';
+import { SaciGame } from './scenes/SaciGame';
 import { GameOver } from './scenes/GameOver';
 import { MainMenu } from './scenes/MainMenu';
 import { Preloader } from './scenes/Preloader';
@@ -40,6 +41,7 @@ const config = {
         Intro,
         MainMenu,
         FoodGame,
+        SaciGame,
         WalkGame,
         WalkGameLearning,
         ...developmentScenes,

@@ -29,8 +29,7 @@ export const PET_EDUCA_UI = {
             { y: 194, label: 'Jogo da Alimentação', icon: 'food', scene: 'FoodGame' },
             // WalkGame é o protótipo comentado; esta é a versão funcional atual.
             { y: 344, label: 'Passeio Consciente', icon: 'walk', scene: 'WalkGameLearning' },
-            // Não há cena de quiz registrada. Definir apenas quando ela existir.
-            { y: 494, label: 'Quiz do Saci', icon: 'saci', scene: null }
+            { y: 494, label: 'Quiz do Saci', icon: 'saci', scene: 'SaciGame' }
         ],
         unavailable: 'Indisponível'
     }
@@ -77,7 +76,7 @@ export function preloadPetEducaUI(scene) {
 
 // O Preloader continua visível até as fontes estarem prontas. Rotas de dev
 // podem seguir diretamente para o passeio/editor, sem depender destas fontes.
-export async function openPetEducaScene(scene, key, fonts) {
+export async function openPetEducaScene(scene, key, fonts, data) {
     let cancelled = false;
     const onShutdown = () => { cancelled = true; };
     scene.events.once('shutdown', onShutdown);
@@ -86,7 +85,7 @@ export async function openPetEducaScene(scene, key, fonts) {
         if (cancelled) return;
         if (result.error) throw result.error;
         assertPetEducaTextures(scene);
-        scene.scene.start(key);
+        scene.scene.start(key, data);
     } catch (error) {
         if (!cancelled) showPetEducaError(scene, error);
     } finally {

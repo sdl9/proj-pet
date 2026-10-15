@@ -1,5 +1,6 @@
 import { Scene } from 'phaser';
 import { preloadWalkAssets } from '../data/walkAssetCatalog';
+import { preloadQuizSaciAssets } from '../data/quizSaciAssets';
 import { preloadPetEducaUI, openPetEducaScene } from '../ui/petEducaUI';
 
 export class Preloader extends Scene {
@@ -47,6 +48,7 @@ export class Preloader extends Scene {
         }
 
         preloadWalkAssets(this);
+        preloadQuizSaciAssets(this);
         this.load.spritesheet(
             'walk-saci',
             'walk/npcs/saci-idle-spritesheet.png',
@@ -63,12 +65,16 @@ export class Preloader extends Scene {
         const params = new URLSearchParams(window.location.search);
         const startScene = import.meta.env.DEV && params.has('walkLayoutEditor')
             ? 'WalkLayoutEditor'
+            : import.meta.env.DEV && (params.has('quizVisual') || params.has('saciQuiz'))
+            ? 'SaciGame'
             : params.has('walkLearning')
             ? 'WalkGameLearning'
             : 'Intro';
 
-        if (startScene === 'Intro') {
-            openPetEducaScene(this, startScene, this.petEducaFonts);
+        if (startScene === 'Intro' || startScene === 'SaciGame') {
+            openPetEducaScene(this, startScene, this.petEducaFonts, {
+                visualDemo: import.meta.env.DEV && params.has('quizVisual')
+            });
         } else {
             this.scene.start(startScene);
         }
