@@ -136,6 +136,8 @@ try {
     assert.equal(await get('dialogueSystem.panel.scrollFactorX'), 0);
     assert.equal(await get('dialogueSystem.panel.scaleX'), 1);
     assert.equal(await get('dialogueSystem.buttons.some(b=>b.hit.input?.enabled)'), false);
+    await approach('feevalepet');
+    await shot('walk-booth-pc');
     await approach('guia');
     await shot('walk-prompt-pc');
     await mouse('mouseMoved', 1050, 650);
@@ -207,6 +209,8 @@ try {
     await viewport(844, 390, true);
     await navigate('?walkLearning', 'WalkGameLearning');
     assert.equal(await get('touchControls.enabled'), true);
+    await approach('feevalepet');
+    await shot('walk-booth-mobile');
     await shot('walk-mobile-controls');
     const before = await get('player.y');
     const up = await point(154, 436);

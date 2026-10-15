@@ -175,6 +175,8 @@ export class WalkVisualBuilder {
             placements.booth,
             booth.scale
         );
+        // As NPCs ficam dentro da tenda; os pontos de conversa continuam na frente.
+        const boothHumanY = placements.booth.y + (booth.humanOffsetY * booth.scale);
         const seatedPersonPosition = this.getCompositionPosition(
             restArea,
             restAreaConfig.seatedPersonOffset,
@@ -189,11 +191,11 @@ export class WalkVisualBuilder {
         return [
             this.createImage('npc-tutor-cachorro-guia', guide.x, guide.y, guide.y, { scale: tutor.scale }),
             this.createImage('walk-booth', placements.booth.x, placements.booth.y, placements.booth.y, { scale: booth.scale }),
-            this.createImage('npc-voluntaria', volunteerPosition.x, volunteerPosition.y, placements.booth.y + 0.1, {
+            this.createImage('npc-voluntaria', volunteerPosition.x, boothHumanY, placements.booth.y + 0.1, {
                 originY: WALK_VISUAL_CONFIG.humanOriginY,
                 scale: booth.humanScale
             }),
-            this.createImage('npc-veterinaria', veterinarianPosition.x, veterinarianPosition.y, placements.booth.y + 0.1, {
+            this.createImage('npc-veterinaria', veterinarianPosition.x + (booth.veterinarianOffsetX * booth.scale), boothHumanY, placements.booth.y + 0.1, {
                 originY: WALK_VISUAL_CONFIG.humanOriginY,
                 scale: booth.humanScale
             }),

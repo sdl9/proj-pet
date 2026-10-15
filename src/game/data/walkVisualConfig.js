@@ -11,7 +11,10 @@ export const WALK_VISUAL_CONFIG = Object.freeze({
         }),
         booth: Object.freeze({
             scale: 1.35,
-            humanScale: 1.5
+            humanScale: 1.5,
+            veterinarianOffsetX: -16,
+            // Recuo nativo dos pés: rosto acima do balcão e cabeça abaixo do toldo.
+            humanOffsetY: -12
         }),
         restArea: Object.freeze({
             scale: 1.35,
