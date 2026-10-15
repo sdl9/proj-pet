@@ -1,4 +1,5 @@
 import { Input } from 'phaser';
+import { createWalkPanel, createWalkButton, walkTextStyle } from '../ui/walkUI';
 
 const UI_DEPTH = 21000;
 
@@ -28,107 +29,58 @@ export class WalkDialogueSystem {
     }
 
     createProgressUI() {
-        const background = this.scene.add
-            .rectangle(138, 34, 244, 46, 0x102720, 0.9)
-            .setStrokeStyle(2, 0x91edc4);
-        this.progressText = this.scene.add
-            .text(138, 34, '', {
-                color: '#ffffff',
-                fontFamily: 'Arial',
-                fontSize: '20px',
-                fontStyle: 'bold'
-            })
-            .setOrigin(0.5);
-
-        this.progressUI = this.scene.add
-            .container(0, 0, [background, this.progressText])
-            .setDepth(UI_DEPTH)
-            .setScrollFactor(0, 0, true);
+        const background = createWalkPanel(this.scene, 16, 12, 244, 64).object;
+        this.progressText = this.scene.add.text(138, 44, '', walkTextStyle(24)).setOrigin(0.5);
+        this.progressUI = this.scene.add.container(0, 0, [background, this.progressText])
+            .setDepth(UI_DEPTH).setScrollFactor(0, 0, true);
     }
 
     createDialogueUI() {
-        const background = this.scene.add
-            .rectangle(640, 570, 1160, 260, 0x102720, 0.97)
-            .setStrokeStyle(4, 0x91edc4);
-        this.speakerText = this.scene.add
-            .text(84, 458, '', {
-                color: '#91edc4',
-                fontFamily: 'Arial',
-                fontSize: '24px',
-                fontStyle: 'bold'
-            });
-        this.bodyText = this.scene.add
-            .text(84, 500, '', {
-                color: '#ffffff',
-                fontFamily: 'Arial',
-                fontSize: '22px',
-                lineSpacing: 7,
-                wordWrap: { width: 1108 }
-            });
-        this.instructionText = this.scene.add
-            .text(84, 674, '', {
-                color: '#cfe8dc',
-                fontFamily: 'Arial',
-                fontSize: '16px'
-            });
+        // HUD fixo em coordenadas lógicas. O container não recebe escala 2:
+        // só as molduras são escaladas pelo componente compartilhado com o quiz.
+        this.dialogueFrame = createWalkPanel(this.scene, 48, 360, 1184, 344);
+        const background = this.dialogueFrame.object;
+        this.speakerText = this.scene.add.text(80, 384, '', walkTextStyle(28));
+        this.bodyText = this.scene.add.text(80, 432, '', walkTextStyle(30, {
+            lineSpacing: 4, wordWrap: { width: 1120 }
+        }));
+        this.instructionText = this.scene.add.text(80, 646, '', walkTextStyle(20, {
+            wordWrap: { width: 720 }
+        }));
+        this.closeButton = this.createButton(904, 652, 176, 64, 'FECHAR', () => this.close());
+        this.nextButton = this.createButton(1112, 652, 208, 64, 'CONTINUAR', () => this.advance());
+        this.topicButtons = [520, 592, 664].map((y, index) =>
+            this.createButton(440, y, 720, 64, '', () => this.selectTopic(index), 28));
+        this.buttons = [...this.topicButtons, this.closeButton, this.nextButton];
+        this.panel = this.scene.add.container(0, 0, [
+            background, this.speakerText, this.bodyText, this.instructionText,
+            ...this.buttons.flatMap(button => [button.background, button.text, button.hit])
+        ]).setDepth(UI_DEPTH + 1).setScrollFactor(0, 0, true).setVisible(false);
+        this.buttons.forEach(button => button.setVisible(false));
 
-        this.closeButton = this.createButton(914, 660, 150, 46, 'FECHAR');
-        this.nextButton = this.createButton(1090, 660, 174, 46, 'CONTINUAR');
-        this.topicButtons = [
-            this.createButton(455, 548, 730, 40, ''),
-            this.createButton(455, 596, 730, 40, ''),
-            this.createButton(455, 644, 730, 40, '')
-        ];
-
-        const children = [
-            background,
-            this.speakerText,
-            this.bodyText,
-            this.instructionText,
-            this.closeButton.background,
-            this.closeButton.text,
-            this.nextButton.background,
-            this.nextButton.text,
-            ...this.topicButtons.flatMap(({ background: button, text }) => (
-                [button, text]
-            ))
-        ];
-
-        this.panel = this.scene.add
-            .container(0, 0, children)
-            .setDepth(UI_DEPTH + 1)
-            .setScrollFactor(0, 0, true)
-            .setVisible(false);
-
-        this.closeButton.background.on('pointerdown', () => {
-            this.close();
-        });
-        this.nextButton.background.on('pointerdown', () => {
-            this.advance();
-        });
-        this.topicButtons.forEach((button, index) => {
-            button.background.on('pointerdown', () => {
-                this.selectTopic(index);
-            });
-        });
+        this.onFocusKey = event => {
+            if (!this.isOpen() || event.repeat) return;
+            const available = this.buttons.filter(button => button.visible && button.enabled);
+            if (!available.length) return;
+            const current = available.findIndex(button => button.focused);
+            if (['Tab', 'ArrowDown', 'ArrowUp'].includes(event.code)) {
+                event.preventDefault();
+                const step = event.shiftKey || event.code === 'ArrowUp' ? -1 : 1;
+                const index = current < 0 ? (step > 0 ? 0 : available.length - 1)
+                    : (current + step + available.length) % available.length;
+                this.buttons.forEach(button => button.setFocused(button === available[index]));
+            } else if (event.code === 'Enter' && current >= 0) {
+                event.preventDefault();
+                available[current].activate();
+            }
+        };
+        this.scene.input.keyboard.on('keydown', this.onFocusKey);
+        this.scene.events.once('shutdown', () => this.scene.input.keyboard.off('keydown', this.onFocusKey));
     }
 
-    createButton(x, y, width, height, label) {
-        const background = this.scene.add
-            .rectangle(x, y, width, height, 0x245744, 1)
-            .setStrokeStyle(2, 0x91edc4)
-            .setInteractive({ useHandCursor: true });
-        const text = this.scene.add
-            .text(x, y, label, {
-                align: 'center',
-                color: '#ffffff',
-                fontFamily: 'Arial',
-                fontSize: '17px',
-                fontStyle: 'bold'
-            })
-            .setOrigin(0.5);
-
-        return { background, text };
+    createButton(x, y, width, height, label, onActivate, fontSize = 24) {
+        return createWalkButton(this.scene, x - width / 2, y - height / 2,
+            width, height, label, onActivate, fontSize);
     }
 
     openInteraction(interaction) {
@@ -195,9 +147,17 @@ export class WalkDialogueSystem {
         const page = this.pages[this.pageIndex];
         const isLastPage = this.pageIndex === this.pages.length - 1;
 
+        this.buttons.forEach(button => button.reset());
         this.hideTopicButtons();
+        this.instructionText.setPosition(80, 646).setWordWrapWidth(720);
         this.speakerText.setText(page.speaker);
         this.bodyText.setText(page.text);
+        // Cresce para cima conforme a fala medida, mantendo os botões no rodapé.
+        const top = Math.max(16, Math.min(464, Math.floor((604 - 72 - this.bodyText.height) / 2) * 2));
+        this.dialogueFrame.object.setPosition(48, top);
+        this.dialogueFrame.resize(1184, 704 - top);
+        this.speakerText.setPosition(80, top + 24);
+        this.bodyText.setPosition(80, top + 72);
         this.instructionText.setText(
             'E / ESPAÇO ou toque em CONTINUAR'
         );
@@ -229,6 +189,12 @@ export class WalkDialogueSystem {
 
     showTopics() {
         this.mode = 'topics';
+        this.dialogueFrame.object.setPosition(48, 360);
+        this.dialogueFrame.resize(1184, 344);
+        this.speakerText.setPosition(80, 384);
+        this.bodyText.setPosition(80, 432);
+        this.buttons.forEach(button => button.reset());
+        this.instructionText.setPosition(832, 488).setWordWrapWidth(368);
         this.panel.setVisible(true);
         this.speakerText.setText(this.topicDialogue.speaker);
         this.bodyText.setText(this.topicDialogue.prompt);
@@ -302,6 +268,7 @@ export class WalkDialogueSystem {
         this.pageIndex = 0;
         this.pageCompletion = null;
         this.panel.setVisible(false);
+        this.buttons.forEach(button => button.setVisible(false));
     }
 
     isOpen() {
@@ -315,7 +282,6 @@ export class WalkDialogueSystem {
     }
 
     setButtonVisible(button, visible) {
-        button.background.setVisible(visible);
-        button.text.setVisible(visible);
+        button.setVisible(visible);
     }
 }

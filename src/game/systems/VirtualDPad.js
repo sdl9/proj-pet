@@ -1,3 +1,5 @@
+import { createWalkActionFrame, walkTextStyle } from '../ui/walkUI';
+
 const BUTTON_SIZE = 90;
 const STEP = 96;
 
@@ -13,28 +15,24 @@ export class VirtualDPad {
         this.scene = scene;
         this.pressed = new Map();
         this.buttons = new Map();
+        this.frames = new Map();
+        this.hovered = new Set();
         this.visuals = [];
         this.enabled = null;
 
         const centerX = 154;
         const centerY = scene.scale.height - 188;
         DIRECTIONS.forEach(({ name, label, x, y }) => {
-            const background = scene.add
-                .rectangle(centerX + x, centerY + y, BUTTON_SIZE, BUTTON_SIZE, 0x102720, 0.84)
-                .setStrokeStyle(3, 0x91edc4)
-                .setScrollFactor(0)
-                .setDepth(20001)
-                .setInteractive();
-            const text = scene.add
-                .text(centerX + x, centerY + y, label, {
-                    color: '#ffffff',
-                    fontFamily: 'Arial',
-                    fontSize: '38px',
-                    fontStyle: 'bold'
-                })
-                .setOrigin(0.5)
-                .setScrollFactor(0)
-                .setDepth(20002);
+            const frame = createWalkActionFrame(scene, centerX + x - BUTTON_SIZE / 2,
+                centerY + y - BUTTON_SIZE / 2, BUTTON_SIZE, BUTTON_SIZE);
+            const background = frame.object.setScrollFactor(0).setDepth(20001).setInteractive();
+            const text = scene.add.text(centerX + x, centerY + y, label, walkTextStyle(38))
+                .setOrigin(0.5).setScrollFactor(0).setDepth(20002);
+            this.frames.set(name, frame);
+            background.on('pointerover', pointer => {
+                if (this.enabled && !pointer.wasTouch) { this.hovered.add(name); this.refreshButtons(); }
+            });
+            background.on('pointerout', () => { this.hovered.delete(name); this.refreshButtons(); });
 
             background.on('pointerdown', (pointer) => this.press(pointer, name));
             background.on('pointerout', (pointer) => this.release(pointer, name));
@@ -86,13 +84,16 @@ export class VirtualDPad {
 
     clear() {
         this.pressed.clear();
+        this.hovered.clear();
         this.refreshButtons();
     }
 
     refreshButtons() {
         const active = new Set(this.pressed.values());
-        this.buttons.forEach((button, name) => {
-            button.setFillStyle(active.has(name) ? 0x338565 : 0x102720, 0.84);
+        this.frames.forEach((frame, name) => {
+            const state = !this.enabled ? 'disabled' : active.has(name) ? 'selected'
+                : this.hovered.has(name) ? 'hover' : 'normal';
+            frame.setStateTexture('quiz-saci-answer-panel-' + state);
         });
     }
 
@@ -100,6 +101,7 @@ export class VirtualDPad {
         if (this.enabled === enabled) return;
         this.enabled = enabled;
         if (!enabled) this.clear();
+        this.refreshButtons();
         this.visuals.forEach((visual) => visual.setVisible(enabled));
         this.buttons.forEach((button) => {
             button.input.enabled = enabled;
@@ -107,7 +109,10 @@ export class VirtualDPad {
     }
 
     destroy() {
-        this.clear();
+        // O DisplayList pode já ter destruído as molduras antes deste listener.
+        // Limpa o input sem tentar trocar texturas durante o shutdown.
+        this.pressed.clear();
+        this.hovered.clear();
         this.scene.input.off('pointerup', this.release, this);
         this.scene.input.off('pointerupoutside', this.release, this);
         this.scene.input.off('gameout', this.clear, this);
@@ -116,6 +121,9 @@ export class VirtualDPad {
         this.scene.game.canvas.removeEventListener('pointercancel', this.onPointerCancel);
         this.scene.game.canvas.removeEventListener('touchcancel', this.onPointerCancel);
         document.removeEventListener('visibilitychange', this.onVisibilityChange);
-        this.visuals.forEach((visual) => visual.destroy());
+        this.visuals.forEach((visual) => { if (visual.scene) visual.destroy(); });
+        this.visuals.length = 0;
+        this.buttons.clear();
+        this.frames.clear();
     }
 }

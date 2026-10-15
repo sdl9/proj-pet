@@ -19,7 +19,8 @@
     "build": "node log.js build & vite build --config vite/config.prod.mjs",
     "dev-nolog": "vite --config vite/config.dev.mjs",
     "build-nolog": "vite build --config vite/config.prod.mjs",
-    "test:quiz": "node --test tests/saciQuiz*.test.js"
+    "test:quiz": "node --test tests/saciQuiz*.test.js",
+    "test:walk-ui": "node tests/walkUI.browser-check.mjs"
   },
   "devDependencies": {
     "terser": "^5.39.0",

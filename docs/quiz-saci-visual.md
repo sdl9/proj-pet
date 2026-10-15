@@ -92,3 +92,10 @@ A revisão em execução não foi realizada. Ainda precisam de revisão visual:
 fontes e alternativas longas (sobretudo 6, 11 e 13), feedback longo, composição
 em PC/celular horizontal, toque real, abertura pelo menu e regressão dos
 outros minigames. Os testes com eventos simulados não substituem essa revisão.
+
+## Molduras compartilhadas com o passeio
+
+O Nine Slice foi extraído, preservando os recortes e a aparência, para
+`src/game/ui/pixelPanel.js`. Quiz e passeio usam essa função.
+A validação real do quiz e da interface padronizada do passeio, com capturas
+e teste em Edge headless, está descrita em [walk-ui-style.md](walk-ui-style.md).

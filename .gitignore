@@ -27,3 +27,6 @@ dist-ssr
 /tmp/pet-educa-check-*/
 /tmp/walk-editor-check-*/
 /tmp/walk-editor-static-check.mjs
+
+# Capturas e relatório do teste visual do passeio
+/tmp/walk-ui-validation/

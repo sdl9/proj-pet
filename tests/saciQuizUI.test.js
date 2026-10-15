@@ -12,7 +12,8 @@ const manifest = JSON.parse(await read('public/assets/quiz-saci/quiz-saci-assets
 const assets = Object.fromEntries(manifest.images.map(asset => [asset.key, asset]));
 const config = (await read('src/game/data/quizSaciVisualConfig.js')).replace(/^import .*;$/gm, '').replace(/export const /g, 'const ');
 const layouts = new Function('QUIZ_SACI_MANIFEST', config + '\nreturn { base: QUIZ_SACI_LAYOUT, play: QUIZ_SACI_PLAY_LAYOUT };')(manifest);
-const source = (await read('src/game/ui/quizSaciUI.js')).replace(/^import .*;$/gm, '').replace('export function ', 'function ');
+const panelSource = (await read('src/game/ui/pixelPanel.js')).replace(/^import .*;$/gm, '').replace('export function ', 'function ');
+const source = panelSource + (await read('src/game/ui/quizSaciUI.js')).replace(/^import .*;$/gm, '').replace('export function ', 'function ');
 
 class DomEvents extends EventEmitter {
     addEventListener(event, listener) { this.on(event, listener); }

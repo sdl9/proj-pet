@@ -9,6 +9,7 @@ import { readKeyboardDirection, combineDirections, shouldShowTouchControls } fro
 import { VirtualDPad } from '../systems/VirtualDPad';
 import { WalkPlayer } from '../objects/WalkPlayer';
 import { Saci } from '../objects/Saci';
+import { createWalkButton } from '../ui/walkUI';
 
 export class WalkGameLearning extends Scene {
     constructor() {
@@ -16,6 +17,7 @@ export class WalkGameLearning extends Scene {
     }
 
     create() {
+        this.uiNavigating = false;
         const visualBuilder = new WalkVisualBuilder(this);
         const prototypeLayout = this.cache.json.get('walk-prototype-layout');
         const stage = visualBuilder.build(
@@ -106,6 +108,11 @@ export class WalkGameLearning extends Scene {
             }
         );
 
+        this.menuButton = createWalkButton(this, 1080, 12, 184, 64, 'Menu', () => this.returnToMenu());
+        this.menuUI = this.add.container(0, 0, [
+            this.menuButton.background, this.menuButton.text, this.menuButton.hit
+        ]).setDepth(21002).setScrollFactor(0, 0, true);
+
         this.cameras.main
             .setBounds(0, 0, stage.width, stage.height)
             .setZoom(1)
@@ -121,7 +128,17 @@ export class WalkGameLearning extends Scene {
             );
     }
 
+    returnToMenu() {
+        if (this.uiNavigating) return;
+        this.uiNavigating = true;
+        this.menuButton.setEnabled(false);
+        this.touchControls.setEnabled(false);
+        this.player.mover(0, 0);
+        this.scene.start('MainMenu');
+    }
+
     update() {
+        if (this.uiNavigating) return;
         const interactionPressed = Input.Keyboard.JustDown(
             this.teclas.interagir
         ) || Input.Keyboard.JustDown(this.teclas.espaco);

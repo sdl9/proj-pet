@@ -9,7 +9,8 @@ const assets = Object.fromEntries(manifest.images.map(asset => [asset.key, asset
 const configSource = (await read('src/game/data/quizSaciVisualConfig.js'))
     .replace(/^import .*;$/gm, '').replace(/export const /g, 'const ');
 const { layout, content } = new Function('QUIZ_SACI_MANIFEST', configSource + '\nreturn { layout: QUIZ_SACI_LAYOUT, content: QUIZ_SACI_DEMO_TEXT };')(manifest);
-const source = (await read('src/game/ui/quizSaciUI.js')).replace(/^import .*;$/gm, '').replace('export function ', 'function ');
+const panelSource = (await read('src/game/ui/pixelPanel.js')).replace(/^import .*;$/gm, '').replace('export function ', 'function ');
+const source = panelSource + (await read('src/game/ui/quizSaciUI.js')).replace(/^import .*;$/gm, '').replace('export function ', 'function ');
 class DomEvents extends EventEmitter {
     addEventListener(event, listener) { this.on(event, listener); }
     removeEventListener(event, listener) { this.off(event, listener); }
