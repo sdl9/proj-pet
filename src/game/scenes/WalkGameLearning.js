@@ -5,6 +5,7 @@ import { WalkVisualBuilder } from '../systems/WalkVisualBuilder';
 import { WalkCollisionBuilder } from '../systems/WalkCollisionBuilder';
 import { WalkInteractionSystem } from '../systems/WalkInteractionSystem';
 import { WalkDialogueSystem } from '../systems/WalkDialogueSystem';
+import { WalkTutorPatrol } from '../systems/WalkTutorPatrol';
 import { readKeyboardDirection, combineDirections, shouldShowTouchControls } from '../systems/DirectionInput';
 import { VirtualDPad } from '../systems/VirtualDPad';
 import { WalkPlayer } from '../objects/WalkPlayer';
@@ -18,6 +19,7 @@ export class WalkGameLearning extends Scene {
 
     create() {
         this.uiNavigating = false;
+        this.interactions = walkStage18Map.interactions.map(interaction => ({ ...interaction }));
         const visualBuilder = new WalkVisualBuilder(this);
         const prototypeLayout = this.cache.json.get('walk-prototype-layout');
         const stage = visualBuilder.build(
@@ -100,13 +102,30 @@ export class WalkGameLearning extends Scene {
         );
         this.interactionSystem = new WalkInteractionSystem(
             this,
-            walkStage18Map.interactions,
+            this.interactions,
             (interaction) => {
                 this.touchControls.setEnabled(false);
                 this.player.mover(0, 0);
                 this.dialogueSystem.openInteraction(interaction);
+                this.tutorPatrol.setPaused(true);
             }
         );
+
+        const tutor = stage.educationalElements.find(object => object.texture.key === 'npc-tutor-cachorro-guia');
+        this.tutorPatrol = new WalkTutorPatrol(
+            tutor,
+            this.interactions.find(interaction => interaction.id === 'guia'),
+            this.walkCollisions.syncObject
+        );
+        const cleanupTutor = () => {
+            this.events.off('shutdown', cleanupTutor);
+            this.events.off('destroy', cleanupTutor);
+            this.tutorPatrol.destroy();
+            this.tutorPatrol = null;
+            this.interactions = null;
+        };
+        this.events.once('shutdown', cleanupTutor);
+        this.events.once('destroy', cleanupTutor);
 
         this.menuButton = createWalkButton(this, 1080, 12, 184, 64, 'Menu', () => this.returnToMenu());
         this.menuUI = this.add.container(0, 0, [
@@ -137,7 +156,7 @@ export class WalkGameLearning extends Scene {
         this.scene.start('MainMenu');
     }
 
-    update() {
+    update(time, delta) {
         if (this.uiNavigating) return;
         const interactionPressed = Input.Keyboard.JustDown(
             this.teclas.interagir
@@ -146,6 +165,7 @@ export class WalkGameLearning extends Scene {
         const dialogueWasOpen = this.dialogueSystem.isOpen();
         this.dialogueSystem.update(interactionPressed);
         const dialogueOpen = this.dialogueSystem.isOpen();
+        this.tutorPatrol.update(delta, dialogueWasOpen || dialogueOpen);
         this.touchControls.setEnabled(this.showTouchControls && !dialogueOpen);
 
         const direction = dialogueOpen

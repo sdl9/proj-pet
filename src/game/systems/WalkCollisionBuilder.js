@@ -3,6 +3,7 @@ export class WalkCollisionBuilder {
         this.scene = scene;
         this.definitions = collisionManifest.objects;
         this.staticBodies = scene.physics.add.staticGroup();
+        this.objectZones = new WeakMap();
     }
 
     build({ player, stageMap, prototypeLayout, visualRegistry }) {
@@ -18,7 +19,8 @@ export class WalkCollisionBuilder {
         return {
             staticBodies: this.staticBodies,
             collider,
-            bodyCount: this.staticBodies.getLength()
+            bodyCount: this.staticBodies.getLength(),
+            syncObject: (object) => this.syncObjectCollisions(object)
         };
     }
 
@@ -98,6 +100,19 @@ export class WalkCollisionBuilder {
             return;
         }
 
+        const zones = definition.collisionShapes.map((shape) => ({
+            shape,
+            zone: this.createStaticZone(0, 0, shape.width, shape.height, `${key}:${shape.role}`)
+        }));
+        this.objectZones.set(object, { definition, zones });
+        this.syncObjectCollisions(object);
+    }
+
+    syncObjectCollisions(object) {
+        const binding = this.objectZones.get(object);
+        if (!binding) return;
+        const { definition, zones } = binding;
+        // Manifest sizes describe one frame, never the full spritesheet.
         const [sourceWidth, sourceHeight] = definition.size;
         const scaleX = Math.abs(object.scaleX);
         const scaleY = Math.abs(object.scaleY);
@@ -106,19 +121,16 @@ export class WalkCollisionBuilder {
         const sourceTop = object.y
             - (sourceHeight * object.originY * scaleY);
 
-        definition.collisionShapes.forEach((shape) => {
+        zones.forEach(({ shape, zone }) => {
             const width = shape.width * scaleX;
             const height = shape.height * scaleY;
-            const x = sourceLeft + (shape.x * scaleX) + (width / 2);
-            const y = sourceTop + (shape.y * scaleY) + (height / 2);
-
-            this.createStaticZone(
-                x,
-                y,
-                width,
-                height,
-                `${key}:${shape.role}`
-            );
+            const shapeX = object.flipX ? sourceWidth - shape.x - shape.width : shape.x;
+            const shapeY = object.flipY ? sourceHeight - shape.y - shape.height : shape.y;
+            const x = sourceLeft + (shapeX * scaleX) + (width / 2);
+            const y = sourceTop + (shapeY * scaleY) + (height / 2);
+            zone.setPosition(x, y).setSize(width, height);
+            // Refresh both bounds and the Arcade static spatial index.
+            zone.body.updateFromGameObject();
         });
     }
 

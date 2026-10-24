@@ -1,0 +1,141 @@
+{
+  "project": "Pet Educa — WalkGame",
+  "version": 1,
+  "visualApproval": "all_assets_and_route_approved_in_conversation",
+  "sourceReference": {
+    "repository": "sdl9/proj-pet",
+    "branch": "walk-game-l5-interactions",
+    "localCheckoutIsAuthoritative": true
+  },
+  "assets": [
+    {
+      "id": "fonte-agua",
+      "approval": "approved_in_conversation",
+      "sourceLogicalKey": "plaza-fountain-water",
+      "file": "runtime/walk/animations/plaza-fountain-water-animated.png",
+      "targetPath": "public/assets/walk/animations/plaza-fountain-water-animated.png",
+      "sheetSize": [
+        960,
+        128
+      ],
+      "frameWidth": 160,
+      "frameHeight": 128,
+      "frameCount": 6,
+      "start": 0,
+      "end": 5,
+      "frameRate": 6,
+      "repeat": -1,
+      "margin": 0,
+      "spacing": 0,
+      "sha256": "93a571f45e1a9d167b34ba4e8761ef35cd06b6d2443bd614bc6488f53232a8e1"
+    },
+    {
+      "id": "brinquedo-mola",
+      "approval": "approved_in_conversation",
+      "sourceLogicalKey": "plaza-spring-rider",
+      "file": "runtime/walk/animations/plaza-spring-rider-animated.png",
+      "targetPath": "public/assets/walk/animations/plaza-spring-rider-animated.png",
+      "sheetSize": [
+        1152,
+        96
+      ],
+      "frameWidth": 96,
+      "frameHeight": 96,
+      "frameCount": 12,
+      "start": 0,
+      "end": 11,
+      "frameRate": 10,
+      "repeat": -1,
+      "margin": 0,
+      "spacing": 0,
+      "sha256": "33810052ade28585cddfe8840761ee87f4eb8e3643467ca8d3de723da3dd9f73"
+    },
+    {
+      "id": "tutor-cachorro",
+      "approval": "approved_in_conversation",
+      "sourceLogicalKey": "npc-tutor-cachorro-guia",
+      "file": "runtime/walk/animations/npc-tutor-cachorro-walk.png",
+      "targetPath": "public/assets/walk/animations/npc-tutor-cachorro-walk.png",
+      "sheetSize": [
+        512,
+        64
+      ],
+      "frameWidth": 128,
+      "frameHeight": 64,
+      "frameCount": 4,
+      "start": 0,
+      "end": 3,
+      "frameRate": 6,
+      "repeat": -1,
+      "margin": 0,
+      "spacing": 0,
+      "sha256": "deac25216b22221efd84bc0f93d0a1b500c61b7d2db5c887c1d43e4481cbccbf"
+    }
+  ],
+  "tutorRoute": {
+    "initialPosition": {
+      "x": 544,
+      "y": 368
+    },
+    "leftX": 448,
+    "rightX": 640,
+    "y": 368,
+    "speedPixelsPerSecond": 48,
+    "pauseAtEndsMs": 320,
+    "initialDirection": "right",
+    "leftward": "flipX entire composite sprite",
+    "reverseAnimationFrames": false,
+    "pauseWalkingDuringDialogue": true,
+    "interactionPointFollowsSprite": true
+  },
+  "existingPlacementReference": {
+    "fountain": {
+      "position": [
+        800,
+        470
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "scale": 1.25,
+      "useOriginalBase": true
+    },
+    "springRider": {
+      "position": [
+        1344,
+        656
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "scale": 1
+    },
+    "tutor": {
+      "position": [
+        544,
+        368
+      ],
+      "origin": [
+        0.5,
+        1
+      ],
+      "scale": 1.5
+    }
+  },
+  "validation": {
+    "runtimeSheetsMatchApprovedBytes": true,
+    "individualFramesMatchSheets": true,
+    "waterAlphaMatchesOriginal": true,
+    "fountainOutsideWaterUnchanged": true,
+    "toyBaseFixedAllFrames": true,
+    "toyNeutralFramesMatchOriginal": true,
+    "tutorUpperBodiesAndLeashStable": true,
+    "routeDemoUsesApprovedSheet": true,
+    "allFilesAndZipReadable": true,
+    "gameCodeIntegrated": false,
+    "gameBuildExecuted": false
+  },
+  "usage": "Copy only runtime/walk/animations PNGs into public/assets/walk/animations, then follow integration prompt."
+}

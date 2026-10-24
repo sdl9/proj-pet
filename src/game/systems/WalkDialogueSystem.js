@@ -14,6 +14,7 @@ export class WalkDialogueSystem {
         this.pageIndex = 0;
         this.pageCompletion = null;
         this.topicDialogue = null;
+        this.allowClose = false;
         this.finalShown = false;
 
         this.topicKeys = scene.input.keyboard.addKeys({
@@ -117,7 +118,7 @@ export class WalkDialogueSystem {
             return;
         }
 
-        if (closePressed) {
+        if (closePressed && this.allowClose) {
             this.close();
             return;
         }
@@ -134,8 +135,9 @@ export class WalkDialogueSystem {
         }
     }
 
-    showPages(pages, onComplete) {
+    showPages(pages, onComplete, { allowClose = false } = {}) {
         this.mode = 'pages';
+        this.allowClose = allowClose;
         this.pages = pages;
         this.pageIndex = 0;
         this.pageCompletion = onComplete;
@@ -159,13 +161,13 @@ export class WalkDialogueSystem {
         this.speakerText.setPosition(80, top + 24);
         this.bodyText.setPosition(80, top + 72);
         this.instructionText.setText(
-            'E / ESPAÇO ou toque em CONTINUAR'
+            `E / ESPAÇO ou toque em ${isLastPage ? 'CONCLUIR' : 'CONTINUAR'}`
         );
         this.nextButton.text.setText(
             isLastPage ? 'CONCLUIR' : 'CONTINUAR'
         );
         this.setButtonVisible(this.nextButton, true);
-        this.setButtonVisible(this.closeButton, true);
+        this.setButtonVisible(this.closeButton, this.allowClose);
     }
 
     advance() {
@@ -189,6 +191,7 @@ export class WalkDialogueSystem {
 
     showTopics() {
         this.mode = 'topics';
+        this.allowClose = true;
         this.dialogueFrame.object.setPosition(48, 360);
         this.dialogueFrame.resize(1184, 344);
         this.speakerText.setPosition(80, 384);
@@ -230,7 +233,7 @@ export class WalkDialogueSystem {
             if (!this.openFinalIfComplete()) {
                 this.showTopics();
             }
-        });
+        }, { allowClose: true });
     }
 
     completeLessons(lessonIds) {
@@ -264,6 +267,7 @@ export class WalkDialogueSystem {
 
     close() {
         this.mode = 'closed';
+        this.allowClose = false;
         this.pages = [];
         this.pageIndex = 0;
         this.pageCompletion = null;

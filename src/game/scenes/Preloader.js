@@ -1,5 +1,5 @@
 import { Scene } from 'phaser';
-import { preloadWalkAssets } from '../data/walkAssetCatalog';
+import { preloadAnimatedWalkAssets } from '../data/walkAnimatedAssets';
 import { preloadQuizSaciAssets } from '../data/quizSaciAssets';
 import { preloadPetEducaUI, openPetEducaScene } from '../ui/petEducaUI';
 
@@ -47,7 +47,7 @@ export class Preloader extends Scene {
             this.load.image(key, `foodgame/foods/${key}.png`);
         }
 
-        preloadWalkAssets(this);
+        preloadAnimatedWalkAssets(this);
         preloadQuizSaciAssets(this);
         this.load.spritesheet(
             'walk-saci',

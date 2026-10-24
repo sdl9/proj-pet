@@ -21,6 +21,7 @@
     "build-nolog": "vite build --config vite/config.prod.mjs",
     "test:quiz": "node --test tests/saciQuiz*.test.js",
     "test:walk-ui": "node tests/walkUI.browser-check.mjs",
+    "test:walk-animations": "node tests/walkAnimations.browser-check.mjs",
     "test:food-ui": "node tests/foodGameUI.browser-check.mjs"
   },
   "devDependencies": {

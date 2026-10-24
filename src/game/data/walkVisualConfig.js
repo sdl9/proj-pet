@@ -7,7 +7,7 @@ export const WALK_VISUAL_CONFIG = Object.freeze({
     humanOriginY: 61 / 64,
     educational: Object.freeze({
         tutor: Object.freeze({
-            scale: 1.5
+            scale: 1.8
         }),
         booth: Object.freeze({
             scale: 1.35,

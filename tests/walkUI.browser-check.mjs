@@ -148,20 +148,33 @@ try {
     assert.equal(await get('dialogueSystem.speakerText.text'), 'Tutor com cachorro');
     await geometry(); await shot('walk-dialogue-pc');
     assert.equal(await get('player.body.velocity.length()'), 0);
+    assert.equal(await get('dialogueSystem.closeButton.visible'), false);
+    assert.equal(await get('dialogueSystem.closeButton.hit.input.enabled'), false);
+    assert.equal(await get('dialogueSystem.nextButton.text.text'), 'CONCLUIR');
     await click(904, 652);
+    assert.equal(await get('dialogueSystem.isOpen()'), true, 'Área do Fechar oculto deve ficar inativa');
+    await page.send('Input.dispatchKeyEvent', { type: 'rawKeyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
+    await page.send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
+    await frames();
+    assert.equal(await get('dialogueSystem.isOpen()'), true, 'Escape não deve pular Concluir');
+    await click(1112, 652);
     assert.equal(await get('dialogueSystem.isOpen()'), false);
+    assert.equal(await get('dialogueSystem.completedLessons.has("guia")'), true);
     assert.equal(await get('dialogueSystem.buttons.some(b=>b.hit.input?.enabled)'), false);
     pass('Prompt normal/hover/pressionado, diálogo, fechamento e input oculto');
 
     for (const [id, name] of [['feevalepet','Voluntária FeevalePet'],['descanso','Pessoa no banco'],['agua','Bebedouro']]) {
         await approach(id); await click(1050, 650);
         assert.equal(await get('dialogueSystem.speakerText.text'), name);
-        await geometry(); await click(904, 652);
+        assert.equal(await get('dialogueSystem.closeButton.visible'), false);
+        await geometry(); await click(1112, 652);
+        assert.equal(await get('dialogueSystem.isOpen()'), false);
     }
     pass('NPCs e câmera em posições diferentes');
 
     await approach('veterinaria'); await click(1050, 650);
     assert.equal(await get('dialogueSystem.mode'), 'topics');
+    assert.equal(await get('dialogueSystem.closeButton.visible'), true);
     await geometry(); await shot('walk-topics-pc');
     await mouse('mouseMoved', 440, 520);
     assert.equal(await get('dialogueSystem.topicButtons[0].state'), 'hover');
@@ -170,8 +183,10 @@ try {
     await shot('walk-action-pressed');
     await mouse('mouseReleased', 440, 520);
     assert.equal(await get('dialogueSystem.pageIndex'), 0);
+    assert.equal(await get('dialogueSystem.closeButton.visible'), true);
     await geometry(); await click(1112, 652);
     assert.equal(await get('dialogueSystem.pageIndex'), 1);
+    assert.equal(await get('dialogueSystem.closeButton.visible'), true);
     await geometry(); await click(1112, 652);
     assert.equal(await get('dialogueSystem.mode'), 'topics');
     assert.equal(await get('dialogueSystem.completedLessons.has("guarda")'), true);
@@ -185,7 +200,8 @@ try {
 
     await evaluate("import('/src/game/data/walkDialogues.js').then(({WALK_DIALOGUES})=>{__checkedScene.dialogueSystem.showPages(WALK_DIALOGUES.intro,()=>__checkedScene.dialogueSystem.close());})");
     await frames(); await geometry(); await shot('walk-long-dialogue-pc');
-    await click(904, 652);
+    assert.equal(await get('dialogueSystem.closeButton.visible'), false);
+    await click(1112, 652);
     const allPages = [...Object.values(WALK_DIALOGUES).filter(Array.isArray).flat(),
         ...WALK_DIALOGUES.veterinaria.topics.flatMap(topic => topic.pages)];
     for (const speech of allPages) {
@@ -221,6 +237,12 @@ try {
     await page.send('Input.dispatchTouchEvent', { type: 'touchCancel', touchPoints: [] });
     await frames();
     assert.deepEqual(await get('touchControls.getDirection()'), { x: 0, y: 0 });
+    await approach('guia'); await touch(1050, 650);
+    assert.equal(await get('dialogueSystem.closeButton.visible'), false);
+    await touch(904, 652);
+    assert.equal(await get('dialogueSystem.isOpen()'), true);
+    await touch(1112, 652);
+    assert.equal(await get('dialogueSystem.isOpen()'), false);
     await approach('veterinaria'); await touch(1050, 650);
     assert.equal(await get('dialogueSystem.mode'), 'topics');
     assert.equal(await get('touchControls.enabled'), false);
@@ -230,6 +252,7 @@ try {
     assert.notEqual(await get('dialogueSystem.topicButtons[1].state'), 'selected');
     await touch(440, 592);
     assert.equal(await get('dialogueSystem.mode'), 'pages');
+    assert.equal(await get('dialogueSystem.closeButton.visible'), true);
     await geometry(); await shot('walk-dialogue-mobile');
     await touch(904, 652);
     assert.equal(await get('dialogueSystem.isOpen()'), false);
@@ -250,6 +273,7 @@ try {
         assert.equal(await get('dialogueSystem.completedLessons.size'), 5 + index);
     }
     assert.equal(await get('dialogueSystem.speakerText.text'), 'Passeio concluído!');
+    assert.equal(await get('dialogueSystem.closeButton.visible'), false);
     assert.equal(await get('dialogueSystem.progressText.text'), 'Cuidados: 7/7');
     await geometry(); await shot('walk-completion-pc'); await click(1112,652);
     assert.equal(await get('dialogueSystem.isOpen()'), false);

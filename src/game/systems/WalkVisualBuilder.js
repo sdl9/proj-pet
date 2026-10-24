@@ -1,4 +1,5 @@
 import { WALK_VISUAL_CONFIG } from '../data/walkVisualConfig';
+import { WALK_ANIMATION_BY_KEY, registerWalkAnimations } from '../data/walkAnimatedAssets';
 
 const COMPOSITE_LAYERS = Object.freeze({
     'plaza-tree-large': [
@@ -21,6 +22,7 @@ export class WalkVisualBuilder {
     }
 
     build(stageMap, prototypeLayout, { includeRegistry = false } = {}) {
+        registerWalkAnimations(this.scene);
         this.createModularTerrain(prototypeLayout);
 
         // Stable source-slot IDs distinguish repeated textures without changing source data.
@@ -229,8 +231,10 @@ export class WalkVisualBuilder {
     }
 
     createImage(key, x, y, depth, { originY = 1, scale = 1 } = {}) {
-        return this.scene.add
-            .image(x, y, key)
+        const object = WALK_ANIMATION_BY_KEY.has(key)
+            ? this.scene.add.sprite(x, y, key).play(`${key}-loop`)
+            : this.scene.add.image(x, y, key);
+        return object
             .setOrigin(0.5, originY)
             .setScale(scale)
             .setDepth(depth);
